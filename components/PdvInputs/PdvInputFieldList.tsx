@@ -50,6 +50,27 @@ const PdvInputFieldList: FC = () => {
         />
       </div>
 
+      <h1 className="mt-4 text-black">Disabled</h1>
+      <div className="grid grid-cols-12 items-center gap-4">
+        <InputField name="disabled_outlined" label="Left icon (Default)" className="col-span-4" form={form} inputProps={{ disabled: true }} />
+        <InputField
+          name="disabled_outlined"
+          label="Right icon"
+          iconPosition="right"
+          className="col-span-4"
+          form={form}
+          inputProps={{ disabled: true }}
+        />
+        <InputField
+          name="disabled_default"
+          variant="default"
+          label="Left icon (Default)"
+          className="col-span-4"
+          form={form}
+          inputProps={{ disabled: true }}
+        />
+      </div>
+
       <h1 className="mt-4 text-black">Icon Options</h1>
       <div className="grid grid-cols-12 gap-4">
         <TextAreaField textareaProps={{ rows: 4 }} name="outlined_variant" label="Outlined variant" className="col-span-4" form={form} />

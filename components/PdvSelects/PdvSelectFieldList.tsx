@@ -68,6 +68,31 @@ const PdvSelectFieldList: FC = () => {
           multiple
         />
       </div>
+
+      <h1 className="text-black">Disabled selct</h1>
+      <div className="grid grid-cols-12 items-center gap-4">
+        <SelectField
+          name="outlined_variant"
+          label="Outlined variant"
+          className="col-span-6"
+          optionLabel="title"
+          optionValue="id"
+          disabled
+          selectOptions={options}
+          form={form}
+        />
+        <SelectField
+          name="default_variant"
+          variant="default"
+          label="Default variant"
+          className="col-span-6"
+          optionLabel="title"
+          optionValue="id"
+          disabled
+          selectOptions={options}
+          form={form}
+        />
+      </div>
     </div>
   )
 }

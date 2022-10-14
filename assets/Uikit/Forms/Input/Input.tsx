@@ -20,12 +20,12 @@ export type TBaseInput = {
   controlFields?: ControllerRenderProps<Record<string, string>, string>
   value?: string
 }
+export const disabledStyles = 'bg-transparent text-gray-200 cursor-not-allowed'
 export const inputVariants: Record<TVariant, string> = {
   outlined: 'rounded-md border border-gray-300 hover:border-primary-color focus-within:border-primary-color px-2 bg-white',
   default: 'border-b-2 border-gray-300 hover:border-primary-color focus:border-primary-color pl-0 pr-2',
   transparent: 'border-0 pl-0 pr-2'
 }
-export const disabledStyles = 'disabled:bg-gray-50 disabled:text-gray-400 disabled:border-gray-300 disabled:cursor-not-allowed'
 
 const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
   const { iconColor = 'primary-color' } = props
@@ -33,10 +33,14 @@ const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
   const selectedVariant = props.variant ? inputVariants[props.variant] : inputVariants.outlined
 
   if (props?.icon) {
-    const icon = <PdvIcons name={props.icon} color={iconColor ?? 'blue-500'} />
+    const icon = <PdvIcons name={props.icon} color={props.inputProps?.disabled ? 'gray-200' : iconColor} />
 
     return (
-      <div className={`subtitle2 flex w-full items-center overflow-hidden text-gray-500 transition ease-in-out ${selectedVariant}`}>
+      <div
+        className={`flex w-full items-center overflow-hidden text-gray-500 transition ease-in-out ${
+          props?.inputProps?.disabled ? disabledStyles : selectedVariant
+        }`}
+      >
         {props?.iconPosition !== 'right' && <span className="mx-1">{icon}</span>}
         <MuiInput
           disableUnderline
@@ -44,9 +48,9 @@ const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
           ref={ref}
           inputProps={inputProps}
           id={props?.id}
-          className={`subtitle2 w-full text-gray-500 focus:outline-none ${disabledStyles} ${props.iconPosition === 'right' ? 'px-4' : 'pr-4'} ${
-            props.inputProps?.className ?? ''
-          }`}
+          className={`subtitle2 w-full ${props.inputProps?.disabled ? disabledStyles : 'text-gray-500'}  focus:outline-none ${
+            props.iconPosition === 'right' ? 'px-4' : 'pr-4'
+          } ${props.inputProps?.className ?? ''}`}
           sx={{ height: 44 }}
         />
         {props?.iconPosition === 'right' && <span className="mr-1">{icon}</span>}
@@ -62,7 +66,9 @@ const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
         ref={ref}
         inputProps={inputProps}
         id={props?.id}
-        className={`subtitle2 text-gray-500 focus:outline-none ${selectedVariant} ${disabledStyles} ${props.inputProps?.className ?? ''}`}
+        className={`subtitle2 focus:outline-none ${props.inputProps?.disabled ? disabledStyles : 'text-gray-500'} ${
+          props?.inputProps?.disabled ? disabledStyles : selectedVariant
+        } ${props.inputProps?.className ?? ''}`}
         sx={{ height: 44 }}
       />
     </>

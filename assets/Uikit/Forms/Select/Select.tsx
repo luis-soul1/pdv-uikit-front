@@ -40,12 +40,6 @@ const sxSelectStyles = {
     border: 0
   },
   '&.MuiOutlinedInput-root': {
-    '&:hover': {
-      borderColor: 'var(--primary-color)'
-    },
-    '&:focus-within': {
-      borderColor: 'var(--primary-color)'
-    },
     outline: 'none'
   }
 }
@@ -53,9 +47,15 @@ const sxSelectStyles = {
 const Select = <TSelectOptions, TFormValues extends FieldValues>(props: TSelectProps<TSelectOptions, TFormValues>) => {
   const { variant = 'outlined' } = props
   const selectedPillStyle = props.disabled ? 'bg-gray-300 text-white border-none cursor-not-allowed' : 'bg-teal-500 text-white'
+  const borderColor = props.disabled ? 'gray-200' : 'gray-300'
   const variantStyle =
-    variant === 'outlined' ? { border: '1px solid var(--gray-300)' } : { borderBottom: '1px solid var(--gray-300)', borderRadius: 0 }
-  const sx = { ...sxSelectStyles, '&.MuiOutlinedInput-root': { ...sxSelectStyles['&.MuiOutlinedInput-root'], ...variantStyle } }
+    variant === 'outlined' ? { border: `1px solid var(--${borderColor})` } : { borderBottom: `1px solid var(--${borderColor})`, borderRadius: 0 }
+  const borderStyles = { borderColor: `var(--${props.disabled ? 'gray-200' : 'primary-color'})` }
+
+  const sx = {
+    ...sxSelectStyles,
+    '&.MuiOutlinedInput-root': { ...sxSelectStyles['&.MuiOutlinedInput-root'], ...variantStyle, '&:hover': borderStyles }
+  }
 
   return (
     <Controller

@@ -115,6 +115,7 @@ const PdvButtonList: FC = () => {
           <h6 className="my-2">Right and large icon</h6>
           <PdvButton
             color="sky-700"
+            variant="outlined"
             icon="Document"
             iconPosition="right"
             iconSize="large"
@@ -131,9 +132,18 @@ const PdvButtonList: FC = () => {
         </div>
       </div>
       <h4 className="mb-2 mt-8 text-black">Disabled button</h4>
-      <PdvButton disabled onClick={() => clipboard(`<PdvButton disabled></PdvButton>`)}>
-        Copiar código
-      </PdvButton>
+      <div className="gap 4 grid grid-cols-12">
+        <div className="col-span-6">
+          <PdvButton disabled onClick={() => clipboard(`<PdvButton disabled></PdvButton>`)}>
+            Copiar código
+          </PdvButton>
+        </div>
+        <div className="col-span-6">
+          <PdvButton disabled icon="Activity" onClick={() => clipboard(`<PdvButton disabled></PdvButton>`)}>
+            Copiar código
+          </PdvButton>
+        </div>
+      </div>
 
       <h4 className="mb-2 mt-8 text-black">Aslink button</h4>
       <PdvButton asLink href="/pdv-input-field" onClick={() => clipboard(`<PdvButton disabled></PdvButton>`)}>

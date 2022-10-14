@@ -1,5 +1,5 @@
 import Router from 'next/router'
-import { FC, ReactElement } from 'react'
+import { FC, ReactElement, ElementType } from 'react'
 
 import LoadingButton from '@mui/lab/LoadingButton'
 import { Button, CircularProgress } from '@mui/material'
@@ -24,6 +24,7 @@ type TPdvButton = {
   iconSize?: TIconSize
   disabled?: boolean
   loading?: boolean
+  component?: ElementType
   onClick?: () => void
 }
 
@@ -68,7 +69,8 @@ const PdvButton: FC<TPdvButton> = (props) => {
   const setIcon = () => {
     if (!props.icon) return
     if (typeof props.icon === 'string') {
-      return <PdvIcons name={props.icon} color={variant !== 'contained' ? props.color : 'white'} size={props.iconSize ?? 'medium'} />
+      const selectedColor = variant !== 'contained' ? color : 'white'
+      return <PdvIcons name={props.icon} color={props.disabled ? 'gray-500' : selectedColor} size={props.iconSize ?? 'medium'} />
     }
     return props.icon
   }

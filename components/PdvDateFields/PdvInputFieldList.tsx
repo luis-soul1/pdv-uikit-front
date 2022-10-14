@@ -19,13 +19,20 @@ const PdvDateFieldList: FC = () => {
 
       <h1 className="mt-6 text-black">Date modes</h1>
       <div className="grid grid-cols-12 items-center gap-4">
-        <DateField name="disabled_year" label="Disabled year" className="col-span-4" form={form} />
-        <DateField name="disabled_month" label="Disabled month" className="col-span-4" form={form} />
-        <DateField name="disabled_date" label="Disabled date" className="col-span-4" form={form} />
+        <DateField name="disabled_year" label="Only year" viewType="year" className="col-span-4" form={form} shouldDisableYear={() => true} />
+        <DateField name="disabled_month" label="Only Month" viewType="month" className="col-span-4" form={form} />
+        <DateField name="disabled_date" label="Only day" className="col-span-4" form={form} />
+      </div>
+
+      <h1 className="mt-6 text-black">Disabled</h1>
+      <div className="grid grid-cols-12 items-center gap-4">
+        <DateField name="outlined_variant" label="Outlined variant" className="col-span-4" form={form} disabled />
+        <DateField name="default_variant" variant="default" label="Default variant" className="col-span-4" form={form} disabled />
+        <DateField name="transparent_variant" variant="transparent" label="Transparent variant" className="col-span-4" form={form} disabled />
       </div>
 
       <h1 className="mt-6 text-black">Range date field</h1>
-      <RangeDateField nameFrom="start-date" nameTo="end-date" form={form} />
+      <RangeDateField className="mt-2" nameFrom="start-date" nameTo="end-date" form={form} />
     </div>
   )
 }

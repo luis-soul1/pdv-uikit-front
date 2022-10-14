@@ -4,11 +4,10 @@ import { Controller, FieldValues } from 'react-hook-form'
 import { PdvIcons } from '@Uikit/Icons/PdvIcons'
 
 import FormError from '../Error/FormError'
-import Input, { TInput } from '../Input/Input'
+import Input, { disabledStyles, inputVariants, TInput } from '../Input/Input'
 import LabelField, { TLabelField } from '../Label/LabelField'
 
-type TTimepicker<TInputPropsDate, TDate, TFormValues extends FieldValues> = {
-  muiTimePickerProps?: Partial<TimePickerProps<TInputPropsDate, TDate>>
+type TTimepicker<TFormValues extends FieldValues> = {
   disabled?: boolean
   errorClassName?: string
   labelPosition?: 'left' | 'top'
@@ -16,47 +15,29 @@ type TTimepicker<TInputPropsDate, TDate, TFormValues extends FieldValues> = {
 } & TInput<TFormValues> &
   TLabelField
 
-const TimeField = <TInputPropsDate, TDate, TFormValues extends FieldValues>(props: TTimepicker<TInputPropsDate, TDate, TFormValues>) => {
-  const { icon, iconColor } = props
-  let pickerIcon = <PdvIcons name="TimeCircle" color="blue-500" />
-
-  if (icon && typeof icon !== 'string') pickerIcon = icon
-  if (typeof icon === 'string') pickerIcon = <PdvIcons name={icon} color={iconColor ?? 'blue-500'} />
+const TimeField = <TFormValues extends FieldValues>(props: TTimepicker<TFormValues>) => {
+  const { iconColor = 'primary-color', variant = 'outlined' } = props
+  const selectedVariant = variant ? inputVariants[variant] : inputVariants.outlined
 
   return (
     <Controller
       control={props.form.control}
       name={props.name}
       render={({ field }) => {
-        const { onChange: controllerOnChange, ...restField } = field
-        const onChange = (value: TDate | null, keyboardInputValue?: string | undefined) => {
-          controllerOnChange(value)
-          if (props.muiTimePickerProps?.onChange) props.muiTimePickerProps.onChange(value, keyboardInputValue)
-        }
-
         return (
           <TimePicker
-            {...restField}
-            {...props?.muiTimePickerProps}
+            {...field}
             disabled={props.disabled}
-            onChange={onChange}
             components={{
-              OpenPickerIcon: () => pickerIcon
+              OpenPickerIcon: () => <PdvIcons name="TimeCircle" color={props.disabled ? 'gray-200' : iconColor} />
             }}
             renderInput={({ inputRef, inputProps, InputProps }) => {
-              const disabledStyles = props?.disabled ? 'bg-gray-50 text-gray-400 border-gray-300 cursor-not-allowed' : ''
-
               return (
-                <div className={props.className}>
-                  <div className={`flex gap-2 ${props?.labelPosition === 'left' ? 'flex-row' : 'flex-col'}`}>
-                    {props?.label && <LabelField {...props} />}
-                    <div className={`${disabledStyles}`}>
-                      <div
-                        className={`flex items-center overflow-hidden rounded-md border border-gray-300 hover:border-blue-500 focus:border-blue-500 ${disabledStyles} ${
-                          props.className ?? ''
-                        }`}
-                        ref={inputRef}
-                      >
+                <div className={`inline-block ${props.className}`}>
+                  <div className={`flex ${props?.labelPosition === 'left' ? 'flex-row gap-2' : 'flex-col gap-1'}`}>
+                    <LabelField {...props} />
+                    <div className={`${props?.disabled ? disabledStyles : ''}`}>
+                      <div className={`flex items-center overflow-hidden ${props?.disabled ? disabledStyles : selectedVariant}`} ref={inputRef}>
                         <div className="mr-4">{InputProps?.endAdornment}</div>
                         <Input
                           name={props.name}
