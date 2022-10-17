@@ -13,8 +13,8 @@ const InputList = [
   { title: 'SelectField', href: '/pdv-select-field' },
   { title: 'DateField', href: '/pdv-date-field' },
   { title: 'TimeField', href: '/pdv-time-field' },
-  { title: 'CheckboxField', href: '/pdv-checkbox-field' },
-  { title: 'RadioGroupField', href: '/pdv-radioGroup-field' }
+  { title: 'RadioGroupField', href: '/pdv-radioGroup-field' },
+  { title: 'CheckboxField', href: '/pdv-checkbox-field' }
 ]
 
 const DashboardLayout: FC = (props) => {
