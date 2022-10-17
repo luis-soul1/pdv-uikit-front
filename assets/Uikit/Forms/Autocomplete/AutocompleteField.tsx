@@ -5,8 +5,10 @@ import Autocomplete from '@mui/material/Autocomplete'
 import { AutocompleteValue, UseAutocompleteProps } from '@mui/material/useAutocomplete'
 import { Controller, FieldValues, Path, PathValue, RegisterOptions, UseFormReturn } from 'react-hook-form'
 
-import { ForwardedInput, TVariant } from '../Input/Input'
+import { disabledStyles, ForwardedInput, inputVariants, TVariant } from '../Input/Input'
 import { TColors } from '@Uikit/Colors/TColors'
+import FormError from '../Error/FormError'
+import LabelField, { TLabelField } from '../Label/LabelField'
 
 export type TOption = {
   label: string
@@ -24,11 +26,15 @@ export type TAutocomplete<TFormValues extends FieldValues> = {
   inputProps?: InputBaseComponentProps
   variant?: TVariant
   iconColor?: TColors
+  errorClassName?: string
+  labelPosition?: 'left' | 'top'
+  className?: string
   onInputChange?: UseAutocompleteProps<TFormValues, boolean, boolean, boolean>['onInputChange']
 }
 
-const AutocompleteField = <TFormValues extends FieldValues>(props: TAutocomplete<TFormValues>) => {
-  const { iconColor = 'primary-color' } = props
+const AutocompleteField = <TFormValues extends FieldValues>(props: TAutocomplete<TFormValues> & TLabelField) => {
+  const { iconColor = 'primary-color', variant = 'outlined' } = props
+  const selectedVariant = variant ? inputVariants[variant] : inputVariants.outlined
 
   return (
     <Controller
@@ -44,34 +50,45 @@ const AutocompleteField = <TFormValues extends FieldValues>(props: TAutocomplete
           controllerOnChange(value)
           if (props?.options?.onChange) props.options.onChange(value)
         }
+
         return (
-          <Autocomplete
-            id={props.name}
-            value={value}
-            onChange={(e, value) => onChange(e, value)}
-            {...restFields}
-            onInputChange={props?.onInputChange}
-            freeSolo={Boolean(props?.freeSolo)}
-            loading={Boolean(props?.loading)}
-            loadingText="Cargando..."
-            clearOnBlur={Boolean(props?.clearOnBlur)}
-            isOptionEqualToValue={(option, value) => option.value === value.value}
-            noOptionsText="No se encontraron resultados"
-            getOptionLabel={(option) => option.label}
-            options={props.autocompleteOptions}
-            sx={{ '&.Mui-focused .MuiInput-root': { border: 0 } }}
-            renderInput={({ InputProps: { ref: anchorListRef }, inputProps: muiInputProps }) => (
-              <div ref={anchorListRef} className="shadow-16 mt-4 max-w-xs">
-                <ForwardedInput
-                  id={props.name}
-                  icon="Search"
-                  iconColor={iconColor}
-                  inputProps={{ ...muiInputProps, disabled: props?.inputProps?.disabled }}
-                  variant={props?.variant}
-                />
+          <div className={`inline-block ${props.className}`}>
+            <div className={`flex ${props?.labelPosition === 'left' ? 'flex-row gap-2' : 'flex-col gap-1'}`}>
+              <LabelField {...props} />
+              <div className={`${props?.inputProps?.disabled ? disabledStyles : ''}`}>
+                <div className={`flex items-center overflow-hidden ${props?.inputProps?.disabled ? disabledStyles : selectedVariant}`}>
+                  <Autocomplete
+                    id={props.name}
+                    value={value}
+                    onChange={(e, value) => onChange(e, value)}
+                    {...restFields}
+                    onInputChange={props?.onInputChange}
+                    freeSolo={Boolean(props?.freeSolo)}
+                    loading={Boolean(props?.loading)}
+                    loadingText="Cargando..."
+                    clearOnBlur={Boolean(props?.clearOnBlur)}
+                    isOptionEqualToValue={(option, value) => option.value === value.value}
+                    noOptionsText="No se encontraron resultados"
+                    getOptionLabel={(option) => option.label}
+                    options={props.autocompleteOptions}
+                    sx={{ '&.Mui-focused .MuiInput-root': { border: 0 }, width: '100%' }}
+                    renderInput={({ InputProps: { ref: anchorListRef }, inputProps: muiInputProps }) => (
+                      <div ref={anchorListRef} className="w-full">
+                        <ForwardedInput
+                          id={props.name}
+                          icon="Search"
+                          iconColor={iconColor}
+                          inputProps={{ ...muiInputProps, disabled: props?.inputProps?.disabled }}
+                          variant="transparent"
+                        />
+                      </div>
+                    )}
+                  />
+                </div>
               </div>
-            )}
-          />
+            </div>
+            <FormError errorClassName={props.errorClassName} name={props.name} errors={props.form?.formState?.errors} />
+          </div>
         )
       }}
     />

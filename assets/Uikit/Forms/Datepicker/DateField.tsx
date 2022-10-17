@@ -15,7 +15,6 @@ type TDatepicker<TFormValues extends FieldValues> = {
   errorClassName?: string
   minDate?: Dayjs
   maxDate?: Dayjs
-  disabled?: boolean
   shouldDisableYear?: (date: Dayjs) => boolean
   shouldDisableMonth?: (date: Dayjs) => boolean
   shouldDisableDate?: (date: Dayjs) => boolean
@@ -39,12 +38,12 @@ const DateField = <TFormValues extends FieldValues>(props: TDatepicker<TFormValu
             shouldDisableYear={props?.shouldDisableYear}
             shouldDisableMonth={props?.shouldDisableMonth}
             shouldDisableDate={props?.shouldDisableDate}
-            disabled={props?.disabled}
+            disabled={props?.inputProps?.disabled}
             minDate={props?.minDate}
             maxDate={props?.maxDate}
             components={{
               OpenPickerIcon: () => (
-                <PdvIcons name={props.icon ?? 'Calendar'} color={props.disabled ? 'gray-200' : props.iconColor ?? 'primary-color'} />
+                <PdvIcons name={props.icon ?? 'Calendar'} color={props?.inputProps?.disabled ? 'gray-200' : props.iconColor ?? 'primary-color'} />
               )
             }}
             renderInput={({ inputRef, inputProps, InputProps }) => {
@@ -52,14 +51,17 @@ const DateField = <TFormValues extends FieldValues>(props: TDatepicker<TFormValu
                 <div className={`inline-block ${props.className}`}>
                   <div className={`flex gap-2 ${props?.labelPosition === 'left' ? 'flex-row gap-2' : 'flex-col gap-1'}`}>
                     <LabelField {...props} />
-                    <div className={`${props?.disabled ? disabledStyles : ''}`}>
-                      <div className={`flex items-center overflow-hidden ${props?.disabled ? disabledStyles : selectedVariant}`} ref={inputRef}>
+                    <div className={`${props?.inputProps?.disabled ? disabledStyles : ''}`}>
+                      <div
+                        className={`flex items-center overflow-hidden ${props?.inputProps?.disabled ? disabledStyles : selectedVariant}`}
+                        ref={inputRef}
+                      >
                         <div className="-ml-1.5 mr-4">{InputProps?.endAdornment}</div>
                         <Input
                           name={props.name}
                           form={props.form}
                           id={props.id}
-                          inputProps={{ ...inputProps, className: 'pl-0', disabled: props.disabled }}
+                          inputProps={{ ...inputProps, className: 'pl-0', disabled: props?.inputProps?.disabled }}
                           variant="transparent"
                         />
                       </div>

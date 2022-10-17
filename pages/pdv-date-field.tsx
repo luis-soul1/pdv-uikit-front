@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvDateFieldApi from 'components/PdvDateFields/PdvDateFieldApi'
-import PdvDateFieldList from 'components/PdvDateFields/PdvInputFieldList'
+import PdvDateFieldList from 'components/PdvDateFields/PdvDateFieldList'
 
 const PdvDateFields: NextPage = () => {
   return (

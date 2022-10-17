@@ -41,7 +41,7 @@ const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
           props?.inputProps?.disabled ? disabledStyles : selectedVariant
         }`}
       >
-        {props?.iconPosition !== 'right' && <span className="mx-1">{icon}</span>}
+        {props?.iconPosition !== 'right' && <span className="ml-1 mr-2">{icon}</span>}
         <MuiInput
           disableUnderline
           {...props?.controlFields}
@@ -66,7 +66,7 @@ const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
         ref={ref}
         inputProps={inputProps}
         id={props?.id}
-        className={`subtitle2 focus:outline-none ${props.inputProps?.disabled ? disabledStyles : 'text-gray-500'} ${
+        className={`subtitle2 w-full focus:outline-none ${props.inputProps?.disabled ? disabledStyles : 'text-gray-500'} ${
           props?.inputProps?.disabled ? disabledStyles : selectedVariant
         } ${props.inputProps?.className ?? ''}`}
         sx={{ height: 44 }}

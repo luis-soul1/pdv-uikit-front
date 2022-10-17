@@ -1,4 +1,4 @@
-import { TimePickerProps, TimePicker } from '@mui/x-date-pickers'
+import { TimePicker } from '@mui/x-date-pickers'
 import { Controller, FieldValues } from 'react-hook-form'
 
 import { PdvIcons } from '@Uikit/Icons/PdvIcons'
@@ -8,7 +8,6 @@ import Input, { disabledStyles, inputVariants, TInput } from '../Input/Input'
 import LabelField, { TLabelField } from '../Label/LabelField'
 
 type TTimepicker<TFormValues extends FieldValues> = {
-  disabled?: boolean
   errorClassName?: string
   labelPosition?: 'left' | 'top'
   className?: string
@@ -27,17 +26,20 @@ const TimeField = <TFormValues extends FieldValues>(props: TTimepicker<TFormValu
         return (
           <TimePicker
             {...field}
-            disabled={props.disabled}
+            disabled={props?.inputProps?.disabled}
             components={{
-              OpenPickerIcon: () => <PdvIcons name="TimeCircle" color={props.disabled ? 'gray-200' : iconColor} />
+              OpenPickerIcon: () => <PdvIcons name="TimeCircle" color={props?.inputProps?.disabled ? 'gray-200' : iconColor} />
             }}
             renderInput={({ inputRef, inputProps, InputProps }) => {
               return (
                 <div className={`inline-block ${props.className}`}>
                   <div className={`flex ${props?.labelPosition === 'left' ? 'flex-row gap-2' : 'flex-col gap-1'}`}>
                     <LabelField {...props} />
-                    <div className={`${props?.disabled ? disabledStyles : ''}`}>
-                      <div className={`flex items-center overflow-hidden ${props?.disabled ? disabledStyles : selectedVariant}`} ref={inputRef}>
+                    <div className={`${props?.inputProps?.disabled ? disabledStyles : ''}`}>
+                      <div
+                        className={`flex items-center overflow-hidden ${props?.inputProps?.disabled ? disabledStyles : selectedVariant}`}
+                        ref={inputRef}
+                      >
                         <div className="mr-4">{InputProps?.endAdornment}</div>
                         <Input
                           name={props.name}

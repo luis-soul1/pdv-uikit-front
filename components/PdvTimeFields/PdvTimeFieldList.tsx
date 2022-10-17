@@ -17,8 +17,15 @@ const PdvTimeFieldList: FC = () => {
 
       <h1 className="mt-6 mt-6 text-black">Disabled</h1>
       <div className="grid grid-cols-12 items-center gap-4">
-        <TimeField name="outlined_variant" label="Outlined variant" className="col-span-6" form={form} disabled />
-        <TimeField name="default_variant" variant="default" label="Default variant" className="col-span-6" form={form} disabled />
+        <TimeField name="outlined_variant" label="Outlined variant" className="col-span-6" form={form} inputProps={{ disabled: true }} />
+        <TimeField
+          name="default_variant"
+          variant="default"
+          label="Default variant"
+          className="col-span-6"
+          form={form}
+          inputProps={{ disabled: true }}
+        />
       </div>
     </div>
   )

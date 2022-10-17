@@ -13,7 +13,7 @@ export type TInputField<TFormValues extends FieldValues> = {
 
 const InputField = <TFormValues extends FieldValues>(props: TInputField<TFormValues>) => {
   return (
-    <div className={`${props.className}`}>
+    <div className={`inline-block ${props.className}`}>
       <div className={`flex ${props?.labelPosition === 'left' ? 'flex-row gap-2' : 'flex-col gap-1'}`}>
         <LabelField {...props} />
         <Input {...props} inputProps={{ ...props.inputProps }} />

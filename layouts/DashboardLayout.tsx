@@ -9,12 +9,12 @@ const DataDiaplayList = [{ title: 'PdvDataTable', href: '/pdv-data-table' }]
 const InputList = [
   { title: 'PdvButtons', href: '/pdv-buttons' },
   { title: 'InputField', href: '/pdv-input-field' },
+  { title: 'AutocompleteField', href: '/pdv-autocomplete-field' },
   { title: 'SelectField', href: '/pdv-select-field' },
   { title: 'DateField', href: '/pdv-date-field' },
   { title: 'TimeField', href: '/pdv-time-field' },
   { title: 'CheckboxField', href: '/pdv-checkbox-field' },
-  { title: 'RadioGroupField', href: '/pdv-radioGroup-field' },
-  { title: 'AutocompleteField', href: '/pdv-autocomplete-field' }
+  { title: 'RadioGroupField', href: '/pdv-radioGroup-field' }
 ]
 
 const DashboardLayout: FC = (props) => {
