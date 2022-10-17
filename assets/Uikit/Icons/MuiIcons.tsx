@@ -16,6 +16,9 @@ import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfi
 import SentimentVerySatisfiedOutlinedIcon from '@mui/icons-material/SentimentVerySatisfiedOutlined'
 import { SvgIconTypeMap } from '@mui/material'
 import { OverridableComponent } from '@mui/material/OverridableComponent'
+import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded'
+import FileUploadIcon from '@mui/icons-material/FileUpload'
+import NotInterestedRoundedIcon from '@mui/icons-material/NotInterestedRounded'
 
 export const MuiIconsList = {
   Add: AddRoundedIcon,
@@ -33,7 +36,10 @@ export const MuiIconsList = {
   KeyArrowRight: KeyboardArrowRightRoundedIcon,
   KeyArrowUp: KeyboardArrowUpRoundedIcon,
   KeyArrowLeft: KeyboardArrowLeftRoundedIcon,
-  AddCircleOutlined: AddCircleOutlineIcon
+  AddCircleOutlined: AddCircleOutlineIcon,
+  ContentCopy: ContentCopyRoundedIcon,
+  Disabled: NotInterestedRoundedIcon,
+  FileUpload: FileUploadIcon
 }
 
 export const MuiIcons: Record<string, OverridableComponent<SvgIconTypeMap<unknown, 'svg'>>> = MuiIconsList
