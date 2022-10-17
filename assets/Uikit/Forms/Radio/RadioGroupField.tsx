@@ -5,7 +5,7 @@ import { Controller, FieldValues, Path, RegisterOptions, UseFormReturn } from 'r
 
 import { TColors } from '@Uikit/Colors/TColors'
 
-type TRadioGroupProps<TFormValues extends FieldValues> = {
+type TRadioGroupField<TFormValues extends FieldValues> = {
   name: Path<TFormValues>
   form: UseFormReturn<TFormValues>
   defaultValue: string
@@ -22,7 +22,7 @@ export type TRadio = {
   value: string
 }
 
-export const RadioGroupField = <TFormValues extends FieldValues>(props: TRadioGroupProps<TFormValues>) => {
+export const RadioGroupField = <TFormValues extends FieldValues>(props: TRadioGroupField<TFormValues>) => {
   const { alignment = 'vertical' } = props
   const customRadioStyle = {
     color: `var(--${props?.color ?? 'teal-600'})`,
