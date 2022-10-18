@@ -1,8 +1,9 @@
+import { FC } from 'react'
+
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvIconApi from 'components/PdvIcons/PdvIconApi'
 import PdvIconList from 'components/PdvIcons/PdvIconList'
-import { FC } from 'react'
 
 const PdvIcons: FC = () => {
   return (

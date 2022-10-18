@@ -23,7 +23,7 @@ const PdvAutocompleteFieldList: FC = () => {
         <AutocompleteField name="transparent_variant" variant="transparent" className="col-span-4" form={form} autocompleteOptions={options} />
       </div>
 
-      <h1 className="mt-6 mt-6 text-black">Disabled</h1>
+      <h1 className="mt-6 text-black">Disabled</h1>
       <div className="grid grid-cols-12 items-center gap-4">
         <AutocompleteField name="outlined_variant" className="col-span-4" form={form} autocompleteOptions={options} inputProps={{ disabled: true }} />
         <AutocompleteField

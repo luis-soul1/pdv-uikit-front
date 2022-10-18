@@ -1,10 +1,12 @@
+import { FC, useMemo } from 'react'
+
+import { useForm } from 'react-hook-form'
+
 import InputField from '@Uikit/Forms/Input/InputField'
 import { MuiIconsList } from '@Uikit/Icons/MuiIcons'
 import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 import { iconNames, TIconNames } from '@Uikit/Icons/TIconNames'
 import { useCopyToClipboard } from 'hooks/useCopyToClipboard'
-import { FC, useMemo } from 'react'
-import { useForm } from 'react-hook-form'
 
 const PdvIconList: FC = () => {
   const { clipboard } = useCopyToClipboard()

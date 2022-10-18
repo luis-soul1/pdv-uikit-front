@@ -1,6 +1,7 @@
+import { FC } from 'react'
+
 import PdvPillBox from '@Uikit/PdvPillBox'
 import PdvTooltip from '@Uikit/PdvTooltip'
-import { FC } from 'react'
 
 const PdvToolTipsList: FC = () => {
   return (

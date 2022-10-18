@@ -1,8 +1,9 @@
+import { NextPage } from 'next'
+
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvToolTipsApi from 'components/PdvToolTips/PdvToolTipsApi'
 import PdvToolTipsList from 'components/PdvToolTips/PdvToolTipsList'
-import { NextPage } from 'next'
 
 const PdvTooltip: NextPage = () => {
   return (

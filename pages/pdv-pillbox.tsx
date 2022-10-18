@@ -1,8 +1,9 @@
+import { NextPage } from 'next'
+
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvPillboxApi from 'components/PdvPillox/PdvPillboxApi'
 import PdvPillboxList from 'components/PdvPillox/PdvPillboxList'
-import { NextPage } from 'next'
 
 const PdvPillbox: NextPage = () => {
   return (

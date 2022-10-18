@@ -1,8 +1,9 @@
+import { NextPage } from 'next'
+
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvTimeFieldApi from 'components/PdvTimeFields/PdvTimeFieldApi'
 import PdvTimeFieldList from 'components/PdvTimeFields/PdvTimeFieldList'
-import { NextPage } from 'next'
 
 const PdvTimeFields: NextPage = () => {
   return (

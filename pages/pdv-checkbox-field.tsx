@@ -1,8 +1,9 @@
+import { NextPage } from 'next'
+
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvCheckboxFieldApi from 'components/PdvCheckboxFields/PdvCheckboxFieldApi'
 import PdvCheckboxFielddList from 'components/PdvCheckboxFields/PdvCheckboxFieldList'
-import { NextPage } from 'next'
 
 const PdvCheckboxField: NextPage = () => {
   return (
