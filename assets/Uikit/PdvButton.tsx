@@ -24,7 +24,7 @@ type TPdvButton = {
   iconSize?: TIconSize
   disabled?: boolean
   loading?: boolean
-  // component?: ElementType
+  component?: ElementType
   onClick?: () => void
 }
 
