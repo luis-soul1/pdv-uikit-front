@@ -2,7 +2,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { Dayjs } from 'dayjs'
 import { Controller, FieldValues } from 'react-hook-form'
 
-import { PdvIcons } from '@Uikit/Icons/PdvIcons'
+import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 
 import FormError from '../Error/FormError'
 import Input, { disabledStyles, inputVariants, TInput, TVariant } from '../Input/Input'
@@ -44,7 +44,7 @@ const DateField = <TFormValues extends FieldValues>(props: TDatepicker<TFormValu
             inputFormat="',' D  DD MMMM YYYY"
             components={{
               OpenPickerIcon: () => (
-                <PdvIcons name={props.icon ?? 'Calendar'} color={props?.inputProps?.disabled ? 'gray-200' : props.iconColor ?? 'primary-color'} />
+                <PdvIcon name={props.icon ?? 'Calendar'} color={props?.inputProps?.disabled ? 'gray-200' : props.iconColor ?? 'primary-color'} />
               )
             }}
             renderInput={({ inputRef, inputProps, InputProps }) => {

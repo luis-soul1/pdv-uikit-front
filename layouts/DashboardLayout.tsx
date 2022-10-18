@@ -22,7 +22,7 @@ const DataDiaplayList = [
   { title: 'PdvDataTable', href: '/pdv-data-table' },
   { title: 'PdvPillBox', href: '/pdv-pillbox' },
   { title: 'PdvTooltip', href: '/pdv-tooltip' },
-  { title: 'PdvIcons', href: '/pdv-icons' }
+  { title: 'PdvIcon', href: '/pdv-icons' }
 ]
 
 const FeedbackList = [
@@ -34,6 +34,8 @@ const SurfacesList = [
   { title: 'PdvSimpleAccordion', href: '/pdv-simple-accordion' },
   { title: 'PdvMultipleAccordion', href: '/pdv-multiple-alert' }
 ]
+
+const customList = [{ title: 'PdvGallery', href: '/pdv-galery' }]
 
 const DashboardLayout: FC = (props) => {
   const { pathname } = useRouter()
@@ -104,6 +106,21 @@ const DashboardLayout: FC = (props) => {
           })}
           <h5 className="my-2">Surfaces</h5>
           {SurfacesList.map((option) => {
+            return (
+              <Link key={option.title} href={option.href} passHref>
+                <p
+                  className={`subtitle1  my-1 cursor-pointer rounded-l-2xl py-2 pl-4 ${
+                    pathname === option.href ? 'bg-black text-white' : 'hover:bg-gray-100'
+                  }`}
+                >
+                  {option.title}
+                </p>
+              </Link>
+            )
+          })}
+
+          <h5 className="my-2">Custom</h5>
+          {customList.map((option) => {
             return (
               <Link key={option.title} href={option.href} passHref>
                 <p

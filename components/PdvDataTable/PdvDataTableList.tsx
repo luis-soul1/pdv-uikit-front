@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { PdvIcons } from '@Uikit/Icons/PdvIcons'
+import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 import PdvDatatable, { IColumns } from '@Uikit/PdvDatatable'
 import PdvPillBox from '@Uikit/PdvPillBox'
 import { demoData } from 'utils/demoData'
@@ -48,7 +48,7 @@ const PdvDataTableList: FC = () => {
         return (
           <PdvPillBox bgColor={bgColor} titleColor={textColor} borderType="rounded-md">
             <div className="flex items-center justify-center">
-              <PdvIcons name={icon} color={textColor} className="mr-2" />
+              <PdvIcon name={icon} color={textColor} className="mr-2" />
               <span className="subtitle2" style={{ color: `var(--${textColor})` }}>
                 {text}
               </span>

@@ -19,6 +19,12 @@ import { OverridableComponent } from '@mui/material/OverridableComponent'
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded'
 import FileUploadIcon from '@mui/icons-material/FileUpload'
 import NotInterestedRoundedIcon from '@mui/icons-material/NotInterestedRounded'
+import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded'
+import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded'
+import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded'
+import CheckBoxOutlineBlankRoundedIcon from '@mui/icons-material/CheckBoxOutlineBlankRounded'
+import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded'
+import SentimentVerySatisfiedRoundedIcon from '@mui/icons-material/SentimentVerySatisfiedRounded'
 
 export const MuiIconsList = {
   Add: AddRoundedIcon,
@@ -39,7 +45,13 @@ export const MuiIconsList = {
   AddCircleOutlined: AddCircleOutlineIcon,
   ContentCopy: ContentCopyRoundedIcon,
   Disabled: NotInterestedRoundedIcon,
-  FileUpload: FileUploadIcon
+  FileUpload: FileUploadIcon,
+  CheckedCheckBox: CheckBoxRoundedIcon,
+  UncheckedCheckBox: CheckBoxOutlineBlankRoundedIcon,
+  JoyFace: SentimentVerySatisfiedRoundedIcon,
+  KeyArrowUpFill: ArrowDropUpRoundedIcon,
+  KeyArrowDownFill: ArrowDropDownRoundedIcon,
+  Refresh: ReplayRoundedIcon
 }
 
 export const MuiIcons: Record<string, OverridableComponent<SvgIconTypeMap<unknown, 'svg'>>> = MuiIconsList

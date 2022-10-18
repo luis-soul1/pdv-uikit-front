@@ -5,7 +5,7 @@ import LoadingButton from '@mui/lab/LoadingButton'
 import { Button, CircularProgress } from '@mui/material'
 
 import { TColors } from './Colors/TColors'
-import { PdvIcons, TIconSize } from './Icons/PdvIcons'
+import { PdvIcon, TIconSize } from './Icons/PdvIcon'
 import { TIconNames } from './Icons/TIconNames'
 
 export type TButtonVariant = 'contained' | 'outlined' | 'default'
@@ -70,7 +70,7 @@ const PdvButton: FC<TPdvButton> = (props) => {
     if (!props.icon) return
     if (typeof props.icon === 'string') {
       const selectedColor = variant !== 'contained' ? color : 'white'
-      return <PdvIcons name={props.icon} color={props.disabled ? 'gray-500' : selectedColor} size={props.iconSize ?? 'medium'} />
+      return <PdvIcon name={props.icon} color={props.disabled ? 'gray-500' : selectedColor} size={props.iconSize ?? 'medium'} />
     }
     return props.icon
   }

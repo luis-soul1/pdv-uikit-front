@@ -1,6 +1,6 @@
 import { FieldValues, Path, UseFormReturn } from 'react-hook-form'
 
-import { PdvIcons } from '@Uikit/Icons/PdvIcons'
+import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 
 import DateField from './DateField'
 
@@ -15,7 +15,7 @@ const RangeDateField = <TFormValues extends FieldValues>(props: TRangeDateField<
   return (
     <span className={`relative inline-flex items-center rounded-md border bg-white ${props.className}`}>
       <DateField name={props.nameFrom} form={props.form} className="w-36" variant="transparent" />
-      <PdvIcons name="KeyArrowRight" color="primary-color" className="absolute left-32" />
+      <PdvIcon name="KeyArrowRight" color="primary-color" className="absolute left-32" />
       <DateField
         name={props.nameTo}
         form={props.form}

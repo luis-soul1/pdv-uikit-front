@@ -5,7 +5,7 @@ import { InputBaseComponentProps } from '@mui/material/InputBase'
 import { Controller, ControllerRenderProps, FieldValues, Path, RegisterOptions, UseFormReturn } from 'react-hook-form'
 
 import { TColors } from '@Uikit/Colors/TColors'
-import { PdvIcons } from '@Uikit/Icons/PdvIcons'
+import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 import { TIconNames } from '@Uikit/Icons/TIconNames'
 
 export type TVariant = 'default' | 'outlined' | 'transparent'
@@ -33,7 +33,7 @@ const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
   const selectedVariant = props.variant ? inputVariants[props.variant] : inputVariants.outlined
 
   if (props?.icon) {
-    const icon = <PdvIcons name={props.icon} color={props.inputProps?.disabled ? 'gray-200' : iconColor} />
+    const icon = <PdvIcon name={props.icon} color={props.inputProps?.disabled ? 'gray-200' : iconColor} />
 
     return (
       <div
