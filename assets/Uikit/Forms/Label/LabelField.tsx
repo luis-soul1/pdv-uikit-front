@@ -1,5 +1,5 @@
 import { TColors } from '@Uikit/Colors/TColors'
-import { PdvIcons, TIconSize } from '@Uikit/Icons/PdvIcons'
+import { PdvIcon, TIconSize } from '@Uikit/Icons/PdvIcon'
 
 import { TIconNames } from '../../Icons/TIconNames'
 
@@ -19,7 +19,7 @@ export const LabelField = (props: TLabelField) => {
   if (!props?.label) return null
   return (
     <div className="flex items-center">
-      {props.withLabelIcon && <PdvIcons name={props?.labelIcon ?? 'KeyArrowRight'} color={labelIconcolor} size={props?.labelIconSize} />}
+      {props.withLabelIcon && <PdvIcon name={props?.labelIcon ?? 'KeyArrowRight'} color={labelIconcolor} size={props?.labelIconSize} />}
 
       <label className={`body1 block font-semibold text-gray-500 ${props.labelClassName ? props.labelClassName : ''}`} htmlFor={props.for}>
         {props.label}

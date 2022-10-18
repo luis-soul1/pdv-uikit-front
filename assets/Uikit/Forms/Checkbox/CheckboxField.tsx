@@ -1,78 +1,83 @@
 import { ChangeEvent, InputHTMLAttributes } from 'react'
 
 import Checkbox from '@mui/material/Checkbox'
+import IconButton from '@mui/material/IconButton'
 import { styled } from '@mui/system'
 import { Controller, ControllerRenderProps, FieldValues, Path, RegisterOptions, UseFormReturn } from 'react-hook-form'
+
+import { TColors } from '@Uikit/Colors/TColors'
 
 type TCheckboxProps<TFormValues extends FieldValues> = {
   name: Path<TFormValues>
   form: UseFormReturn<TFormValues>
   options?: RegisterOptions
   className?: string
-  controlFields?: ControllerRenderProps<Record<string, string>, string>
   inputProps?: InputHTMLAttributes<HTMLInputElement>
   label?: string
-  labelClassName?: string
+  labelColor?: TColors
   id?: string
+  color?: TColors
 }
 
 const CheckboxField = <TFormValues extends FieldValues>(props: TCheckboxProps<TFormValues>) => {
-  if (props.form) {
-    return (
-      <Controller
-        name={props.name}
-        control={props.form.control}
-        render={({ field }) => {
-          const { onChange: controllerOnChange, ...restField } = field
+  return (
+    <Controller
+      name={props.name}
+      control={props.form.control}
+      rules={props.options}
+      render={({ field }) => {
+        const { value: controllerValue, onChange: controllerOnChange, ...restField } = field
 
-          const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-            controllerOnChange(e)
-            if (props?.options?.onChange) props.options.onChange(e)
-          }
+        const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+          controllerOnChange(e)
+          if (props?.options?.onChange) props.options.onChange(e)
+        }
 
-          return <DefaultCheckbox {...props} controlFields={{ ...restField, onChange }} />
-        }}
-      />
-    )
-  }
-
-  return <DefaultCheckbox {...props} />
+        return <DefaultCheckbox {...props} controlFields={{ ...restField, value: controllerValue, onChange }} checked={controllerValue} />
+      }}
+    />
+  )
 }
 
-const DefaultCheckbox = <TFormValues extends FieldValues>(props: TCheckboxProps<TFormValues>) => (
-  <div className={props?.className ?? ''}>
-    <div className={`flex items-center`}>
-      <Checkbox
-        {...props?.controlFields}
-        inputProps={{ ...props.inputProps }}
-        sx={{
-          '&:hover': { bgcolor: 'transparent' }
-        }}
-        checkedIcon={<BpCheckedIcon />}
-        icon={<BpIcon />}
-      />
-      {props.label && (
-        <label className={`body1 block font-semibold text-gray-500 ${props.labelClassName ? props.labelClassName : ''}`} htmlFor={props?.id}>
-          {props.label}
-        </label>
-      )}
-    </div>
-  </div>
-)
+const DefaultCheckbox = <TFormValues extends FieldValues>(
+  props: TCheckboxProps<TFormValues> & { controlFields?: ControllerRenderProps<Record<string, string>, string>; checked: boolean }
+) => {
+  const { labelColor = 'gray-500' } = props
 
-const BpIcon = styled('span')(() => ({
+  return (
+    <div className={props?.className ?? ''}>
+      <div className={`flex items-center`}>
+        <IconButton size="small">
+          <Checkbox
+            id={props.name}
+            inputProps={{ ...props.inputProps }}
+            checked={props.checked}
+            sx={{ '&:hover': { bgcolor: 'transparent' } }}
+            checkedIcon={<BpCheckedIcon color={props.color} />}
+            icon={<BpIcon color={props.color} />}
+            {...props?.controlFields}
+          />
+        </IconButton>
+        {props.label && (
+          <label className={`subtitle1 block cursor-pointer ${props.labelColor}`} style={{ color: `var(--${labelColor})` }} htmlFor={props?.name}>
+            {props.label}
+          </label>
+        )}
+      </div>
+    </div>
+  )
+}
+
+const BpIcon = styled('span')(({ color = 'primary-color' }) => ({
   borderRadius: 5,
   width: 19,
   height: 19,
-  boxShadow: 'inset 0 0 0 1px var(--gray-500)',
+  boxShadow: `inset 0 0 0 2px var(--${color})`,
   backgroundColor: 'var(--white)',
   backgroundImage: 'var(--gray-500)',
   '.Mui-focusVisible &': {
     outline: '2px auto rgba(19,124,189,.6)',
     outlineOffset: 2
-  },
-  'input:hover ~ &': {
-    backgroundColor: 'var(--gray-100)'
   },
   'input:disabled ~ &': {
     boxShadow: 'none',
@@ -80,10 +85,10 @@ const BpIcon = styled('span')(() => ({
   }
 }))
 
-const BpCheckedIcon = styled(BpIcon)({
-  backgroundColor: 'var(--teal-500)',
-  backgroundImage: 'var(--teal-500)',
-  boxShadow: 'inset 0 0 0 1px var(--teal-500)',
+const BpCheckedIcon = styled(BpIcon)(({ color = 'primary-color' }) => ({
+  backgroundColor: `var(--${color})`,
+  backgroundImage: `var(--${color})`,
+  boxShadow: `inset 0 0 0 1px var(--${color})`,
   '&:before': {
     display: 'block',
     width: 19,
@@ -95,8 +100,8 @@ const BpCheckedIcon = styled(BpIcon)({
     content: '""'
   },
   'input:hover ~ &': {
-    backgroundColor: 'var(--teal-500)'
+    backgroundColor: `var(--${color})`
   }
-})
+}))
 
 export default CheckboxField

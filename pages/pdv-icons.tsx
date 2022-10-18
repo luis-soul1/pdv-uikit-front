@@ -1,23 +1,23 @@
-import { NextPage } from 'next'
+import { FC } from 'react'
 
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
-import PdvTimeFieldApi from 'components/PdvTimeFields/PdvTimeFieldApi'
-import PdvTimeFieldList from 'components/PdvTimeFields/PdvTimeFieldList'
+import PdvIconApi from 'components/PdvIcons/PdvIconApi'
+import PdvIconList from 'components/PdvIcons/PdvIconList'
 
-const PdvTimeFields: NextPage = () => {
+const PdvIcons: FC = () => {
   return (
-    <ComponentWrapper title={'Time field'}>
+    <ComponentWrapper title={'PdvPillbox'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
-          <PdvTimeFieldList />
+          <PdvIconList />
         </PdvTabs.Tab>
         <PdvTabs.Tab tabText="Api" tabKey="api-tab">
-          <PdvTimeFieldApi />
+          <PdvIconApi />
         </PdvTabs.Tab>
       </PdvTabs>
     </ComponentWrapper>
   )
 }
 
-export default PdvTimeFields
+export default PdvIcons

@@ -2,22 +2,22 @@ import { NextPage } from 'next'
 
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
-import RadioGroupFieldApi from 'components/PdvRadioGroupFields/PdvRadioGroupFieldApi'
-import PdvRadioGroupFieldList from 'components/PdvRadioGroupFields/PdvRadioGroupFieldList'
+import PdvPaginationApi from 'components/PdvPaginations/PdvPaginationApi'
+import PdvPaginationList from 'components/PdvPaginations/PdvPaginationList'
 
-const PdvRadioGroupFields: NextPage = () => {
+const PdvPagination: NextPage = () => {
   return (
-    <ComponentWrapper title={'Radio Group field'}>
+    <ComponentWrapper title={'PdvPagination'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
-          <PdvRadioGroupFieldList />
+          <PdvPaginationList />
         </PdvTabs.Tab>
         <PdvTabs.Tab tabText="Api" tabKey="api-tab">
-          <RadioGroupFieldApi />
+          <PdvPaginationApi />
         </PdvTabs.Tab>
       </PdvTabs>
     </ComponentWrapper>
   )
 }
 
-export default PdvRadioGroupFields
+export default PdvPagination

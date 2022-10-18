@@ -1,7 +1,7 @@
 import { useState, Children, cloneElement, useEffect } from 'react'
 
 import { TColors } from '@Uikit/Colors/TColors'
-import { PdvIcons } from '@Uikit/Icons/PdvIcons'
+import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 import { TIconNames } from '@Uikit/Icons/TIconNames'
 import PdvButton, { TButtonSize } from '@Uikit/PdvButton'
 import PdvTooltip, { PdvTooltipPlacements } from '@Uikit/PdvTooltip'
@@ -102,7 +102,7 @@ const Tab: React.FC<TTab> = (props) => {
           props.isSelected ? 'shadow-md' : ''
         }`}
         onClick={props.onClick}
-        icon={props?.icon && <PdvIcons name={props.icon} color={props.isSelected ? 'white' : 'gray-500'} size={props?.iconSize} />}
+        icon={props?.icon && <PdvIcon name={props.icon} color={props.isSelected ? 'white' : 'gray-500'} size={props?.iconSize} />}
         disabled={props.disabled}
       >
         {props.tabText}

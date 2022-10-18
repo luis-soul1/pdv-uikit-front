@@ -1,31 +1,37 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { useForm } from 'react-hook-form'
 
-import TimeField from '@Uikit/Forms/Timepicker/TimeField'
+import RadioGroupField from '@Uikit/Forms/Radio/RadioGroupField'
+
+const options = [
+  { label: 'Option 1', value: 'action1' },
+  { label: 'Option 2', value: 'action2' }
+]
 
 const PdvRadioGroupFieldList: FC = () => {
-  const form = useForm()
+  const form = useForm({ defaultValues: { radio: 'action2' } })
 
   return (
     <div className="border border-black p-4">
-      <h1 className="text-black">Variants</h1>
-      <div className="grid grid-cols-12 items-center gap-4">
-        <TimeField name="outlined_variant" label="Outlined variant" className="col-span-6" form={form} />
-        <TimeField name="default_variant" variant="default" label="Default variant" className="col-span-6" form={form} />
-      </div>
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-span-4">
+          <h1 className="text-black">Vertical</h1>
+          <RadioGroupField name="radio" radioOptions={options} form={form} />
+        </div>
+        <div className="col-span-4">
+          <h1 className="text-black">Horizontal</h1>
+          <RadioGroupField name="radio" radioOptions={options} form={form} alignment="horizontal" />
+        </div>
+        <div className="col-span-4">
+          <h1 className="text-black">With divider</h1>
+          <RadioGroupField name="radio" radioOptions={options} form={form} divider />
+        </div>
 
-      <h1 className="mt-6 mt-6 text-black">Disabled</h1>
-      <div className="grid grid-cols-12 items-center gap-4">
-        <TimeField name="outlined_variant" label="Outlined variant" className="col-span-6" form={form} inputProps={{ disabled: true }} />
-        <TimeField
-          name="default_variant"
-          variant="default"
-          label="Default variant"
-          className="col-span-6"
-          form={form}
-          inputProps={{ disabled: true }}
-        />
+        <div className="col-span-4">
+          <h1 className="text-black">Colors</h1>
+          <RadioGroupField name="radio" radioOptions={options} color="blue-400" textColor="teal-500" form={form} />
+        </div>
       </div>
     </div>
   )

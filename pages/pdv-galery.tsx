@@ -1,23 +1,24 @@
 import { NextPage } from 'next'
+import React from 'react'
 
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
-import RadioGroupFieldApi from 'components/PdvRadioGroupFields/PdvRadioGroupFieldApi'
-import PdvRadioGroupFieldList from 'components/PdvRadioGroupFields/PdvRadioGroupFieldList'
+import PdvGalleryApi from 'components/PdvGalleries/PdvGalleryApi'
+import PdvGalleryList from 'components/PdvGalleries/PdvGalleryList'
 
-const PdvRadioGroupFields: NextPage = () => {
+const PdvGaleries: NextPage = () => {
   return (
-    <ComponentWrapper title={'Radio Group field'}>
+    <ComponentWrapper title={'PdvGallery'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
-          <PdvRadioGroupFieldList />
+          <PdvGalleryList />
         </PdvTabs.Tab>
         <PdvTabs.Tab tabText="Api" tabKey="api-tab">
-          <RadioGroupFieldApi />
+          <PdvGalleryApi />
         </PdvTabs.Tab>
       </PdvTabs>
     </ComponentWrapper>
   )
 }
 
-export default PdvRadioGroupFields
+export default PdvGaleries

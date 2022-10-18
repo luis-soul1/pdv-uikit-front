@@ -2,18 +2,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-const NavigationList = [
-  { title: 'PdvTabs', href: '/pdv-tabs' },
-  { title: 'PdvPagination', href: '/pdv-pagination' }
-]
-
-const DataDiaplayList = [
-  { title: 'PdvDataTable', href: '/pdv-data-table' },
-  { title: 'PdvPillBox', href: '/pdv-pillbox' },
-  { title: 'PdvTooltip', href: '/pdv-tooltip' },
-  { title: 'PdvIcons', href: '/pdv-icons' }
-]
-
 const InputList = [
   { title: 'PdvButtons', href: '/pdv-buttons' },
   { title: 'InputField', href: '/pdv-input-field' },
@@ -25,6 +13,18 @@ const InputList = [
   { title: 'CheckboxField', href: '/pdv-checkbox-field' }
 ]
 
+const NavigationList = [
+  { title: 'PdvTabs', href: '/pdv-tabs' },
+  { title: 'PdvPagination', href: '/pdv-pagination' }
+]
+
+const DataDiaplayList = [
+  { title: 'PdvDataTable', href: '/pdv-data-table' },
+  { title: 'PdvPillBox', href: '/pdv-pillbox' },
+  { title: 'PdvTooltip', href: '/pdv-tooltip' },
+  { title: 'PdvIcon', href: '/pdv-icons' }
+]
+
 const FeedbackList = [
   { title: 'PdvModal', href: '/pdv-modal' },
   { title: 'PdvAlert', href: '/pdv-alert' }
@@ -34,6 +34,8 @@ const SurfacesList = [
   { title: 'PdvSimpleAccordion', href: '/pdv-simple-accordion' },
   { title: 'PdvMultipleAccordion', href: '/pdv-multiple-alert' }
 ]
+
+const customList = [{ title: 'PdvGallery', href: '/pdv-galery' }]
 
 const DashboardLayout: FC = (props) => {
   const { pathname } = useRouter()
@@ -104,6 +106,21 @@ const DashboardLayout: FC = (props) => {
           })}
           <h5 className="my-2">Surfaces</h5>
           {SurfacesList.map((option) => {
+            return (
+              <Link key={option.title} href={option.href} passHref>
+                <p
+                  className={`subtitle1  my-1 cursor-pointer rounded-l-2xl py-2 pl-4 ${
+                    pathname === option.href ? 'bg-black text-white' : 'hover:bg-gray-100'
+                  }`}
+                >
+                  {option.title}
+                </p>
+              </Link>
+            )
+          })}
+
+          <h5 className="my-2">Custom</h5>
+          {customList.map((option) => {
             return (
               <Link key={option.title} href={option.href} passHref>
                 <p

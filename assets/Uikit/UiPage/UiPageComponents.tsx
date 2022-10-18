@@ -1,13 +1,10 @@
-import React from 'react'
-
 const UiPageComponents = () => {
   return <div>UiPageComponents</div>
 }
 
 export default UiPageComponents
 
-// import { PropsWithChildren, useMemo, useState } from 'react'
-
+// import PillBox from '@Uikit/PillBox'
 // import { useForm } from 'react-hook-form'
 
 // import colors from '@Uikit/colors/tailwindColors'
@@ -19,72 +16,13 @@ export default UiPageComponents
 // import PdvSimpleAccordion from '@Uikit/PdvSimpleAccordion'
 // import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 // import LeftHeaderCard from 'commons/LeftHeaderCard'
-// import PillBox from 'commons/PillBox'
 // import TopHeaderCard from 'commons/TopHeaderCard'
 // import { useCopyToClipboard } from 'hooks/useCopyToClipboard'
 
 // import InputField from '../forms/InputField'
 // import SelectField from '../forms/SelectField'
-// import { iconNames, PdvIcons, TIconNames } from '../icons/PdvIcons'
+// import { iconNames, PdvIcon, TIconNames } from '../Icons/PdvIcon'
 // import PdvButton from '../PdvButton'
-
-// export const TabsView = () => {
-//   const { clipboard } = useCopyToClipboard()
-
-//   const tabs = [
-//     { tabText: 'tab1', onChange: (position: number) => tabAction(position) },
-//     { tabText: 'tab2', isTabHidden: true, onChange: (position: number) => tabAction(position) },
-//     { tabText: 'tab3', onChange: (position: number) => tabAction(position) },
-//     { tabText: 'tab4', isSelected: true, onChange: (position: number) => tabAction(position) }
-//   ]
-
-//   const linkTabs = [
-//     { tabText: 'tab1', href: '/another-path', isSelected: true },
-//     { tabText: 'tab2', href: '/another-path' },
-//     { tabText: 'tab3', href: '/another-path' }
-//   ]
-
-//   const tabAction = (position: number) => {
-//     return position
-//   }
-
-//   return (
-//     <ComponentWrapper title={'Tabs'}>
-//       <pre className="whitespace-pre-wrap border p-4">
-//         {`Propiedades del componente:
-
-//   interface ITab {
-//     tabText: string
-//     isTabHidden?: boolean
-//     isSelected?: boolean
-//     href?: string
-//     onChange?: (position: number) => void
-//   }
-
-//   interface TPdvTabs {
-//     tabs: ITab[]
-//     size?: 'small' | 'large' //Size: small es por default
-//     className?: string
-//     theme: 'indigo-700' | 'teal-500' | 'blue-400' | 'blue-100' | 'orange-400' | 'yellow-600' | 'gray-500' | 'black'
-//     asLink?: boolean
-//   }
-// }`}
-//       </pre>
-
-//       <h4 className="mb-2 mt-8 text-indigo-700">{'Button tabs (size="large")'}</h4>
-//       <PdvTabs tabs={tabs} size="large" theme="teal-500" />
-//       <PdvButton className="ml-auto mt-4 block" onClick={() => clipboard(`<PdvTabs tabs={tabs}  size='large' theme='teal-500' />`)}>
-//         Copiar código
-//       </PdvButton>
-
-//       <h4 className="mb-2 mt-8 text-indigo-700">{'Link tabs (size="small" => default size)'}</h4>
-//       <PdvTabs asLink tabs={linkTabs} theme="yellow-600" />
-//       <PdvButton className="ml-auto mt-4 block" onClick={() => clipboard(`<PdvTabs asLink tabs={tabs} theme='yellow-600' />`)}>
-//         Copiar código
-//       </PdvButton>
-//     </ComponentWrapper>
-//   )
-// }
 
 // export const PdvCardContainerView = () => {
 //   const { clipboard } = useCopyToClipboard()
@@ -162,7 +100,7 @@ export default UiPageComponents
 //         className="mt-2"
 //         header={
 //           <div className="flex">
-//             <PdvIcons name="Heart" color="white" className="mr-4" />
+//             <PdvIcon name="Heart" color="white" className="mr-4" />
 //             <p className="subtitle1 text-white">Header</p>
 //           </div>
 //         }
@@ -195,7 +133,7 @@ export default UiPageComponents
 //     {
 //       header: (
 //         <div className="flex">
-//           <PdvIcons name="Document" color="white" className="mr-4" />
+//           <PdvIcon name="Document" color="white" className="mr-4" />
 //           <p className="subtitle1 text-white">Header 3 (Con ReactElement)</p>
 //         </div>
 //       ),
@@ -454,233 +392,6 @@ export default UiPageComponents
 //   )
 // }
 
-// export const PaginationView = () => {
-//   const { clipboard } = useCopyToClipboard()
-//   const pagination = usePdvPagination()
-
-//   return (
-//     <ComponentWrapper title={'Paginación'}>
-//       <pre className="whitespace-pre-wrap border p-4">
-//         {`Propiedades del componente:
-
-//   type TPdvPagination {
-//     count: number
-//     page: number
-//     className?: string
-//     onChange?: (event: React.ChangeEvent<unknown>, value: number) => void
-//   }
-
-//   NOTA: usar el custom hook usePdvPagination para el manejo de las paginas.
-// `}
-//       </pre>
-//       <h2 className="mt-4 text-indigo-700">Paginación</h2>
-
-//       <PdvPagination className="mt-4 flex justify-center" count={12} page={pagination.page} onChange={pagination.onChange} />
-
-//       <PdvButton
-//         className="ml-auto mt-4 block"
-//         onClick={() => clipboard(`<PdvPagination className='mt-4 flex justify-center' count={5} page={3} onChange={(event, page) => page} />`)}
-//       >
-//         Copiar código
-//       </PdvButton>
-//     </ComponentWrapper>
-//   )
-// }
-
-// export const FormView = () => {
-//   const { clipboard } = useCopyToClipboard()
-//   const form = useForm()
-
-//   return (
-//     <ComponentWrapper title={'Formularios'}>
-//       <pre className="whitespace-pre-wrap border p-4">
-//         {`Propiedades del componente:
-
-// TGenericInput = {
-//   name: string
-//   label?: string | any
-//   id?: string
-//   variant?: 'default' | 'outlined'
-//   icon?: TIconNames
-//   iconPosition?: 'left' | 'right'
-//   form: UseFormReturn<any>
-//   options?: RegisterOptions
-//   className?: string
-//   labelClassName?: string
-//   textarea?: boolean
-//   errorClassName?: string
-//   //Props para inputs..............................................
-//   inputProps?: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>>
-//   //Props para text area...........................................
-//   textareaProps?: DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>>
-//   //Props para select..............................................
-//   selectOptions?: { value: any; label: string | number | undefined }[]
-//   withoutDefaultValue?: boolean //Si es true, no da la opcion 'Selecciona una opcion'
-//   selectProps?: React.DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>>
-// }
-// `}
-//       </pre>
-
-//       <h4 className="mt-4 text-indigo-700">InputField variants</h4>
-//       <div className="grid grid-cols-12 gap-4">
-//         <div className="col-span-6">
-//           <InputField
-//             name="default"
-//             label="Default variant"
-//             className="mt-4"
-//             inputProps={{ placeholder: 'Ingresa tu nombre' }}
-//             options={{ required: 'Este campo es requerido' }}
-//             form={form}
-//           />
-//           <PdvButton
-//             className="ml-auto mt-4 block"
-//             onClick={() =>
-//               clipboard(`
-//      <InputField
-//         name='name'
-//         label='Nombre'
-//         inputProps={{placeholder: 'Ingresa tu nombre' }}
-//         options={{ required: 'Este campo es requerido' }}
-//         form={form}
-//       />
-//               `)
-//             }
-//           >
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//         <div className="col-span-6">
-//           <InputField
-//             name="outlined"
-//             label="Outlined variant"
-//             variant="outlined"
-//             className="mt-4"
-//             inputProps={{ placeholder: 'Ingresa tu nombre' }}
-//             options={{ required: 'Este campo es requerido' }}
-//             form={form}
-//           />
-//           <PdvButton
-//             className="ml-auto mt-4 block"
-//             onClick={() =>
-//               clipboard(`
-//      <InputField
-//         name='name'
-//         label='Nombre'
-//         variant='outlined'
-//         inputProps={{placeholder: 'Ingresa tu nombre' }}
-//         options={{ required: 'Este campo es requerido' }}
-//         form={form}
-//       />
-//               `)
-//             }
-//           >
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//       </div>
-
-//       <h4 className="mt-4 text-indigo-700">InputField con iconos</h4>
-//       <div className="grid grid-cols-12 gap-4">
-//         <div className="col-span-6">
-//           <InputField
-//             name="left_icon"
-//             label="Icono a la izquierda"
-//             className="mt-4"
-//             icon="Search"
-//             inputProps={{ placeholder: 'Ingresa tu nombre' }}
-//             options={{ required: 'Este campo es requerido' }}
-//             form={form}
-//           />
-//           <PdvButton
-//             className="ml-auto mt-4 block"
-//             onClick={() =>
-//               clipboard(`
-//      <InputField
-//         name='name'
-//         label='Nombre'
-//         icon='Search'
-//         inputProps={{placeholder: 'Ingresa tu nombre' }}
-//         options={{ required: 'Este campo es requerido' }}
-//         form={form}
-//       />
-//               `)
-//             }
-//           >
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//         <div className="col-span-6">
-//           <InputField
-//             name="right_icon"
-//             label="Icono a la derecha"
-//             variant="outlined"
-//             className="mt-4"
-//             icon="Search"
-//             iconPosition="right"
-//             inputProps={{ placeholder: 'Ingresa tu nombre' }}
-//             options={{ required: 'Este campo es requerido' }}
-//             form={form}
-//           />
-//           <PdvButton
-//             className="ml-auto mt-4 block"
-//             onClick={() =>
-//               clipboard(`
-//      <InputField
-//         name='name'
-//         label='Nombre'
-//         variant='outlined'
-//         icon='Search'
-//         iconPosition='right'
-//         inputProps={{placeholder: 'Ingresa tu nombre' }}
-//         options={{ required: 'Este campo es requerido' }}
-//         form={form}
-//       />
-//               `)
-//             }
-//           >
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//       </div>
-
-//       <h4 className="mt-4 text-indigo-700">SelectField</h4>
-//       <SelectField
-//         name="options"
-//         label="Opciones"
-//         selectProps={{ className: 'w-full' }}
-//         options={{ required: 'Este campo es requerido' }}
-//         form={form}
-//         selectOptions={[
-//           { value: 'option1', label: 'Optción 1' },
-//           { value: 'option2', label: 'Optción 2' },
-//           { value: 'option3', label: 'Optción 3' }
-//         ]}
-//       />
-//       <PdvButton
-//         className="ml-auto mt-4 block"
-//         onClick={() =>
-//           clipboard(`
-//     <SelectField
-//         name='options'
-//         label='Opciones'
-//         selectProps={{ className: 'w-full' }}
-//         options={{ required: 'Este campo es requerido' }}
-//         form={form}
-//         selectOptions={[
-//           { value: 'option1', label: 'Optción 1' },
-//           { value: 'option2', label: 'Optción 2' },
-//           { value: 'option3', label: 'Optción 3' },
-//         ]}
-//       />
-//       `)
-//         }
-//       >
-//         Copiar código
-//       </PdvButton>
-//     </ComponentWrapper>
-//   )
-// }
-
 // export function IconsView() {
 //   const { clipboard } = useCopyToClipboard()
 //   const form = useForm()
@@ -730,10 +441,10 @@ export default UiPageComponents
 //             <div
 //               key={name + index}
 //               className="col-span-2 mb-4 cursor-pointer rounded-2xl border border-gray-400 text-center"
-//               onClick={() => clipboard(`<PdvIcons name='${name}' />`)}
+//               onClick={() => clipboard(`<PdvIcon name='${name}' />`)}
 //             >
 //               <div className={'flex h-16 items-center justify-center'}>
-//                 <PdvIcons name={name} color="gray-300" />
+//                 <PdvIcon name={name} color="gray-300" />
 //               </div>
 //               <p className={'mb-0 w-full truncate rounded-b-2xl bg-green-600 p-3 text-white'} title={name}>
 //                 {name}
@@ -808,107 +519,6 @@ export default UiPageComponents
 //       <p className="body1 mt-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. body1</p>
 //       <p className="body2 mt-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. body2</p>
 //       <p className="microcopy mt-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. microcopy</p>
-//     </ComponentWrapper>
-//   )
-// }
-
-// export const PillBoxView = () => {
-//   const { clipboard } = useCopyToClipboard()
-
-//   return (
-//     <ComponentWrapper title={'Pill Box'}>
-//       <pre className="whitespace-pre-wrap border p-4">
-//         {`   Propiedades del componente:
-
-//       type TPillBox = {
-//         className?: string
-//         borderType?: 'rounded' | 'rounded-full'
-//         bgColor?: TColors
-//         titleColor?: TColors
-//         size?:  'small' | 'medium' |'large'
-//       }
-//         `}
-//       </pre>
-//       <div className="grid grid-cols-12 gap-8">
-//         <div className="col-span-4">
-//           {/* --------------------------------------------------------------------------------- */}
-//           <h4 className="mt-8 mb-2 text-indigo-700">borderType=rounded size=small con titulo en string</h4>
-//           <PillBox size="small" bgColor="indigo-700" borderType="rounded" titleColor="gray-25">
-//             Abril
-//           </PillBox>
-
-//           <PdvButton
-//             className="ml-auto mt-4 block"
-//             onClick={() => clipboard(`<PillBox size='small' bgColor='indigo-700' borderType='rounded' titleColor='gray-25'>Título</PillBox>`)}
-//           >
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//         {/* --------------------------------------------------------------------------------- */}
-//         <div className="col-span-4">
-//           <h4 className="mt-8 mb-2 text-indigo-700">size=medium (Default size) con titulo en string</h4>
-//           <PillBox className="mt-2" bgColor="green-300" titleColor="blue-900">
-//             Abril
-//           </PillBox>
-
-//           <PdvButton className="ml-auto mt-4 block" onClick={() => clipboard(`<PillBox bgColor='green-300' titleColor='blue-900'>Título</PillBox>`)}>
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//         {/* --------------------------------------------------------------------------------- */}
-//         <div className="col-span-4">
-//           <h4 className="mt-8 mb-2 text-indigo-700">borderType=rounded-full size=large con titulo en string</h4>
-//           <PillBox className="mt-2" size="large" bgColor="teal-500" borderType="rounded-full" titleColor="white">
-//             Marzo
-//           </PillBox>
-
-//           <PdvButton
-//             className="ml-auto mt-4 block"
-//             onClick={() => clipboard(`<PillBox size='large' bgColor='teal-500' borderType='rounded-full' titleColor='white'>Título</PillBox>`)}
-//           >
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//         {/* --------------------------------------------------------------------------------- */}
-//         <div className="col-span-4">
-//           <h4 className="mt-8 mb-2 text-indigo-700">borderType=rounded size=small con icono en React element</h4>
-//           <PillBox className="mt-2" size="small" bgColor="red-500" borderType="rounded">
-//             <PdvIcons className="pt-1" color="white" size="medium" name="Upload" />
-//           </PillBox>
-
-//           <PdvButton
-//             className="ml-auto mt-4 block"
-//             onClick={() => clipboard(`<PillBox size='small' bgColor='red-500' borderType='rounded'></PillBox>`)}
-//           >
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//         {/* --------------------------------------------------------------------------------- */}
-//         <div className="col-span-4">
-//           <h4 className="mt-8 mb-2 text-indigo-700">borderType=rounded-full size=large con titulo en React element</h4>
-//           <PillBox className="mt-2" size="large" bgColor="orange-300" borderType="rounded-full">
-//             <p className="text-white">Título</p>
-//           </PillBox>
-
-//           <PdvButton
-//             className="ml-auto mt-4 block"
-//             onClick={() => clipboard(`<PillBox  size='large' bgColor='orange-300' borderType='rounded-full'></PillBox>`)}
-//           >
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//         {/* --------------------------------------------------------------------------------- */}
-//         <div className="col-span-4">
-//           <h4 className="mt-8 mb-2 text-indigo-700">borderType=rounded-full con titulo en React element</h4>
-//           <PillBox className="mt-2" bgColor="rose-400" borderType="rounded-full">
-//             <p className="text-white">Título</p>
-//           </PillBox>
-
-//           <PdvButton className="ml-auto mt-4 block" onClick={() => clipboard(`<PillBox bgColor='rose-400' borderType='rounded-full'></PillBox>`)}>
-//             Copiar código
-//           </PdvButton>
-//         </div>
-//       </div>
 //     </ComponentWrapper>
 //   )
 // }

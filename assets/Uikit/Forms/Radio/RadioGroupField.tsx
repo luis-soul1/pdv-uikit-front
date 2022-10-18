@@ -8,7 +8,6 @@ import { TColors } from '@Uikit/Colors/TColors'
 type TRadioGroupField<TFormValues extends FieldValues> = {
   name: Path<TFormValues>
   form: UseFormReturn<TFormValues>
-  defaultValue: string
   options?: RegisterOptions
   radioOptions: TRadio[]
   divider?: boolean
@@ -25,9 +24,9 @@ export type TRadio = {
 export const RadioGroupField = <TFormValues extends FieldValues>(props: TRadioGroupField<TFormValues>) => {
   const { alignment = 'vertical' } = props
   const customRadioStyle = {
-    color: `var(--${props?.color ?? 'teal-600'})`,
+    color: `var(--${props?.color ?? 'primary-color'})`,
     '&.Mui-checked': {
-      color: `var(--${props?.color ?? 'teal-600'})`
+      color: `var(--${props?.color ?? 'primary-color'})`
     }
   }
 
@@ -49,25 +48,21 @@ export const RadioGroupField = <TFormValues extends FieldValues>(props: TRadioGr
               <Fragment key={option.value}>
                 <FormControlLabel
                   value={option.value}
+                  sx={{ '& .MuiTypography-body1': { fontFamily: 'var(--primary-font)' } }}
                   label={
-                    typeof option.label === 'string' ? (
-                      <label
-                        className={`subtitle1 pointer-events-none`}
-                        style={{
-                          color: `var(--${props?.textColor ?? 'gray-500'})`
-                        }}
-                      >
-                        {option.label}
-                      </label>
-                    ) : (
-                      <span className="pointer-events-none">{option.label}</span>
-                    )
+                    <label
+                      className={`pointer-events-none`}
+                      style={{
+                        color: `var(--${props?.textColor ?? 'gray-500'})`
+                      }}
+                    >
+                      {option.label}
+                    </label>
                   }
                   name={props.name}
                   control={<Radio sx={customRadioStyle} />}
                 />
-
-                {props.divider && <Divider className="b-gray-100 my-1.5" />}
+                {props.divider && <Divider className="my-1.5 bg-gray-100" />}
               </Fragment>
             ))}
           </RadioGroup>
