@@ -6,7 +6,7 @@ import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvGalleryApi from 'components/PdvGalleries/PdvGalleryApi'
 import PdvGalleryList from 'components/PdvGalleries/PdvGalleryList'
 
-const PdvGaleries: NextPage = () => {
+const PdvGalleries: NextPage = () => {
   return (
     <ComponentWrapper title={'PdvGallery'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
@@ -21,4 +21,4 @@ const PdvGaleries: NextPage = () => {
   )
 }
 
-export default PdvGaleries
+export default PdvGalleries

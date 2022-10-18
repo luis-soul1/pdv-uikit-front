@@ -3,11 +3,17 @@ import { FC } from 'react'
 const PdvGalleryApi: FC = () => {
   return (
     <pre className="whitespace-pre-wrap border p-4">
-      {`Component props:
+      {`Propiedades del componente:
 
-  type TPdvGallery = {
-    Props de pdv gallery .................
-  }
+type TGallery = {
+  className?: string
+  vertical?: boolean
+  slidesToShow?: number
+  slidesToScroll?: number
+  speed?: number
+  swipe?: boolean
+  verticalSwiping?: boolean
+}
 `}
     </pre>
   )
