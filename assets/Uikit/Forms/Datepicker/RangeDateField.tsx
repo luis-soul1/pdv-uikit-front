@@ -19,7 +19,7 @@ const RangeDateField = <TFormValues extends FieldValues>(props: TRangeDateField<
       <DateField
         name={props.nameTo}
         form={props.form}
-        disabled={!props.form.watch(props.nameFrom)}
+        inputProps={{ disabled: !props.form.watch(props.nameFrom) }}
         minDate={props.form.watch(props.nameFrom)}
         className="w-36 justify-self-end"
         variant="transparent"
