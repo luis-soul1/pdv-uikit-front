@@ -10,7 +10,7 @@ import LabelField, { TLabelField } from '../Label/LabelField'
 
 type TDatepicker<TFormValues extends FieldValues> = {
   className?: string
-  viewType?: 'day' | 'month' | 'year'
+  viewType?: ('day' | 'month' | 'year')[]
   labelPosition?: 'left' | 'top'
   errorClassName?: string
   minDate?: Dayjs
@@ -23,7 +23,7 @@ type TDatepicker<TFormValues extends FieldValues> = {
   TLabelField
 
 const DateField = <TFormValues extends FieldValues>(props: TDatepicker<TFormValues>) => {
-  const { viewType = 'day', variant = 'outlined' } = props
+  const { viewType = ['day'], variant = 'outlined' } = props
   const selectedVariant = variant ? inputVariants[variant] : inputVariants.outlined
 
   return (
@@ -34,13 +34,14 @@ const DateField = <TFormValues extends FieldValues>(props: TDatepicker<TFormValu
         return (
           <DatePicker
             {...field}
-            views={[viewType]}
+            views={[...viewType]}
             shouldDisableYear={props?.shouldDisableYear}
             shouldDisableMonth={props?.shouldDisableMonth}
             shouldDisableDate={props?.shouldDisableDate}
             disabled={props?.inputProps?.disabled}
             minDate={props?.minDate}
             maxDate={props?.maxDate}
+            inputFormat="',' D  DD MMMM YYYY"
             components={{
               OpenPickerIcon: () => (
                 <PdvIcons name={props.icon ?? 'Calendar'} color={props?.inputProps?.disabled ? 'gray-200' : props.iconColor ?? 'primary-color'} />
@@ -61,7 +62,7 @@ const DateField = <TFormValues extends FieldValues>(props: TDatepicker<TFormValu
                           name={props.name}
                           form={props.form}
                           id={props.id}
-                          inputProps={{ ...inputProps, className: 'pl-0', disabled: props?.inputProps?.disabled }}
+                          inputProps={{ ...inputProps, ...props.inputProps, className: 'pl-0', disabled: props.inputProps?.disabled }}
                           variant="transparent"
                         />
                       </div>

@@ -7,27 +7,37 @@ import { TColors } from './Colors/TColors'
 
 export type PdvTooltipPlacements = TooltipProps['placement']
 
-type PdvTooltipProps = {
+type TPdvTooltip = {
   children: React.ReactElement
   title: string
-  placement: PdvTooltipPlacements
+  placement?: PdvTooltipPlacements
   textColor?: TColors
-  bgColor?: TColors
+  color?: TColors
   arrow?: boolean
+  open?: boolean
+
   onOpen?: (event: Event | React.SyntheticEvent<Element, Event>) => void
   onClose?: (event: Event | React.SyntheticEvent<Element, Event>) => void
-  open?: boolean
-}
-const PdvTooltip = (props: PdvTooltipProps) => {
-  const { textColor = 'indigo-500', bgColor = 'indigo-25', ...rest } = props
-  return <CustomTooltip {...rest} textColor={textColor} bgColor={bgColor} />
 }
 
-const CustomTooltip = styled(({ className, ...props }: TooltipProps & PdvTooltipProps) => <Tooltip {...props} classes={{ popper: className }} />, {
-  shouldForwardProp: (prop) => prop !== 'textColor' && prop !== 'bgColor'
-})(({ textColor, bgColor }) => ({
+const PdvTooltip = (props: TPdvTooltip) => {
+  const { textColor = 'white', color = 'primary-color', ...rest } = props
+
+  return <CustomTooltip {...rest} textColor={textColor} color={color} />
+}
+
+const CustomTooltip = styled(
+  ({ className, ...props }: TooltipProps & TPdvTooltip) => (
+    <Tooltip {...props} classes={{ popper: className }}>
+      <span>{props.children}</span>
+    </Tooltip>
+  ),
+  {
+    shouldForwardProp: (prop) => prop !== 'textColor' && prop !== 'color'
+  }
+)(({ textColor, color }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: `var(--${bgColor})`,
+    backgroundColor: `var(--${color})`,
     color: `var(--${textColor})`,
     boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;',
     fontSize: 12,
@@ -35,6 +45,9 @@ const CustomTooltip = styled(({ className, ...props }: TooltipProps & PdvTooltip
     textAlign: 'center',
     padding: 10,
     borderRadius: 10
+  },
+  [`& .${tooltipClasses.arrow}`]: {
+    color: `var(--${color})`
   }
 }))
 

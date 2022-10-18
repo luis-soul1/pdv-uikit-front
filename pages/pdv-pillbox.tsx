@@ -1,22 +1,22 @@
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
-import RadioGroupFieldApi from 'components/PdvRadioGroupFields/PdvRadioGroupFieldApi'
-import PdvRadioGroupFieldList from 'components/PdvRadioGroupFields/PdvRadioGroupFieldList'
+import PdvPillboxApi from 'components/PdvPillox/PdvPillboxApi'
+import PdvPillboxList from 'components/PdvPillox/PdvPillboxList'
 import { NextPage } from 'next'
 
-const PdvRadioGroupFields: NextPage = () => {
+const PdvPillbox: NextPage = () => {
   return (
-    <ComponentWrapper title={'Radio Group field'}>
+    <ComponentWrapper title={'PdvPillbox'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
-          <PdvRadioGroupFieldList />
+          <PdvPillboxList />
         </PdvTabs.Tab>
         <PdvTabs.Tab tabText="Api" tabKey="api-tab">
-          <RadioGroupFieldApi />
+          <PdvPillboxApi />
         </PdvTabs.Tab>
       </PdvTabs>
     </ComponentWrapper>
   )
 }
 
-export default PdvRadioGroupFields
+export default PdvPillbox

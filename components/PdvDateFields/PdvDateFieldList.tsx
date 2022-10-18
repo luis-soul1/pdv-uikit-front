@@ -12,15 +12,15 @@ const PdvDateFieldList: FC = () => {
     <div className="border border-black p-4">
       <h1 className="text-black">Variants</h1>
       <div className="grid grid-cols-12 items-center gap-4">
-        <DateField name="outlined_variant" label="Outlined variant" className="col-span-4" form={form} />
+        <DateField name="outlined_variant" label="Outlined variant" className="col-span-4" form={form} inputProps={{ placeholder: 'Placeholder' }} />
         <DateField name="default_variant" variant="default" label="Default variant" className="col-span-4" form={form} />
         <DateField name="transparent_variant" variant="transparent" label="Transparent variant" className="col-span-4" form={form} />
       </div>
 
       <h1 className="mt-6 text-black">Date modes</h1>
       <div className="grid grid-cols-12 items-center gap-4">
-        <DateField name="disabled_year" label="Only year" viewType="year" className="col-span-4" form={form} shouldDisableYear={() => true} />
-        <DateField name="disabled_month" label="Only Month" viewType="month" className="col-span-4" form={form} />
+        <DateField name="disabled_year" label="Only year" viewType={['year']} className="col-span-4" form={form} />
+        <DateField name="disabled_month" label="Only Month" viewType={['month', 'year']} className="col-span-4" form={form} />
         <DateField name="disabled_date" label="Only day" className="col-span-4" form={form} />
       </div>
 

@@ -2,6 +2,17 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
+const InputList = [
+  { title: 'PdvButtons', href: '/pdv-buttons' },
+  { title: 'InputField', href: '/pdv-input-field' },
+  { title: 'AutocompleteField', href: '/pdv-autocomplete-field' },
+  { title: 'SelectField', href: '/pdv-select-field' },
+  { title: 'DateField', href: '/pdv-date-field' },
+  { title: 'TimeField', href: '/pdv-time-field' },
+  { title: 'RadioGroupField', href: '/pdv-radioGroup-field' },
+  { title: 'CheckboxField', href: '/pdv-checkbox-field' }
+]
+
 const NavigationList = [
   { title: 'PdvTabs', href: '/pdv-tabs' },
   { title: 'PdvPagination', href: '/pdv-pagination' }
@@ -12,17 +23,6 @@ const DataDiaplayList = [
   { title: 'PdvPillBox', href: '/pdv-pillbox' },
   { title: 'PdvTooltip', href: '/pdv-tooltip' },
   { title: 'PdvIcons', href: '/pdv-icons' }
-]
-
-const InputList = [
-  { title: 'PdvButtons', href: '/pdv-buttons' },
-  { title: 'InputField', href: '/pdv-input-field' },
-  { title: 'AutocompleteField', href: '/pdv-autocomplete-field' },
-  { title: 'SelectField', href: '/pdv-select-field' },
-  { title: 'DateField', href: '/pdv-date-field' },
-  { title: 'TimeField', href: '/pdv-time-field' },
-  { title: 'RadioGroupField', href: '/pdv-radioGroup-field' },
-  { title: 'CheckboxField', href: '/pdv-checkbox-field' }
 ]
 
 const FeedbackList = [
