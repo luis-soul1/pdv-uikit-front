@@ -3,12 +3,14 @@ import { TColors } from './Colors/TColors'
 type TPdvPillBox = {
   className?: string
   borderType?: 'rounded' | 'rounded-md' | 'rounded-full'
-  bgColor?: TColors
-  titleColor?: TColors
+  color?: TColors
+  textColor?: TColors
   size?: 'micro' | 'small' | 'medium' | 'large'
   onClick?: () => void
 }
 const PdvPillBox: React.FC<TPdvPillBox> = (props) => {
+  const { color = 'primary-color', borderType = 'rounded' } = props
+
   const setSize = () => {
     if (props.size === 'micro') return 'py-px'
     if (props.size === 'small') return 'py-0.5'
@@ -18,12 +20,12 @@ const PdvPillBox: React.FC<TPdvPillBox> = (props) => {
 
   return (
     <div
-      className={`${props.borderType ?? 'rounded'} ${setSize()} ${props.className} ${props.bgColor === 'white' ? 'text-black' : 'text-white'} `}
-      style={{ display: 'inline-block', backgroundColor: `var(--${props.bgColor ?? 'indigo-700'})`, paddingLeft: '1rem', paddingRight: '1rem' }}
+      className={`${borderType} ${setSize()} ${props.className} ${props.color === 'white' ? 'text-black' : 'text-white'} `}
+      style={{ display: 'inline-block', backgroundColor: `var(--${color})`, paddingLeft: '1rem', paddingRight: '1rem' }}
       onClick={props.onClick}
     >
       {typeof props.children === 'string' ? (
-        <p className="subtitle2" style={{ color: `var(--${props.titleColor ?? 'white'})` }}>
+        <p className="subtitle2" style={{ color: `var(--${props.textColor ?? 'white'})` }}>
           {props.children}
         </p>
       ) : (

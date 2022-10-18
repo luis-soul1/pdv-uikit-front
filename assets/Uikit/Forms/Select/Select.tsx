@@ -3,7 +3,7 @@ import MenuItem from '@mui/material/MenuItem'
 import MuiSelect, { SelectChangeEvent } from '@mui/material/Select'
 import { Controller, FieldValues, Path, RegisterOptions, UseFormReturn } from 'react-hook-form'
 
-import { PdvIcons } from '@Uikit/Icons/PdvIcons'
+import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 
 export type TSelectProps<TSelectOptions, TFormValues extends FieldValues> = {
   name: Path<TFormValues>
@@ -124,7 +124,7 @@ const Select = <TSelectOptions, TFormValues extends FieldValues>(props: TSelectP
                   >
                     {option[props.optionLabel]}
                     {value && String(value).indexOf(String(option[props.optionValue])) !== -1 && (
-                      <PdvIcons className="ml-4" name="TickSquare" color="primary-color" />
+                      <PdvIcon className="ml-4" name="TickSquare" color="primary-color" />
                     )}
                   </MenuItem>
                 )

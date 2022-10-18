@@ -5,7 +5,7 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp'
 import { Collapse } from '@mui/material'
 
 import { TColors } from './Colors/TColors'
-import { PdvIcons } from './Icons/PdvIcons'
+import { PdvIcon } from './Icons/PdvIcon'
 import { TIconNames } from './Icons/TIconNames'
 
 type TPdvSimpleAccordion = {
@@ -25,7 +25,7 @@ const PdvSimpleAccordion: FunctionComponent<TPdvSimpleAccordion> = (props) => {
 
   const setIcon = () => {
     if (!props.icon) return null
-    if (typeof props.icon === 'string') return <PdvIcons name={props.icon ?? 'Document'} color={props.iconColor ?? 'white'} className="mr-2" />
+    if (typeof props.icon === 'string') return <PdvIcon name={props.icon ?? 'Document'} color={props.iconColor ?? 'white'} className="mr-2" />
     return props.icon
   }
 

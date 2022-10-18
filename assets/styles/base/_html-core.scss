@@ -70,6 +70,10 @@ regular => font-normal
 light = font-light
 */
 
+.primary-font {
+  font-family: var(--primary-font) !important;
+}
+
 h1,
 .h1 {
   font-size: 30px;

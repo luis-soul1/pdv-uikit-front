@@ -1,7 +1,7 @@
 import CheckIcon from '@mui/icons-material/Check'
 import CloseIcon from '@mui/icons-material/Close'
 
-import { PdvIcons } from '@Uikit/Icons/PdvIcons'
+import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 import { TIconNames } from '@Uikit/Icons/TIconNames'
 import PdvButton from '@Uikit/PdvButton'
 import { PdvModal, PdvModalFooter } from '@Uikit/PdvModal'
@@ -42,7 +42,7 @@ const AreYouSureModal: React.FC<TAreYouSure> = (props) => {
       }
     >
       <div className="flex flex-col justify-center py-4" style={{ width: 400 }}>
-        {props.iconName && <PdvIcons className="mx-auto mb-4 block" name={props.iconName} color="red-600" size={65} />}
+        {props.iconName && <PdvIcon className="mx-auto mb-4 block" name={props.iconName} color="red-600" size={65} />}
 
         {props.children}
       </div>

@@ -1,7 +1,7 @@
 import { TimePicker } from '@mui/x-date-pickers'
 import { Controller, FieldValues } from 'react-hook-form'
 
-import { PdvIcons } from '@Uikit/Icons/PdvIcons'
+import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 
 import FormError from '../Error/FormError'
 import Input, { disabledStyles, inputVariants, TInput } from '../Input/Input'
@@ -28,7 +28,7 @@ const TimeField = <TFormValues extends FieldValues>(props: TTimepicker<TFormValu
             {...field}
             disabled={props?.inputProps?.disabled}
             components={{
-              OpenPickerIcon: () => <PdvIcons name="TimeCircle" color={props?.inputProps?.disabled ? 'gray-200' : iconColor} />
+              OpenPickerIcon: () => <PdvIcon name="TimeCircle" color={props?.inputProps?.disabled ? 'gray-200' : iconColor} />
             }}
             renderInput={({ inputRef, inputProps, InputProps }) => {
               return (

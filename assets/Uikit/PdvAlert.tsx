@@ -1,5 +1,5 @@
 import { TColors } from './Colors/TColors'
-import { PdvIcons } from './Icons/PdvIcons'
+import { PdvIcon } from './Icons/PdvIcon'
 import { TIconNames } from './Icons/TIconNames'
 
 type TPdvAlert = {
@@ -32,7 +32,7 @@ const PdvAlert: React.FC<TPdvAlert> = (props) => {
 
   return (
     <div className={`flex rounded-md px-4 ${props.className} ${setHeight()}`} style={{ backgroundColor: setBgColor() }}>
-      {props.showIcon && <PdvIcons className="pr-3" color={setIcon().color} size="medium" name={setIcon().name} />}
+      {props.showIcon && <PdvIcon className="pr-3" color={setIcon().color} size="medium" name={setIcon().name} />}
       {typeof props.children === 'string' ? (
         <h6 className="font-normal" style={{ color: `var(--${setIcon().color})` }}>
           {props.children}
