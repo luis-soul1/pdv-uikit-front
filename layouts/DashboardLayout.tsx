@@ -53,7 +53,7 @@ const DashboardLayout: FC = (props) => {
         <h4>UIKIT</h4>
       </div>
       <hr />
-      <div className="mt-8 grid grid-cols-[170px_1fr]" style={{ height: 'calc(100vh - 100px)' }}>
+      <div className="mt-8 grid grid-cols-[200px_1fr]" style={{ height: 'calc(100vh - 100px)' }}>
         <div className="overflow-auto border-r border-gray-200" style={{ height: 'calc(100vh - 100px)' }}>
           <h5 className="my-2">Input</h5>
           {InputList.map((option) => {

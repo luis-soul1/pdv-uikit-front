@@ -1,7 +1,6 @@
 import { forwardRef } from 'react'
 
 import MuiInput from '@mui/material/Input'
-import { InputBaseComponentProps } from '@mui/material/InputBase'
 import { Controller, ControllerRenderProps, FieldValues, Path, RegisterOptions, UseFormReturn } from 'react-hook-form'
 
 import { TColors } from '@Uikit/Colors/TColors'
@@ -16,7 +15,7 @@ export type TBaseInput = {
   icon?: TIconNames
   iconColor?: TColors
   iconPosition?: 'left' | 'right'
-  inputProps?: InputBaseComponentProps
+  inputProps?: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
   controlFields?: ControllerRenderProps<Record<string, string>, string>
   value?: string
 }
