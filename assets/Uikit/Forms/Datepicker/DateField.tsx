@@ -41,7 +41,6 @@ const DateField = <TFormValues extends FieldValues>(props: TDatepicker<TFormValu
             disabled={props?.inputProps?.disabled}
             minDate={props?.minDate}
             maxDate={props?.maxDate}
-            inputFormat="',' D  DD MMMM YYYY"
             components={{
               OpenPickerIcon: () => (
                 <PdvIcon name={props.icon ?? 'Calendar'} color={props?.inputProps?.disabled ? 'gray-200' : props.iconColor ?? 'primary-color'} />
