@@ -15,21 +15,26 @@ type TPdvModal = {
   headerColor?: TColors
   footer?: React.ReactElement
   noContainerSpacing?: boolean
-  onClose?: () => void // Se ejecuta cuando se hace click fuera del modal
-  onSubmit?: () => void //Enento para formularios. Se ejecuta cuando usas un boton type='submit' dentro del children del modal
+  noHeader?: boolean
+  onClose?: () => void
 }
-
 type TPdvModalFooter = {
+  Footer: React.FC<TFooter>
+}
+type TFooter = {
   className?: string
 }
 
 const CustomDialog = styled(Dialog)(() => ({
-  '& .css-hppdow': { borderRadius: '1.5rem' },
-  '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' },
-  '& .css-22jxwj-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' },
-  '& .css-12rl710-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' },
-  '& .css-1fu2e3p-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' },
-  '& .css-2rbg70-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' }
+  '& .css-uhb5lp': { borderRadius: '1rem' },
+  '& .css-1qmc5dd': { borderRadius: '1rem' },
+  '& .css-18i3v7t': { borderRadius: '1rem' },
+  '& .css-hppdow': { borderRadius: '1rem' },
+  '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' },
+  '& .css-22jxwj-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' },
+  '& .css-12rl710-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' },
+  '& .css-1fu2e3p-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' },
+  '& .css-2rbg70-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' }
 }))
 
 const Transition = React.forwardRef(function Transition(
@@ -41,10 +46,9 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />
 })
 
-export const PdvModal: React.FC<TPdvModal> = (props) => {
+const PdvModal: React.FC<TPdvModal> & TPdvModalFooter = (props) => {
   const fullScreenStyles = props.fullScreen ? '' : 'rounded-t-3xl'
-  const modalPadding = props.noContainerSpacing ? '' : 'md:px-6 px-4 md:py-6 py-4'
-
+  const modalPadding = props.noContainerSpacing ? '' : 'md:px-6 px-4 md:pt-6 pt-4'
   return (
     <CustomDialog
       open={props.open}
@@ -55,32 +59,27 @@ export const PdvModal: React.FC<TPdvModal> = (props) => {
       sx={{ maxHeight: '95vh', overflow: 'hidden' }}
       onClose={props.onClose}
     >
-      <div
-        className={`flex h-16 items-center px-4 py-3 md:px-6 ${fullScreenStyles}`}
-        style={{ backgroundColor: `var(--${props.headerColor ?? 'indigo-700'})` }}
-      >
-        <h5 className="text-white">{props.title}</h5>
-      </div>
-      {props.onSubmit ? (
-        <form onSubmit={props.onSubmit}>
-          <div className={`no-mobile-scroll-bar h-full overflow-y-auto overflow-x-hidden ${modalPadding}`}>{props.children}</div>
-          {props.footer && <div className={modalPadding}>{props.footer}</div>}
-        </form>
-      ) : (
-        <>
-          <div className={`no-mobile-scroll-bar h-full overflow-y-auto overflow-x-hidden ${modalPadding}`}>{props.children}</div>
-          {props.footer && <div className={modalPadding}>{props.footer}</div>}
-        </>
+      {!props.noHeader && (
+        <div
+          className={`flex h-16 items-center px-4 py-3 md:px-6 ${fullScreenStyles}`}
+          style={{ backgroundColor: `var(--${props.headerColor ?? 'blue-500'})` }}
+        >
+          <h5 className="subtitle1 text-white">{props.title}</h5>
+        </div>
       )}
+
+      <div className={`no-mobile-scroll-bar h-full overflow-y-auto overflow-x-hidden ${modalPadding}`}>{props.children}</div>
+      {props.footer && <div className={modalPadding}>{props.footer}</div>}
     </CustomDialog>
   )
 }
-
-export const PdvModalFooter: React.FC<TPdvModalFooter> = (props) => {
+export const Footer: React.FC<TFooter> = (props) => {
   return (
-    <div>
+    <div className="sticky bottom-0 w-full bg-white py-5">
       <Divider className="mb-4" />
       <div className={`${props.className}`}>{props.children}</div>
     </div>
   )
 }
+PdvModal.Footer = Footer
+export default PdvModal

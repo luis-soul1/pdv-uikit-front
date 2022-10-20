@@ -20,6 +20,7 @@ type TPdvDatatable<T> = {
     page: number
     onChange: (event: React.ChangeEvent<unknown>, value: number) => void
   }
+  paginationColor?: TColors
   limit?: number
   expandedRows?: TExpandedRows<T>
   headerColor?: TColors
@@ -52,7 +53,7 @@ const cleanString = (str: string) => {
 }
 
 const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
-  const { defaultPagination = true } = props
+  const { defaultPagination = true, headerColor = 'primary-color', paginationColor = 'primary-color' } = props
   const pagination = usePdvPagination()
   const defaultFilterInputValues = props.columns.reduce((acc, item) => (item.filterable ? { ...acc, [item.dataIndex]: '' } : { ...acc }), {})
 
@@ -67,7 +68,6 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
 
   const isFilterableColumns = props.columns.some((column) => column.filterable || column.customFilter !== undefined)
 
-  const headerColor: string = props.headerColor ? `${props.headerColor}` : 'purple-250'
   const setBgColor = (index: number) => ((index + 1) % 2 === 0 ? 'bg-gray-25 border-y border-gray-100 ' : '')
 
   const onChangePage = props?.pagination?.onChange !== undefined ? props.pagination.onChange : pagination.onChange
@@ -175,6 +175,7 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
             count={calculateTotalPages(props.pagination.count)}
             page={props.pagination.page}
             onChange={(_, page: number) => onChangePage(_, page)}
+            color={paginationColor}
           />
         </>
       )}

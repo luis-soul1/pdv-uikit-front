@@ -1,7 +1,5 @@
-import { FunctionComponent, ReactElement, useState } from 'react'
+import { FC, ReactElement, useState } from 'react'
 
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp'
 import { Collapse } from '@mui/material'
 
 import { TColors } from './Colors/TColors'
@@ -11,35 +9,31 @@ import { TIconNames } from './Icons/TIconNames'
 type TPdvSimpleAccordion = {
   className?: string
   header?: string | ReactElement
-  icon?: TIconNames | ReactElement
+  icon?: TIconNames
   iconColor?: TColors
   size?: 'small' | 'large'
   color?: TColors
   isOpen?: boolean
+  disabled?: boolean
 }
 
-const PdvSimpleAccordion: FunctionComponent<TPdvSimpleAccordion> = (props) => {
+const PdvSimpleAccordion: FC<TPdvSimpleAccordion> = (props) => {
+  const { color = 'primary-color', iconColor = 'white', size = 'small' } = props
   const [openAccordion, setOpenAccordion] = useState<boolean>(props.isOpen ?? false)
   const iconStyle = 'col-span-1 text-white justify-self-end self-center'
-  const collapsedStyle = ` ${openAccordion ? 'rounded-t-md' : 'rounded-md'} ${props.size?.includes('large') ? 'h-14' : 'h-12'}`
-
-  const setIcon = () => {
-    if (!props.icon) return null
-    if (typeof props.icon === 'string') return <PdvIcon name={props.icon ?? 'Document'} color={props.iconColor ?? 'white'} className="mr-2" />
-    return props.icon
-  }
+  const collapsedStyle = ` ${props.isOpen || openAccordion ? 'rounded-t-md' : 'rounded-md'} ${size === 'large' ? 'min-h-[56px]' : 'min-h-[48px]'}`
 
   return (
     <div className={`w-full ${props.className}`}>
       <div
-        className={`grid cursor-pointer grid-cols-12 px-2 md:px-4 ${collapsedStyle}`}
-        style={{ backgroundColor: `var(--${props.color ?? 'indigo-700'})` }}
-        onClick={() => setOpenAccordion((prev: boolean) => !prev)}
+        className={`grid grid-cols-12 px-2 md:px-4 ${props?.disabled ? 'cursor-not-allowed' : 'cursor-pointer'} ${collapsedStyle}`}
+        style={{ backgroundColor: `var(--${color})` }}
+        onClick={() => !props?.disabled && setOpenAccordion((prev: boolean) => !prev)}
       >
         <div className="col-span-11 flex items-center text-white">
           {typeof props.header === 'string' ? (
             <div className="flex h-full items-center">
-              {setIcon()}
+              {props.icon && <PdvIcon name={props.icon ?? 'Document'} color={iconColor} className="mr-2" />}
               <p className="subtitle1 text-white">{props.header}</p>
             </div>
           ) : (
@@ -47,9 +41,9 @@ const PdvSimpleAccordion: FunctionComponent<TPdvSimpleAccordion> = (props) => {
           )}
         </div>
 
-        {openAccordion ? <ArrowDropUpIcon className={iconStyle} /> : <ArrowDropDownIcon className={iconStyle} />}
+        <PdvIcon name={openAccordion ? 'KeyArrowUpFill' : 'KeyArrowDownFill'} className={iconStyle} />
       </div>
-      <Collapse in={openAccordion}>{props.children}</Collapse>
+      <Collapse in={props.isOpen ?? openAccordion}>{props.children}</Collapse>
     </div>
   )
 }

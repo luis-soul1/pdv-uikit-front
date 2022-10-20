@@ -2,22 +2,22 @@ import { NextPage } from 'next'
 
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
-import PdvModalApi from 'components/PdvModals/PdvModalApi'
-import PdvModalList from 'components/PdvModals/PdvModalList'
+import PdvAlertApi from 'components/PdvAlerts/PdvAlertApi'
+import PdvAlertList from 'components/PdvAlerts/PdvAlertList'
 
-const PdvModals: NextPage = () => {
+const PdvAlerts: NextPage = () => {
   return (
-    <ComponentWrapper title={'PdvModal'}>
+    <ComponentWrapper title={'Pdv Alert'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
-          <PdvModalList />
+          <PdvAlertList />
         </PdvTabs.Tab>
         <PdvTabs.Tab tabText="Api" tabKey="api-tab">
-          <PdvModalApi />
+          <PdvAlertApi />
         </PdvTabs.Tab>
       </PdvTabs>
     </ComponentWrapper>
   )
 }
 
-export default PdvModals
+export default PdvAlerts

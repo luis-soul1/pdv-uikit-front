@@ -1,23 +1,23 @@
-import { NextPage } from 'next'
+import { FC } from 'react'
 
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
-import PdvModalApi from 'components/PdvModals/PdvModalApi'
-import PdvModalList from 'components/PdvModals/PdvModalList'
+import PdvCardContainerApi from 'components/PdvCardContainers/PdvCardContainerApi'
+import PdvCardContainerList from 'components/PdvCardContainers/PdvCardContainerList'
 
-const PdvModals: NextPage = () => {
+const PdvCardContainer: FC = () => {
   return (
-    <ComponentWrapper title={'PdvModal'}>
+    <ComponentWrapper title={'Input field'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
-          <PdvModalList />
+          <PdvCardContainerList />
         </PdvTabs.Tab>
         <PdvTabs.Tab tabText="Api" tabKey="api-tab">
-          <PdvModalApi />
+          <PdvCardContainerApi />
         </PdvTabs.Tab>
       </PdvTabs>
     </ComponentWrapper>
   )
 }
 
-export default PdvModals
+export default PdvCardContainer

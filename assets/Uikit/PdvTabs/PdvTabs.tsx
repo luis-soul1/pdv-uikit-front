@@ -124,8 +124,8 @@ const TooltipWrapper = (props: TooltipWrapperProps) => {
   if (!props.text) return <>{props.children}</>
 
   return (
-    <PdvTooltip title={props.text} placement={placement} bgColor="blue-100" textColor="blue-500">
-      <span>{props.children}</span>
+    <PdvTooltip title={props.text} placement={placement} color="white" textColor="gray-500">
+      <span className="subtitle2">{props.children}</span>
     </PdvTooltip>
   )
 }

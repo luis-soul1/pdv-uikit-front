@@ -32,7 +32,7 @@ const FeedbackList = [
 
 const SurfacesList = [
   { title: 'PdvSimpleAccordion', href: '/pdv-simple-accordion' },
-  { title: 'PdvMultipleAccordion', href: '/pdv-multiple-alert' }
+  { title: 'PdvMultipleAccordion', href: '/pdv-multiple-accordion' }
 ]
 
 const customList = [
@@ -42,7 +42,11 @@ const customList = [
   { title: 'PdvProgressBar', href: '/pdv-progress-bar' }
 ]
 
-const typographyList = [{ title: 'PdvTypography', href: '/pdv-typography' }]
+const assetsList = [
+  { title: 'PdvTypography', href: '/pdv-typography' },
+  { title: 'PdvColors', href: '/pdv-colors' },
+  { title: 'PdvCardContainer', href: '/pdv-card-container' }
+]
 
 const DashboardLayout: FC = (props) => {
   const { pathname } = useRouter()
@@ -141,8 +145,8 @@ const DashboardLayout: FC = (props) => {
             )
           })}
 
-          <h5 className="my-2">Typography</h5>
-          {typographyList.map((option) => {
+          <h5 className="my-2">Assets</h5>
+          {assetsList.map((option) => {
             return (
               <Link key={option.title} href={option.href} passHref>
                 <p
