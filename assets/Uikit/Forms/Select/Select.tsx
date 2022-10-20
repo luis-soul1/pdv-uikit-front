@@ -60,7 +60,9 @@ const Select = <TSelectOptions, TFormValues extends FieldValues>(props: TSelectP
   const selectedPillStyle = props.disabled ? 'bg-gray-300 text-white border-none cursor-not-allowed' : 'text-white'
   const borderColor = props.disabled ? 'gray-200' : 'gray-300'
   const variantStyle =
-    variant === 'outlined' ? { border: `1px solid var(--${borderColor})` } : { borderBottom: `1px solid var(--${borderColor})`, borderRadius: 0 }
+    variant === 'outlined'
+      ? { border: `1px solid var(--${borderColor})`, borderRadius: '0.5rem' }
+      : { borderBottom: `1px solid var(--${borderColor})`, borderRadius: 0 }
   const borderStyles = { borderColor: `var(--${props.disabled ? 'gray-200' : 'primary-color'})` }
 
   const sx = {
