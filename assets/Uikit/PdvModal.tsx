@@ -16,10 +16,13 @@ type TPdvModal = {
   footer?: React.ReactElement
   noContainerSpacing?: boolean
   onClose?: () => void // Se ejecuta cuando se hace click fuera del modal
-  onSubmit?: () => void //Enento para formularios. Se ejecuta cuando usas un boton type='submit' dentro del children del modal
 }
 
 type TPdvModalFooter = {
+  Footer: React.FC<TFooter>
+}
+
+type TFooter = {
   className?: string
 }
 
@@ -41,9 +44,9 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />
 })
 
-export const PdvModal: React.FC<TPdvModal> = (props) => {
+const PdvModal: React.FC<TPdvModal> & TPdvModalFooter = (props) => {
   const fullScreenStyles = props.fullScreen ? '' : 'rounded-t-3xl'
-  const modalPadding = props.noContainerSpacing ? '' : 'md:px-6 px-4 md:py-6 py-4'
+  const modalPadding = props.noContainerSpacing ? '' : 'md:px-6 px-4 md:pt-6 pt-4'
 
   return (
     <CustomDialog
@@ -57,30 +60,26 @@ export const PdvModal: React.FC<TPdvModal> = (props) => {
     >
       <div
         className={`flex h-16 items-center px-4 py-3 md:px-6 ${fullScreenStyles}`}
-        style={{ backgroundColor: `var(--${props.headerColor ?? 'indigo-700'})` }}
+        style={{ backgroundColor: `var(--${props.headerColor ?? 'blue-500'})` }}
       >
-        <h5 className="text-white">{props.title}</h5>
+        <h5 className="subtitle1 text-white">{props.title}</h5>
       </div>
-      {props.onSubmit ? (
-        <form onSubmit={props.onSubmit}>
-          <div className={`no-mobile-scroll-bar h-full overflow-y-auto overflow-x-hidden ${modalPadding}`}>{props.children}</div>
-          {props.footer && <div className={modalPadding}>{props.footer}</div>}
-        </form>
-      ) : (
-        <>
-          <div className={`no-mobile-scroll-bar h-full overflow-y-auto overflow-x-hidden ${modalPadding}`}>{props.children}</div>
-          {props.footer && <div className={modalPadding}>{props.footer}</div>}
-        </>
-      )}
+
+      <div className={`no-mobile-scroll-bar h-full overflow-y-auto overflow-x-hidden ${modalPadding}`}>{props.children}</div>
+      {props.footer && <div className={modalPadding}>{props.footer}</div>}
     </CustomDialog>
   )
 }
 
-export const PdvModalFooter: React.FC<TPdvModalFooter> = (props) => {
+export const Footer: React.FC<TFooter> = (props) => {
   return (
-    <div>
+    <div className="sticky bottom-0 w-full bg-white py-5">
       <Divider className="mb-4" />
       <div className={`${props.className}`}>{props.children}</div>
     </div>
   )
 }
+
+PdvModal.Footer = Footer
+
+export default PdvModal
