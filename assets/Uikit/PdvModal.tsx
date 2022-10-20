@@ -11,7 +11,7 @@ type TPdvModal = {
   open: boolean
   title?: string
   fullScreen?: boolean
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
   headerColor?: TColors
   footer?: React.ReactElement
   noContainerSpacing?: boolean
@@ -47,8 +47,10 @@ const Transition = React.forwardRef(function Transition(
 })
 
 const PdvModal: React.FC<TPdvModal> & TPdvModalFooter = (props) => {
-  const fullScreenStyles = props.fullScreen ? '' : 'rounded-t-3xl'
+  const { headerColor = 'primary-color' } = props
+  const fullScreenStyles = props.fullScreen ? '' : 'rounded-t-[1rem]'
   const modalPadding = props.noContainerSpacing ? '' : 'md:px-6 px-4 md:pt-6 pt-4'
+
   return (
     <CustomDialog
       open={props.open}
@@ -56,14 +58,11 @@ const PdvModal: React.FC<TPdvModal> & TPdvModalFooter = (props) => {
       keepMounted
       maxWidth={props.size ?? 'sm'}
       fullScreen={props.fullScreen}
-      sx={{ maxHeight: '95vh', overflow: 'hidden' }}
+      sx={{ maxHeight: props.fullScreen ? '100vh' : '95vh', overflow: 'hidden' }}
       onClose={props.onClose}
     >
       {!props.noHeader && (
-        <div
-          className={`flex h-16 items-center px-4 py-3 md:px-6 ${fullScreenStyles}`}
-          style={{ backgroundColor: `var(--${props.headerColor ?? 'blue-500'})` }}
-        >
+        <div className={`flex h-16 items-center px-4 py-3 md:px-6 ${fullScreenStyles}`} style={{ backgroundColor: `var(--${headerColor})` }}>
           <h5 className="subtitle1 text-white">{props.title}</h5>
         </div>
       )}
@@ -73,6 +72,7 @@ const PdvModal: React.FC<TPdvModal> & TPdvModalFooter = (props) => {
     </CustomDialog>
   )
 }
+
 export const Footer: React.FC<TFooter> = (props) => {
   return (
     <div className="sticky bottom-0 w-full bg-white py-5">

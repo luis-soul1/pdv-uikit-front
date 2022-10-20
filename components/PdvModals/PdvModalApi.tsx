@@ -9,11 +9,12 @@ const PdvModalApi: FC = () => {
     open: boolean
     title?: string
     fullScreen?: boolean
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+    size?: 'xs' | 'sm' | 'md' | 'lg'
     headerColor?: TColors
     footer?: React.ReactElement
     noContainerSpacing?: boolean
-    onClose?: () => void // Se ejecuta cuando se hace click fuera del modal
+    noHeader?: boolean
+    onClose?: () => void
   }
 `}
     </pre>
