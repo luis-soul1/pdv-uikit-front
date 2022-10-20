@@ -57,7 +57,7 @@ const PdvSkeletonList: FC = () => {
       <h2 className="mt-4">Width and Height</h2>
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-4">
-          <h4 className="mt-4 mb-2">Circular (Default 40x40)</h4>
+          <h4 className="mt-4 mb-2">Circular (Default 30x30)</h4>
           <PdvSkeleton variant="circular" />
         </div>
 

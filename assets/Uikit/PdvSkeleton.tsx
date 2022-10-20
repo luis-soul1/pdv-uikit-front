@@ -14,7 +14,7 @@ const PdvSkeleton = (props: TPdvSkeleton) => {
   const randomPercentage = () => Math.floor(Math.random() * (100 - 60 + 1)) + 60
 
   const setWidth = (index: number) => {
-    if (variant !== 'text') return props?.width ?? 40
+    if (variant !== 'text') return props?.width ?? 30
     if (props?.width) return props?.width
 
     return (index + 1) % 2 === 0 ? randomPercentage() + '%' : '100%'
@@ -23,7 +23,7 @@ const PdvSkeleton = (props: TPdvSkeleton) => {
   return (
     <div className={props?.className ?? ''}>
       {Array.from({ length: rows }).map((_, index) => (
-        <Skeleton key={index} variant={variant} animation={animation} height={props?.height ?? 40} width={setWidth(index)} />
+        <Skeleton key={index} variant={variant} animation={animation} height={props?.height ?? 30} width={setWidth(index)} />
       ))}
     </div>
   )
