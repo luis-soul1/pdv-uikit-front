@@ -1,6 +1,7 @@
+import { FC } from 'react'
+
 import PdvButton from '@Uikit/PdvButton'
 import PdvTopHeaderCard from '@Uikit/PdvTopHeaderCard'
-import { FC } from 'react'
 
 const PdvTopHeaderCardList: FC = () => {
   return (

@@ -1,5 +1,6 @@
-import PdvProgressBar from '@Uikit/PdvProgressBar'
 import { FC } from 'react'
+
+import PdvProgressBar from '@Uikit/PdvProgressBar'
 
 const PdvProgressBarList: FC = () => {
   return (

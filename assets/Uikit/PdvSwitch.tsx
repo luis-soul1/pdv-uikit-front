@@ -63,11 +63,11 @@ const Switch: React.FC<TSwitchProps> = (props) => {
 
   return (
     <div className="flex items-center gap-4">
-      {textPosition === 'left' || (isBoth && <SwitchText position="left" />)}
+      {textPosition === 'left' && <SwitchText position="left" />}
 
       <MUISwitch focusVisibleClassName=".Mui-focusVisible" disableRipple {...restProps} checked={checked} onChange={onChange} />
 
-      {textPosition === 'right' || (isBoth && <SwitchText position="right" />)}
+      {textPosition === 'right' && <SwitchText position="right" />}
     </div>
   )
 }

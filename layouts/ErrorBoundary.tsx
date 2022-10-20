@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React, { Component, ErrorInfo, ReactNode } from 'react'
 
 import PdvButton from '@Uikit/PdvButton'
-import { PdvModal, PdvModalFooter } from '@Uikit/PdvModal'
+import PdvModal from '@Uikit/PdvModal'
 import error500 from 'assets/images/errors/error500.png'
 import { routes } from 'utils/routes'
 
@@ -35,21 +35,7 @@ class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <PdvModal
-          open={true}
-          size="xl"
-          title="Upss hubo un error"
-          footer={
-            <PdvModalFooter className="flex justify-end">
-              <PdvButton className="mr-2" size="small" onClick={() => this.setState({ hasError: false })}>
-                Volver a intentar
-              </PdvButton>
-              <PdvButton asLink href={routes.home} color="indigo-700" size="small" variant="outlined">
-                Ir al Home
-              </PdvButton>
-            </PdvModalFooter>
-          }
-        >
+        <PdvModal open={true} size="lg" title="Upss hubo un error">
           <div className="w-[900px]">
             <div className="mt-7">
               <Image src={error500} className="object-cover" alt="error500" />
@@ -57,6 +43,15 @@ class ErrorBoundary extends Component<Props, State> {
             <h5 className="text-center font-semibold">{'No esperábamos esto :('}</h5>
             <h5 className="mt-4 text-center font-normal">{`"${this.state.errorMessage}"`}</h5>
             <h5 className="mt-4 text-center font-normal">Pero no te preocupes. Intentalo nuevamente o puedes volver al Home.</h5>
+
+            <PdvModal.Footer className="flex justify-end">
+              <PdvButton className="mr-2" size="small" onClick={() => this.setState({ hasError: false })}>
+                Volver a intentar
+              </PdvButton>
+              <PdvButton asLink href={routes.home} color="indigo-700" size="small" variant="outlined">
+                Ir al Home
+              </PdvButton>
+            </PdvModal.Footer>
           </div>
         </PdvModal>
       )

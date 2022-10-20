@@ -22,7 +22,7 @@ const Error404 = () => {
             <div className="flex items-center justify-center pt-4">
               <form className="mb-4 bg-white pb-8">
                 <div className="flex flex-col items-start justify-center ">
-                  <PdvButton type="submit" asLink href={routes.home} theme="indigo-700" size="large" icon="ArrowLeft" className="w-64 py-2">
+                  <PdvButton type="submit" asLink href={routes.home} color="indigo-700" size="large" icon="ArrowLeft" className="w-64 py-2">
                     Volver al Home
                   </PdvButton>
                 </div>

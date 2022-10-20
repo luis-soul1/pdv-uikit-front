@@ -10,8 +10,6 @@ export interface ITeachingType {
   code: string
   name: string
   description: string | null
-  type_teaching_level_id?: unknown
-  TypesTeachingsCategories?: unknown
   active: boolean
 }
 
