@@ -13,7 +13,6 @@ type TPdvModal = {
   fullScreen?: boolean
   size?: 'xs' | 'sm' | 'md' | 'lg'
   headerColor?: TColors
-  footer?: React.ReactElement
   noContainerSpacing?: boolean
   noHeader?: boolean
   onClose?: () => void
@@ -70,7 +69,6 @@ const PdvModal: React.FC<TPdvModal> & TPdvModalFooter = (props) => {
       )}
 
       <div className={`no-mobile-scroll-bar h-full overflow-y-auto overflow-x-hidden ${modalPadding}`}>{props.children}</div>
-      {props.footer && <div className={modalPadding}>{props.footer}</div>}
     </CustomDialog>
   )
 }

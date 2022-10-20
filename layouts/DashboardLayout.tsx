@@ -4,6 +4,7 @@ import { FC } from 'react'
 
 const InputList = [
   { title: 'PdvButtons', href: '/pdv-buttons' },
+  { title: 'PdvDropdown', href: '/pdv-dropdown' },
   { title: 'InputField', href: '/pdv-input-field' },
   { title: 'AutocompleteField', href: '/pdv-autocomplete-field' },
   { title: 'SelectField', href: '/pdv-select-field' },
