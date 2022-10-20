@@ -88,7 +88,7 @@ type TTab = {
 
 const Tab: React.FC<TTab> = (props) => {
   const selectedVariant = props.isSelected ? 'contained' : 'default'
-  const selectedTheme = selectedVariant.includes('default') ? 'gray-500' : props.color
+  const selectedTheme = selectedVariant.includes('default') ? 'gray-500' : props.color ?? 'primary-color'
 
   return (
     <TooltipWrapper text={props.tooltip} placement={props.tooltipPlacement}>

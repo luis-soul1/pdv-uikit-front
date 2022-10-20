@@ -3,11 +3,14 @@ import MenuItem from '@mui/material/MenuItem'
 import MuiSelect, { SelectChangeEvent } from '@mui/material/Select'
 import { Controller, FieldValues, Path, RegisterOptions, UseFormReturn } from 'react-hook-form'
 
+import { TColors } from '@Uikit/Colors/TColors'
 import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 
 export type TSelectProps<TSelectOptions, TFormValues extends FieldValues> = {
   name: Path<TFormValues>
   form: UseFormReturn<TFormValues>
+  selectedColor?: TColors
+  iconSelectedColor?: TColors
   selectOptions: TSelectOptions[]
   optionLabel: keyof TSelectOptions
   optionValue: keyof TSelectOptions
@@ -32,7 +35,9 @@ const optionStyles = {
 }
 const sxSelectStyles = {
   width: '100%',
-  height: 44,
+  '.MuiSelect-select': {
+    padding: '10px 14px'
+  },
   '.MuiOutlinedInput-notchedOutline': {
     border: 0
   },
@@ -41,12 +46,18 @@ const sxSelectStyles = {
   },
   '&.MuiOutlinedInput-root': {
     outline: 'none'
+  },
+  '.&.MuiButtonBase-root-MuiMenuItem-root.Mui-selected': {
+    backgroundColor: 'var(--gray-200)'
+  },
+  '.&.MuiButtonBase-root-MuiMenuItem-root.Mui-selected:hover': {
+    backgroundColor: 'var(--gray-200)'
   }
 }
 
 const Select = <TSelectOptions, TFormValues extends FieldValues>(props: TSelectProps<TSelectOptions, TFormValues>) => {
-  const { variant = 'outlined' } = props
-  const selectedPillStyle = props.disabled ? 'bg-gray-300 text-white border-none cursor-not-allowed' : 'bg-teal-500 text-white'
+  const { variant = 'outlined', iconSelectedColor = 'primary-color', selectedColor = 'primary-color' } = props
+  const selectedPillStyle = props.disabled ? 'bg-gray-300 text-white border-none cursor-not-allowed' : 'text-white'
   const borderColor = props.disabled ? 'gray-200' : 'gray-300'
   const variantStyle =
     variant === 'outlined' ? { border: `1px solid var(--${borderColor})` } : { borderBottom: `1px solid var(--${borderColor})`, borderRadius: 0 }
@@ -96,7 +107,11 @@ const Select = <TSelectOptions, TFormValues extends FieldValues>(props: TSelectP
                       .map(String)
                       .sort((a, b) => a.localeCompare(b))
                       .map((value: string) => (
-                        <span key={value} className={`${multipleOptionStyle} ${selectedPillStyle}`}>
+                        <span
+                          key={value}
+                          className={`${multipleOptionStyle} ${selectedPillStyle}`}
+                          style={{ backgroundColor: `var(--${selectedColor})` }}
+                        >
                           {props.selectOptions.find((option) => String(option[props.optionValue]) === value)?.[props.optionLabel]}
                         </span>
                       ))}
@@ -122,10 +137,10 @@ const Select = <TSelectOptions, TFormValues extends FieldValues>(props: TSelectP
                     value={String(option[props.optionValue])}
                     style={{ ...optionStyles, borderBottom: isLastItem ? 'none' : '1px solid var(--gray-300)' }}
                   >
-                    {option[props.optionLabel]}
                     {value && String(value).indexOf(String(option[props.optionValue])) !== -1 && (
-                      <PdvIcon className="ml-4" name="TickSquare" color="primary-color" />
+                      <PdvIcon className="mr-4" name="TickSquare" color={iconSelectedColor} />
                     )}
+                    {option[props.optionLabel]}
                   </MenuItem>
                 )
               })}

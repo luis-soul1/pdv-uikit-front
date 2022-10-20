@@ -21,26 +21,31 @@ export type TBaseInput = {
 }
 export const disabledStyles = 'bg-transparent text-gray-200 cursor-not-allowed'
 export const inputVariants: Record<TVariant, string> = {
-  outlined: 'rounded-md border border-gray-300 hover:border-primary-color focus-within:border-primary-color px-2 bg-white',
-  default: 'border-b-2 border-gray-300 hover:border-primary-color focus:border-primary-color pl-0 pr-2',
-  transparent: 'border-0 pl-0 pr-2'
+  outlined: 'rounded-md border border-gray-300 hover:border-primary-color focus-within:border-primary-color bg-white',
+  default: 'border-b-2 border-gray-300 hover:border-primary-color focus:border-primary-color',
+  transparent: 'border-0'
 }
 
 const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
-  const { iconColor = 'primary-color' } = props
+  const { iconColor = 'primary-color', variant = 'outlined' } = props
   const inputProps = props?.inputProps ? { ...props.inputProps } : {}
-  const selectedVariant = props.variant ? inputVariants[props.variant] : inputVariants.outlined
+  const selectedVariant = inputVariants[variant]
+  const inputPadding = variant === 'outlined' ? { paddingLeft: '16px', paddingRight: '16px' } : { paddingLeft: 0, paddingRight: 0 }
 
   if (props?.icon) {
-    const icon = <PdvIcon name={props.icon} color={props.inputProps?.disabled ? 'gray-200' : iconColor} />
-
     return (
       <div
         className={`flex w-full items-center overflow-hidden text-gray-500 transition ease-in-out ${
           props?.inputProps?.disabled ? disabledStyles : selectedVariant
         }`}
       >
-        {props?.iconPosition !== 'right' && <span className="ml-1 mr-2">{icon}</span>}
+        {props?.iconPosition !== 'right' && (
+          <PdvIcon
+            name={props.icon}
+            color={props.inputProps?.disabled ? 'gray-200' : iconColor}
+            className={`mr-2 ${variant === 'outlined' ? 'ml-4' : ''}`}
+          />
+        )}
         <MuiInput
           disableUnderline
           {...props?.controlFields}
@@ -52,7 +57,9 @@ const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
           } ${props.inputProps?.className ?? ''}`}
           sx={{ height: 44 }}
         />
-        {props?.iconPosition === 'right' && <span className="mr-1">{icon}</span>}
+        {props?.iconPosition === 'right' && (
+          <PdvIcon name={props.icon} color={props.inputProps?.disabled ? 'gray-200' : iconColor} className="mr-2" />
+        )}
       </div>
     )
   }
@@ -68,7 +75,7 @@ const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
         className={`subtitle2 w-full focus:outline-none ${props.inputProps?.disabled ? disabledStyles : 'text-gray-500'} ${
           props?.inputProps?.disabled ? disabledStyles : selectedVariant
         } ${props.inputProps?.className ?? ''}`}
-        sx={{ height: 44 }}
+        sx={{ height: 44, ...inputPadding }}
       />
     </>
   )

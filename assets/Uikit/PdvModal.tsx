@@ -18,9 +18,11 @@ type TPdvModal = {
   noHeader?: boolean
   onClose?: () => void
 }
+
 type TPdvModalFooter = {
   Footer: React.FC<TFooter>
 }
+
 type TFooter = {
   className?: string
 }
@@ -81,5 +83,7 @@ export const Footer: React.FC<TFooter> = (props) => {
     </div>
   )
 }
+
 PdvModal.Footer = Footer
+
 export default PdvModal
