@@ -28,7 +28,7 @@ type TDropdownItems = {
 }
 
 export const PdvDropdown: React.FC<TPdvDropdown> & TDropdownItems = (props) => {
-  const { rounded = 'small', variant = 'contained', color = 'primary-color' } = props
+  const { rounded = 'medium', variant = 'contained', color = 'primary-color' } = props
   const [open, setOpen] = useState(false)
   const anchorRef = useRef<HTMLDivElement>(null)
   const handleToggle = () => {

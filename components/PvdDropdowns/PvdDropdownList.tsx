@@ -65,7 +65,7 @@ const PvdDropdownList: FC = () => {
           </PdvDropdown>
         </div>
         <div className="col-span-4">
-          <h4 className="mb-1 text-black">Medium</h4>
+          <h4 className="mb-1 text-black">Medium (Default)</h4>
           <PdvDropdown title="Medium" rounded="medium">
             <PdvDropdown.Item onClick={() => console.info('test')}>Editar</PdvDropdown.Item>
             <PdvDropdown.Item onClick={() => console.info('test')}>Cambiar estado</PdvDropdown.Item>

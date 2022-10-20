@@ -11,13 +11,13 @@ const PdvButtonList: FC = () => {
       <h1 className="text-black">Variants</h1>
       <div className="grid grid-cols-12">
         <div className="col-span-4">
-          <h5 className="mb-2">Contained</h5>
+          <h5 className="mb-2">Contained (Default)</h5>
 
           <PdvButton onClick={() => clipboard(`<PdvButton color='indigo-700'></PdvButton>`)}>Copiar código</PdvButton>
-          <PdvButton className="mt-2 block rounded" color="teal-500" onClick={() => clipboard(`<PdvButton color='teal-500'></PdvButton>`)}>
+          <PdvButton className="mt-2 block" color="teal-500" onClick={() => clipboard(`<PdvButton color='teal-500'></PdvButton>`)}>
             Copiar código
           </PdvButton>
-          <PdvButton className="mt-2 block rounded-lg" color="blue-400" onClick={() => clipboard(`<PdvButton color='blue-400'></PdvButton>`)}>
+          <PdvButton className="mt-2 block" color="blue-400" onClick={() => clipboard(`<PdvButton color='blue-400'></PdvButton>`)}>
             Copiar código
           </PdvButton>
         </div>
@@ -106,7 +106,7 @@ const PdvButtonList: FC = () => {
       <h1 className="mt-8 text-black">With icons</h1>
       <div className="grid grid-cols-12">
         <div className="col-span-4">
-          <h6 className="my-2">Left icon</h6>
+          <h6 className="my-2">Left icon (Default)</h6>
           <PdvButton color="black" icon="SmileFace" onClick={() => clipboard(`<PdvButton color='blue-400' size='large'></PdvButton>`)}>
             Copiar código
           </PdvButton>
