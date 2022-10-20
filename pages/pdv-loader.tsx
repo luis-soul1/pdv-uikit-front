@@ -2,22 +2,22 @@ import { NextPage } from 'next'
 
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
-import PvdDropdownApi from 'components/PvdDropdowns/PvdDropdownApi'
-import PvdDropdownList from 'components/PvdDropdowns/PvdDropdownList'
+import PdvLoaderApi from 'components/PdvLoaders/PdvLoaderApi'
+import PdvLoaderList from 'components/PdvLoaders/PdvLoaderList'
 
-const PdvDropdown: NextPage = () => {
+const PdvLoaders: NextPage = () => {
   return (
     <ComponentWrapper title={'Input field'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
-          <PvdDropdownList />
+          <PdvLoaderList />
         </PdvTabs.Tab>
         <PdvTabs.Tab tabText="Api" tabKey="api-tab">
-          <PvdDropdownApi />
+          <PdvLoaderApi />
         </PdvTabs.Tab>
       </PdvTabs>
     </ComponentWrapper>
   )
 }
 
-export default PdvDropdown
+export default PdvLoaders

@@ -5,6 +5,7 @@ import { FC } from 'react'
 const InputList = [
   { title: 'PdvButtons', href: '/pdv-buttons' },
   { title: 'PdvDropdown', href: '/pdv-dropdown' },
+  { title: 'PdvSwitch', href: '/pdv-switch' },
   { title: 'InputField', href: '/pdv-input-field' },
   { title: 'AutocompleteField', href: '/pdv-autocomplete-field' },
   { title: 'SelectField', href: '/pdv-select-field' },
@@ -46,7 +47,10 @@ const customList = [
 const assetsList = [
   { title: 'PdvTypography', href: '/pdv-typography' },
   { title: 'PdvColors', href: '/pdv-colors' },
-  { title: 'PdvCardContainer', href: '/pdv-card-container' }
+  { title: 'PdvCardContainer', href: '/pdv-card-container' },
+  { title: 'PdvSkeleton', href: '/pdv-skeleton' },
+  { title: 'PdvLoader', href: '/pdv-loader' },
+  { title: 'PdvDivider', href: '/pdv-divider' }
 ]
 
 const DashboardLayout: FC = (props) => {

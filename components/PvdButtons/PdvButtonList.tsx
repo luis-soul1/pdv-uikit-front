@@ -14,10 +14,10 @@ const PdvButtonList: FC = () => {
           <h5 className="mb-2">Contained</h5>
 
           <PdvButton onClick={() => clipboard(`<PdvButton color='indigo-700'></PdvButton>`)}>Copiar código</PdvButton>
-          <PdvButton className="mt-2 block" color="teal-500" onClick={() => clipboard(`<PdvButton color='teal-500'></PdvButton>`)}>
+          <PdvButton className="mt-2 block rounded" color="teal-500" onClick={() => clipboard(`<PdvButton color='teal-500'></PdvButton>`)}>
             Copiar código
           </PdvButton>
-          <PdvButton className="mt-2 block" color="blue-400" onClick={() => clipboard(`<PdvButton color='blue-400'></PdvButton>`)}>
+          <PdvButton className="mt-2 block rounded-lg" color="blue-400" onClick={() => clipboard(`<PdvButton color='blue-400'></PdvButton>`)}>
             Copiar código
           </PdvButton>
         </div>

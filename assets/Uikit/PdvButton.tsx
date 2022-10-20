@@ -28,7 +28,7 @@ type TPdvButton = {
   onClick?: () => void
 }
 
-const disabledStyles = 'cursor-not-allowed opacity-50 bg-gray-200 text-gray-600 border-none'
+const disabledStyles = 'cursor-not-allowed opacity-50 bg-gray-200 text-gray-400 border-none'
 const structure = `normal-case transition duration-200`
 const sx = {
   borderStyle: 'solid',
