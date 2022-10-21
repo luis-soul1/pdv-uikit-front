@@ -13,7 +13,7 @@ const PdvLoader: React.FC<TUiLoader> = (props) => {
 
   return (
     <div>
-      <Backdrop open={loader.isOpen} onClick={props?.onClick} sx={{ color: '#fff', zIndex: 2000 }}>
+      <Backdrop open={loader?.isLoading} onClick={props?.onClick} sx={{ color: '#fff', zIndex: 2000 }}>
         <Loader />
       </Backdrop>
     </div>
