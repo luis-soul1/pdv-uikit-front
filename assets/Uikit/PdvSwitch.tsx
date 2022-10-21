@@ -43,19 +43,26 @@ const Switch: React.FC<TSwitchProps> = (props) => {
   }
 
   const SwitchText = ({ position = 'left' }: { position: 'left' | 'right' }) => {
-    const color = `var(--${checked ? switchText.checked.color : switchText.unchecked.color})`
+    const color = () => {
+      if (isBoth) {
+        if (position === 'left') return !checked ? switchText.checked.color : switchText.unchecked.color
+        if (position === 'right') return checked ? switchText.checked.color : switchText.unchecked.color
+      }
+
+      return checked ? switchText.checked.color : switchText.unchecked.color
+    }
 
     const text = () => {
       if (isBoth) {
-        if (position === 'left') return switchText.checked.text
-        if (position === 'right') return switchText.unchecked.text
+        if (position === 'left') return switchText.unchecked.text
+        if (position === 'right') return switchText.checked.text
       }
 
       return checked ? switchText.checked.text : switchText.unchecked.text
     }
 
     return (
-      <span className={`subtitle1 font-semibold`} style={{ color }}>
+      <span className={`subtitle1 font-semibold`} style={{ color: `var(--${color()}` }}>
         {text()}
       </span>
     )
@@ -63,11 +70,11 @@ const Switch: React.FC<TSwitchProps> = (props) => {
 
   return (
     <div className="flex items-center gap-4">
-      {textPosition === 'left' && <SwitchText position="left" />}
+      {(textPosition === 'left' || textPosition === 'both') && <SwitchText position="left" />}
 
       <MUISwitch focusVisibleClassName=".Mui-focusVisible" disableRipple {...restProps} checked={checked} onChange={onChange} />
 
-      {textPosition === 'right' && <SwitchText position="right" />}
+      {(textPosition === 'right' || textPosition === 'both') && <SwitchText position="right" />}
     </div>
   )
 }
