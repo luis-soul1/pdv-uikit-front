@@ -35,15 +35,14 @@ const structure = `normal-case transition duration-200`
 const defaultSx = {
   borderStyle: 'solid',
   paddingLeft: 2,
-  paddingRight: 2,
-  borderRadius: 8
+  paddingRight: 2
 }
 
 const roundedStyle = (rounded: TRounded) => {
   const dispatch = {
-    small: 4,
-    medium: 8,
-    large: 12,
+    small: '4px',
+    medium: '8px',
+    large: '12px',
     full: '9999px'
   }
   return dispatch[rounded]
