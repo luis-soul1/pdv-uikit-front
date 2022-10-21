@@ -20,6 +20,7 @@ type TPdvDatatable<T> = {
     page: number
     onChange: (event: React.ChangeEvent<unknown>, value: number) => void
   }
+  variant?: 'full' | 'condensed'
   paginationColor?: TColors
   limit?: number
   expandedRows?: TExpandedRows<T>
@@ -53,7 +54,7 @@ const cleanString = (str: string) => {
 }
 
 const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
-  const { defaultPagination = true, headerColor = 'primary-color', paginationColor = 'primary-color' } = props
+  const { defaultPagination = true, headerColor = 'primary-color', paginationColor = 'primary-color', variant = 'full' } = props
   const pagination = usePdvPagination()
   const defaultFilterInputValues = props.columns.reduce((acc, item) => (item.filterable ? { ...acc, [item.dataIndex]: '' } : { ...acc }), {})
 
@@ -98,7 +99,7 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
               {isFilterableColumns &&
                 props.columns.map((column) => (
                   <th key={`filter-${column.name}`} className="bg-gray-50">
-                    <div className="py-4 px-6">
+                    <div className={`px-6 ${variant === 'full' ? 'py-4' : 'py-1'}`}>
                       {column.filterable && column.customFilter === undefined && (
                         <InputField
                           name={column.dataIndex as string}
@@ -143,7 +144,7 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
                         <td
                           key={`${record[column.dataIndex]}-${column.name}-${index}`}
                           align={column.align || 'left'}
-                          className={`subtitle2 break-words py-4 px-6 font-normal text-gray-500`}
+                          className={`subtitle2 break-words px-6 font-normal text-gray-500 ${variant === 'full' ? 'py-4' : 'py-1'}`}
                           style={{ width: column.width ?? 'auto' }}
                         >
                           {column.render ? column.render(record[column.dataIndex], record, props.dataSource) : record[column.dataIndex]}

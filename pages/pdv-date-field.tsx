@@ -7,7 +7,7 @@ import PdvDateFieldList from 'components/PdvDateFields/PdvDateFieldList'
 
 const PdvDateFields: NextPage = () => {
   return (
-    <ComponentWrapper title={'Input field'}>
+    <ComponentWrapper title={'Date field'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
           <PdvDateFieldList />

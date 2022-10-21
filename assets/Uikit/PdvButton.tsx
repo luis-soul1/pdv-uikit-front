@@ -8,6 +8,7 @@ import { TColors } from './Colors/TColors'
 import { PdvIcon, TIconSize } from './Icons/PdvIcon'
 import { TIconNames } from './Icons/TIconNames'
 
+type TRounded = 'small' | 'medium' | 'large' | 'full'
 export type TButtonVariant = 'contained' | 'outlined' | 'default'
 export type TButtonSize = 'small' | 'medium' | 'large'
 type TPdvButton = {
@@ -24,17 +25,27 @@ type TPdvButton = {
   iconSize?: TIconSize
   disabled?: boolean
   loading?: boolean
+  rounded?: TRounded
   component?: ElementType
   onClick?: () => void
 }
 
 const disabledStyles = 'cursor-not-allowed opacity-50 bg-gray-200 text-gray-400 border-none'
 const structure = `normal-case transition duration-200`
-const sx = {
+const defaultSx = {
   borderStyle: 'solid',
-  borderRadius: '8px',
   paddingLeft: 2,
   paddingRight: 2
+}
+
+const roundedStyle = (rounded: TRounded) => {
+  const dispatch = {
+    small: '4px',
+    medium: '8px',
+    large: '12px',
+    full: '9999px'
+  }
+  return dispatch[rounded]
 }
 
 const PdvButton: FC<TPdvButton> = (props) => {
@@ -49,9 +60,12 @@ const PdvButton: FC<TPdvButton> = (props) => {
     iconPosition = 'left',
     disabled = false,
     color = 'primary-color',
+    rounded = 'medium',
     textColor,
     ...rest
   } = props
+
+  const sx = { ...defaultSx, borderRadius: roundedStyle(rounded) }
 
   const selectedTextColor = () => {
     if (variant === 'contained') return textColor ? `var(--${textColor})` : 'var(--white)'
@@ -62,7 +76,8 @@ const PdvButton: FC<TPdvButton> = (props) => {
     return {
       backgroundColor: variant === 'contained' ? `var(--${color})` : 'var(--transparent)',
       color: selectedTextColor(),
-      border: variant === 'outlined' ? `1px solid var(--${color})` : 'none'
+      border: variant === 'outlined' ? `1px solid var(--${color})` : 'none',
+      boxShadow: props.disabled ? 'none' : `0px 5px 5px var(--${color})`
     }
   }
 
