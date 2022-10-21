@@ -87,9 +87,9 @@ export const PdvDropdown: React.FC<TPdvDropdown> & TDropdownItems = (props) => {
               transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom'
             }}
           >
-            <Paper>
+            <Paper sx={{ '.MuiMenu-list': { padding: 0 } }}>
               <ClickAwayListener onClickAway={handleClose}>
-                <MenuList id="split-button-menu" autoFocusItem>
+                <MenuList id="split-button-menu" autoFocusItem sx={{ padding: 0, marginTop: 1 }}>
                   {props.children &&
                     Children.map(props.children, (child) => {
                       const item = child as React.ReactElement<PropsWithChildren<TItem>>

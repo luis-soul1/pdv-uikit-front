@@ -24,7 +24,7 @@ export type TSelectProps<TSelectOptions, TFormValues extends FieldValues> = {
 
 const MenuProps = {
   disablePortal: true,
-  PaperProps: { style: { maxHeight: 48 * 4.5 + 8, width: 250 } }
+  PaperProps: { style: { maxHeight: 48 * 4.5 + 8, width: 250 }, sx: { '.MuiMenu-list': { padding: 0 } } }
 }
 const multipleOptionStyle = `rounded-md px-4 py-1 font-medium shadow-16`
 const optionStyles = {
