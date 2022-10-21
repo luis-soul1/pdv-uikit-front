@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const colors = require("./assets/Uikit/Colors/tailwindColors");
+const colors = require('./assets/Uikit/Colors/tailwindColors')
 
 module.exports = {
   darkMode: 'media',
@@ -11,13 +11,13 @@ module.exports = {
     './layouts/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    colors: { ...colors },
     extends: {
+      colors,
       boxShadow: {
-        'sm': 'var(--shadow-sm)',
-        'md': 'var(--shadow-md)',
-        'lg': 'var(--shadow-lg)',
-      },
+        sm: 'var(--shadow-sm)',
+        md: 'var(--shadow-md)',
+        lg: 'var(--shadow-lg)'
+      }
     },
     container: {
       center: true,
