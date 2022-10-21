@@ -61,7 +61,12 @@ const DateField = <TFormValues extends FieldValues>(props: TDatepicker<TFormValu
                           name={props.name}
                           form={props.form}
                           id={props.id}
-                          inputProps={{ ...inputProps, ...props.inputProps, className: 'pl-0', disabled: props.inputProps?.disabled }}
+                          inputProps={{
+                            ...inputProps,
+                            ...props.inputProps,
+                            className: 'p-0 self-center mt-px',
+                            disabled: props.inputProps?.disabled
+                          }}
                           variant="transparent"
                         />
                       </div>

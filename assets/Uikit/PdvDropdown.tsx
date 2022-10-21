@@ -61,7 +61,7 @@ export const PdvDropdown: React.FC<TPdvDropdown> & TDropdownItems = (props) => {
         style={{ boxShadow: 'var( --shadow-gray--016)' }}
       >
         <PdvButton
-          className={`h-full ${setRounded().left}  ${props.className}`}
+          className={`h-full shadow-none ${setRounded().left}  ${props.className}`}
           color={color}
           variant={variant}
           size={props?.size}
@@ -70,7 +70,7 @@ export const PdvDropdown: React.FC<TPdvDropdown> & TDropdownItems = (props) => {
           {props.title}
         </PdvButton>
         <PdvButton
-          className={`h-full px-2 ${setRounded().right}  ${props.className}`}
+          className={`h-full px-2 shadow-none ${setRounded().right}  ${props.className}`}
           color={color}
           variant={variant}
           size={props?.size}

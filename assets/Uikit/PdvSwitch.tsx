@@ -43,19 +43,18 @@ const Switch: React.FC<TSwitchProps> = (props) => {
   }
 
   const SwitchText = ({ position = 'left' }: { position: 'left' | 'right' }) => {
-    const color = `var(--${checked ? switchText.checked.color : switchText.unchecked.color})`
+    const color = () => {
+      if (isBoth) return `var(--${position === 'left' ? switchText.unchecked.color : switchText.checked.color})`
+      return `var(--${checked ? switchText.checked.color : switchText.unchecked.color})`
+    }
 
     const text = () => {
-      if (isBoth) {
-        if (position === 'left') return switchText.checked.text
-        if (position === 'right') return switchText.unchecked.text
-      }
-
+      if (isBoth) return position === 'left' ? switchText.unchecked.text : switchText.checked.text
       return checked ? switchText.checked.text : switchText.unchecked.text
     }
 
     return (
-      <span className={`subtitle1 font-semibold`} style={{ color }}>
+      <span className={`subtitle1 font-semibold`} style={{ color: color() }}>
         {text()}
       </span>
     )

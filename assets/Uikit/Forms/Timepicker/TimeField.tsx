@@ -45,7 +45,7 @@ const TimeField = <TFormValues extends FieldValues>(props: TTimepicker<TFormValu
                           name={props.name}
                           form={props.form}
                           id={props.id}
-                          inputProps={{ ...inputProps, className: 'pl-0' }}
+                          inputProps={{ ...inputProps, className: 'p-0 mt-px' }}
                           variant="transparent"
                         />
                       </div>

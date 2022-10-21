@@ -12,6 +12,13 @@ module.exports = {
   ],
   theme: {
     colors: { ...colors },
+    extends: {
+      boxShadow: {
+        'sm': 'var(--shadow-sm)',
+        'md': 'var(--shadow-md)',
+        'lg': 'var(--shadow-lg)',
+      },
+    },
     container: {
       center: true,
       screens: {

@@ -59,7 +59,7 @@ const PdvDataTableList: FC = () => {
     }
   ]
 
-  return <PdvDatatable className="my-4" dataSource={demoData} columns={columns} />
+  return <PdvDatatable className="my-4" dataSource={demoData} columns={columns} variant="condensed" />
 }
 
 export default PdvDataTableList
