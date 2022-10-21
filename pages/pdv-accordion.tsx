@@ -2,22 +2,22 @@ import { FC } from 'react'
 
 import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
-import PdvSimpleAccordionApi from 'components/PdvSimpleAccordions/PdvSimpleAccordionApi'
-import PdvSimpleAccordionList from 'components/PdvSimpleAccordions/PdvSimpleAccordionList'
+import PdvAccordionApi from 'components/PdvAccordions/PdvAccordionApi'
+import PdvAccordionList from 'components/PdvAccordions/PdvAccordionList'
 
-const PdvSimpleAccordions: FC = () => {
+const PdvAccordions: FC = () => {
   return (
-    <ComponentWrapper title={'Pdv Simple Accordion'}>
+    <ComponentWrapper title={'Pdv Accordion'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
-          <PdvSimpleAccordionList />
+          <PdvAccordionList />
         </PdvTabs.Tab>
         <PdvTabs.Tab tabText="Api" tabKey="api-tab">
-          <PdvSimpleAccordionApi />
+          <PdvAccordionApi />
         </PdvTabs.Tab>
       </PdvTabs>
     </ComponentWrapper>
   )
 }
 
-export default PdvSimpleAccordions
+export default PdvAccordions

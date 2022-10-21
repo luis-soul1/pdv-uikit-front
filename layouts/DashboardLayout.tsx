@@ -32,10 +32,7 @@ const FeedbackList = [
   { title: 'PdvAlert', href: '/pdv-alert' }
 ]
 
-const SurfacesList = [
-  { title: 'PdvSimpleAccordion', href: '/pdv-simple-accordion' },
-  { title: 'PdvMultipleAccordion', href: '/pdv-multiple-accordion' }
-]
+const SurfacesList = [{ title: 'PdvAccordion', href: '/pdv-accordion' }]
 
 const customList = [
   { title: 'PdvGallery', href: '/pdv-gallery' },

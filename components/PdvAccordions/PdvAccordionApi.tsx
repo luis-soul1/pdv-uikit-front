@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-const PdvSimpleAccordionApi: FC = () => {
+const PdvAccordionApi: FC = () => {
   return (
     <pre className="whitespace-pre-wrap border p-4">
       {`Component props:
@@ -19,4 +19,4 @@ const PdvSimpleAccordionApi: FC = () => {
   )
 }
 
-export default PdvSimpleAccordionApi
+export default PdvAccordionApi
