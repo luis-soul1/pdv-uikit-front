@@ -14,12 +14,12 @@ export type TLabelField = {
 }
 
 export const LabelField = (props: TLabelField) => {
-  const { labelIconcolor = 'primary-color' } = props
+  const { labelIconcolor = 'primary-color', withLabelIcon = true } = props
 
   if (!props?.label) return null
   return (
     <div className="flex items-center">
-      {props.withLabelIcon && <PdvIcon name={props?.labelIcon ?? 'KeyArrowRight'} color={labelIconcolor} size={props?.labelIconSize} />}
+      {withLabelIcon && <PdvIcon name={props?.labelIcon ?? 'KeyArrowRight'} color={labelIconcolor} size={props?.labelIconSize} />}
 
       <label className={`body1 block font-semibold text-gray-500 ${props.labelClassName ? props.labelClassName : ''}`} htmlFor={props.for}>
         {props.label}
