@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { useForm } from 'react-hook-form'
 
 import InputField from '@Uikit/Forms/Input/InputField'
-import TextAreaField from '@Uikit/Forms/TextArea/TextareaField'
+import TextAreaField from '@Uikit/Forms/TextArea/TextAreaField'
 
 const PdvInputFieldList: FC = () => {
   const form = useForm()
@@ -27,7 +27,7 @@ const PdvInputFieldList: FC = () => {
       <div className="grid grid-cols-12 items-center gap-4">
         <InputField name="Top_label" label="Top label (Default)" className="col-span-4" form={form} />
         <InputField name="left_label" label="Left label" labelPosition="left" className="col-span-4" form={form} />
-        <InputField name="label_with_icon" label="With icon label" variant="default" className="col-span-4" form={form} withLabelIcon />
+        <InputField name="label_with_icon" label="Without icon label" variant="default" className="col-span-4" form={form} noLabelIcon />
       </div>
 
       <h1 className="mt-4 text-black">Icon Options</h1>
