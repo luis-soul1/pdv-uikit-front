@@ -57,7 +57,20 @@ const PdvDataTableList: FC = () => {
     }
   ]
 
-  return <PdvDatatable className="my-4" dataSource={demoData} columns={columns} />
+  return (
+    <>
+      <h1 className="text-black">Variants</h1>
+      <div>
+        <h6 className="text-black">Full (Default)</h6>
+        <PdvDatatable className="my-4" dataSource={demoData} columns={columns} />
+      </div>
+      <div>
+        <h6 className="text-black">Condensed</h6>
+
+        <PdvDatatable className="my-4" dataSource={demoData} columns={columns} variant="condensed" />
+      </div>
+    </>
+  )
 }
 
 export default PdvDataTableList
