@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 
 const PdvTabsList: FC = () => {
   return (

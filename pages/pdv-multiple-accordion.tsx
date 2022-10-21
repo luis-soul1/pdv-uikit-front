@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvSMultipleAccordionApi from 'components/PdvMultipleAccordions/PdvMultipleAccordionApi'
 import PdvMultipleAccordionList from 'components/PdvMultipleAccordions/PdvMultipleAccordionList'

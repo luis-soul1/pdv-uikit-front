@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvDividerApi from 'components/PdvDividers/PdvDividerApi'
 import PdvDividerList from 'components/PdvDividers/PdvDividerList'

@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvGalleryApi from 'components/PdvGalleries/PdvGalleryApi'
 import PdvGalleryList from 'components/PdvGalleries/PdvGalleryList'
