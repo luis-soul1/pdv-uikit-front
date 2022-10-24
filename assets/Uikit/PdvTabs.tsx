@@ -13,6 +13,8 @@ type TPdvTabs = {
   className?: string
   color: TColors
   defaultSelectedTab?: string | number
+  tooltipColor?: TColors
+  tooltipTextColor?: TColors
 }
 
 type TPdvTab = {
@@ -34,7 +36,7 @@ const PdvTabs: React.FC<TPdvTabs> & TPdvTab = (props) => {
 
   return (
     <div className={props.className ?? ''}>
-      <div className={`bg-gray-25 overflow-hidden rounded-xl  ${tabsWidth === 'full' ? 'w-full' : 'inline whitespace-nowrap'}`}>
+      <div className={`bg-gray-25 overflow-hidden rounded-xl  ${tabsWidth === 'full' ? 'w-full p-1' : 'inline whitespace-nowrap'}`}>
         <div className={`slider items-center rounded-xl `}>
           <div className={`flex gap-2 ${tabsWidth === 'full' ? 'w-full' : ''} bg-gray-25 items-center rounded-xl p-2`}>
             {Children.map(props.children, (child: React.ReactElement<TTab>) => {
@@ -53,7 +55,9 @@ const PdvTabs: React.FC<TPdvTabs> & TPdvTab = (props) => {
                 onClick: onTabClick,
                 color: restTabProps.color ? restTabProps.color : props.color,
                 tabsWidth,
-                tabsHeight
+                tabsHeight,
+                tooltipColor: props.tooltipColor,
+                tooltipTextColor: props.tooltipTextColor
               }
 
               if (child && child.type === Tab)
@@ -83,6 +87,8 @@ type TTab = {
   disabled?: boolean
   tooltip?: string
   tooltipPlacement?: 'top' | 'bottom' | 'left' | 'right'
+  tooltipColor?: TColors
+  tooltipTextColor?: TColors
   onClick?: () => void
 }
 
@@ -91,14 +97,16 @@ const Tab: React.FC<TTab> = (props) => {
   const selectedTheme = selectedVariant.includes('default') ? 'gray-500' : props.color ?? 'primary-color'
 
   return (
-    <TooltipWrapper text={props.tooltip} placement={props.tooltipPlacement}>
+    <TooltipWrapper text={props.tooltip} placement={props.tooltipPlacement} color={props.tooltipColor} textColor={props.tooltipTextColor}>
       <PdvButton
         asLink={props.asLink}
         href={props.href}
         color={selectedTheme}
         variant={selectedVariant}
         size={props.tabsHeight ?? 'medium'}
-        className={`shadow-none ${props.tabsHeight?.includes('small') ? 'px-4' : 'px-10'} ${props.tabsWidth === 'full' ? 'w-full' : ''}`}
+        className={`${props.tabsHeight?.includes('small') ? 'px-4' : 'px-10'} ${props.tabsWidth === 'full' ? 'w-full' : ''} ${
+          props.isSelected ? 'shadow-md' : ''
+        }`}
         onClick={props.onClick}
         icon={props?.icon && <PdvIcon name={props.icon} color={props.isSelected ? 'white' : 'gray-500'} size={props?.iconSize} />}
         disabled={props.disabled}
@@ -115,6 +123,8 @@ type TooltipWrapperProps = {
   children: React.ReactElement
   text?: string
   placement?: PdvTooltipPlacements
+  color?: TColors
+  textColor?: TColors
 }
 
 const TooltipWrapper = (props: TooltipWrapperProps) => {
@@ -122,7 +132,7 @@ const TooltipWrapper = (props: TooltipWrapperProps) => {
   if (!props.text) return <>{props.children}</>
 
   return (
-    <PdvTooltip title={props.text} placement={placement} color="white" textColor="gray-500">
+    <PdvTooltip title={props.text} placement={placement} color={props.color} textColor={props.textColor}>
       <span className="subtitle2">{props.children}</span>
     </PdvTooltip>
   )
