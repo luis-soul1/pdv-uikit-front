@@ -11,7 +11,7 @@ const PdvToolTipsList: FC = () => {
         <div className="col-span-3">
           <h4 className="mt-4 mb-2">Top</h4>
           <PdvTooltip title="Place on top" placement="top">
-            <PdvPillBox className="mt-2" borderType="rounded-md" color="green-300">
+            <PdvPillBox className="mt-2" borderType="rounded-md">
               Abril
             </PdvPillBox>
           </PdvTooltip>
@@ -20,7 +20,7 @@ const PdvToolTipsList: FC = () => {
         <div className="col-span-3">
           <h4 className="mt-4 mb-2">Bottom</h4>
           <PdvTooltip title="Place on bottom" placement="bottom" color="blue-600">
-            <PdvPillBox className="mt-2" borderType="rounded-md" color="red-300">
+            <PdvPillBox className="mt-2" borderType="rounded-md" color="teal-500">
               Mayo
             </PdvPillBox>
           </PdvTooltip>
@@ -36,18 +36,18 @@ const PdvToolTipsList: FC = () => {
         </div>
 
         <div className="col-span-3">
-          <h4 className="mt-4 mb-2">Bottom</h4>
+          <h4 className="mt-4 mb-2">Right</h4>
           <PdvTooltip title="Place on right" placement="right" color="green-600">
             <PdvPillBox className="mt-2" borderType="rounded-md" color="blue-300">
-              Mayo
+              Julio
             </PdvPillBox>
           </PdvTooltip>
         </div>
 
         <div className="col-span-3">
           <h4 className="mt-4 mb-2">Arrow</h4>
-          <PdvTooltip title="Place on top" placement="top" arrow>
-            <PdvPillBox className="mt-2" borderType="rounded-md" color="green-300">
+          <PdvTooltip title="With arrow" placement="bottom" arrow>
+            <PdvPillBox className="mt-2" borderType="rounded-md" color="indigo-300">
               Abril
             </PdvPillBox>
           </PdvTooltip>
@@ -55,7 +55,7 @@ const PdvToolTipsList: FC = () => {
 
         <div className="col-span-3">
           <h4 className="mt-4 mb-2">Controlled</h4>
-          <PdvTooltip title="Place on top" placement="top" arrow open>
+          <PdvTooltip title="Controlled" placement="top" arrow open>
             <PdvPillBox className="mt-2" borderType="rounded-md" color="green-300">
               Abril
             </PdvPillBox>

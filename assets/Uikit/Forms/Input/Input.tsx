@@ -1,7 +1,6 @@
 import { forwardRef } from 'react'
 
 import MuiInput from '@mui/material/Input'
-import { InputBaseComponentProps } from '@mui/material/InputBase'
 import { Controller, ControllerRenderProps, FieldValues, Path, RegisterOptions, UseFormReturn } from 'react-hook-form'
 
 import { TColors } from '@Uikit/Colors/TColors'
@@ -16,13 +15,13 @@ export type TBaseInput = {
   icon?: TIconNames
   iconColor?: TColors
   iconPosition?: 'left' | 'right'
-  inputProps?: InputBaseComponentProps
+  inputProps?: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
   controlFields?: ControllerRenderProps<Record<string, string>, string>
   value?: string
 }
 export const disabledStyles = 'bg-transparent text-gray-200 cursor-not-allowed'
 export const inputVariants: Record<TVariant, string> = {
-  outlined: 'rounded-md border border-gray-300 hover:border-primary-color focus-within:border-primary-color bg-white',
+  outlined: 'rounded-lg border border-gray-300 hover:border-primary-color focus-within:border-primary-color bg-white',
   default: 'border-b-2 border-gray-300 hover:border-primary-color focus:border-primary-color',
   transparent: 'border-0'
 }
@@ -41,11 +40,7 @@ const BaseInput = forwardRef<HTMLInputElement, TBaseInput>((props, ref) => {
         }`}
       >
         {props?.iconPosition !== 'right' && (
-          <PdvIcon
-            name={props.icon}
-            color={props.inputProps?.disabled ? 'gray-200' : iconColor}
-            className={`mr-2 ${variant === 'outlined' ? 'ml-4' : ''}`}
-          />
+          <PdvIcon name={props.icon} color={props.inputProps?.disabled ? 'gray-200' : iconColor} className={`mx-2`} />
         )}
         <MuiInput
           disableUnderline

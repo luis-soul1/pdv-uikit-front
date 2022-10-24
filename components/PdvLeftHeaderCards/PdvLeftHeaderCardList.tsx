@@ -1,5 +1,6 @@
-import PdvLeftHeaderCard from '@Uikit/PdvLeftHeaderCard'
 import { FC } from 'react'
+
+import PdvLeftHeaderCard from '@Uikit/PdvLeftHeaderCard'
 
 const PdvLeftHeaderCardList: FC = () => {
   return (

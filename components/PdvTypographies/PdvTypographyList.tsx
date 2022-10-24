@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-const PdvTypographyList = () => {
+const PdvTypographyList: FC = () => {
   return (
     <div className="border border-black p-4">
       <h1 className="mt-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. h1</h1>

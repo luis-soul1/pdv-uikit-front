@@ -1,10 +1,10 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
-import PdvProgressBarList from 'components/PdvProgressBars/PdvProgressBarList'
 import PdvProgressBarApi from 'components/PdvProgressBars/PdvProgressBarApi'
+import PdvProgressBarList from 'components/PdvProgressBars/PdvProgressBarList'
 
 const PdvProgressBars: NextPage = () => {
   return (

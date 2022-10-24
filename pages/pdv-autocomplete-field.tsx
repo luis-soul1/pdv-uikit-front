@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvAutocompleteFieldApi from 'components/PdvAutocompleteFields/PdvAutocompleteFieldApi'
 import PdvAutocompleteFieldList from 'components/PdvAutocompleteFields/PdvAutocompleteFieldList'

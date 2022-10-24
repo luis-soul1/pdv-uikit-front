@@ -11,11 +11,11 @@ type TPdvModal = {
   open: boolean
   title?: string
   fullScreen?: boolean
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
   headerColor?: TColors
-  footer?: React.ReactElement
   noContainerSpacing?: boolean
-  onClose?: () => void // Se ejecuta cuando se hace click fuera del modal
+  noHeader?: boolean
+  onClose?: () => void
 }
 
 type TPdvModalFooter = {
@@ -27,12 +27,15 @@ type TFooter = {
 }
 
 const CustomDialog = styled(Dialog)(() => ({
-  '& .css-hppdow': { borderRadius: '1.5rem' },
-  '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' },
-  '& .css-22jxwj-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' },
-  '& .css-12rl710-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' },
-  '& .css-1fu2e3p-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' },
-  '& .css-2rbg70-MuiPaper-root-MuiDialog-paper': { borderRadius: '1.5rem' }
+  '& .css-uhb5lp': { borderRadius: '1rem' },
+  '& .css-1qmc5dd': { borderRadius: '1rem' },
+  '& .css-18i3v7t': { borderRadius: '1rem' },
+  '& .css-hppdow': { borderRadius: '1rem' },
+  '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' },
+  '& .css-22jxwj-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' },
+  '& .css-12rl710-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' },
+  '& .css-1fu2e3p-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' },
+  '& .css-2rbg70-MuiPaper-root-MuiDialog-paper': { borderRadius: '1rem' }
 }))
 
 const Transition = React.forwardRef(function Transition(
@@ -45,7 +48,8 @@ const Transition = React.forwardRef(function Transition(
 })
 
 const PdvModal: React.FC<TPdvModal> & TPdvModalFooter = (props) => {
-  const fullScreenStyles = props.fullScreen ? '' : 'rounded-t-3xl'
+  const { headerColor = 'primary-color' } = props
+  const fullScreenStyles = props.fullScreen ? '' : 'rounded-t-[1rem]'
   const modalPadding = props.noContainerSpacing ? '' : 'md:px-6 px-4 md:pt-6 pt-4'
 
   return (
@@ -55,18 +59,16 @@ const PdvModal: React.FC<TPdvModal> & TPdvModalFooter = (props) => {
       keepMounted
       maxWidth={props.size ?? 'sm'}
       fullScreen={props.fullScreen}
-      sx={{ maxHeight: '95vh', overflow: 'hidden' }}
+      sx={{ maxHeight: props.fullScreen ? '100vh' : '95vh', overflow: 'hidden' }}
       onClose={props.onClose}
     >
-      <div
-        className={`flex h-16 items-center px-4 py-3 md:px-6 ${fullScreenStyles}`}
-        style={{ backgroundColor: `var(--${props.headerColor ?? 'blue-500'})` }}
-      >
-        <h5 className="subtitle1 text-white">{props.title}</h5>
-      </div>
+      {!props.noHeader && (
+        <div className={`flex h-16 items-center px-4 py-3 md:px-6 ${fullScreenStyles}`} style={{ backgroundColor: `var(--${headerColor})` }}>
+          <h5 className="subtitle1 text-white">{props.title}</h5>
+        </div>
+      )}
 
       <div className={`no-mobile-scroll-bar h-full overflow-y-auto overflow-x-hidden ${modalPadding}`}>{props.children}</div>
-      {props.footer && <div className={modalPadding}>{props.footer}</div>}
     </CustomDialog>
   )
 }

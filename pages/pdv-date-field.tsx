@@ -1,13 +1,13 @@
 import { NextPage } from 'next'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvDateFieldApi from 'components/PdvDateFields/PdvDateFieldApi'
 import PdvDateFieldList from 'components/PdvDateFields/PdvDateFieldList'
 
 const PdvDateFields: NextPage = () => {
   return (
-    <ComponentWrapper title={'Input field'}>
+    <ComponentWrapper title={'Date field'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
           <PdvDateFieldList />

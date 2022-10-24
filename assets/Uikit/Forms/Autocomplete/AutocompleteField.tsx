@@ -1,6 +1,5 @@
 import { SyntheticEvent, ReactElement } from 'react'
 
-
 import Autocomplete from '@mui/material/Autocomplete'
 import { InputBaseComponentProps } from '@mui/material/InputBase'
 import { AutocompleteValue, UseAutocompleteProps } from '@mui/material/useAutocomplete'
@@ -32,6 +31,12 @@ export type TAutocomplete<TFormValues extends FieldValues> = {
   labelPosition?: 'left' | 'top'
   className?: string
   onInputChange?: UseAutocompleteProps<TFormValues, boolean, boolean, boolean>['onInputChange']
+}
+
+const sx = {
+  '&.Mui-focused .MuiInput-root': { border: 0 },
+  '&.MuiAutocomplete-root': { paddingTop: 0, paddingBottom: 0 },
+  width: '100%'
 }
 
 const AutocompleteField = <TFormValues extends FieldValues>(props: TAutocomplete<TFormValues> & TLabelField) => {
@@ -73,14 +78,14 @@ const AutocompleteField = <TFormValues extends FieldValues>(props: TAutocomplete
                     noOptionsText="No se encontraron resultados"
                     getOptionLabel={(option) => option.label}
                     options={props.autocompleteOptions}
-                    sx={{ '&.Mui-focused .MuiInput-root': { border: 0 }, width: '100%' }}
+                    sx={sx}
                     renderInput={({ InputProps: { ref: anchorListRef }, inputProps: muiInputProps }) => (
                       <div ref={anchorListRef} className="w-full">
                         <ForwardedInput
                           id={props.name}
                           icon="Search"
                           iconColor={iconColor}
-                          inputProps={{ ...muiInputProps, disabled: props?.inputProps?.disabled }}
+                          inputProps={{ ...muiInputProps, disabled: props?.inputProps?.disabled, className: 'mt-px p-0' }}
                           variant="transparent"
                         />
                       </div>

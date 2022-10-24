@@ -1,8 +1,9 @@
+import { FC } from 'react'
+
 import PdvGallery, { PdvGalleryItem } from '@Uikit/PdvGallery'
 import PdvLeftHeaderCard from '@Uikit/PdvLeftHeaderCard'
 import PdvProgressBar from '@Uikit/PdvProgressBar'
 import PdvTopHeaderCard from '@Uikit/PdvTopHeaderCard'
-import { FC } from 'react'
 
 const PdvGalleryList: FC = () => {
   return (

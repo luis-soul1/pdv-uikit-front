@@ -69,7 +69,7 @@ const PdvSelectFieldList: FC = () => {
         />
       </div>
 
-      <h1 className="text-black">Disabled selct</h1>
+      <h1 className="mt-6 text-black">Disabled selct</h1>
       <div className="grid grid-cols-12 items-center gap-4">
         <SelectField
           name="outlined_variant"

@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvTimeFieldApi from 'components/PdvTimeFields/PdvTimeFieldApi'
 import PdvTimeFieldList from 'components/PdvTimeFields/PdvTimeFieldList'

@@ -20,6 +20,8 @@ type TPdvDatatable<T> = {
     page: number
     onChange: (event: React.ChangeEvent<unknown>, value: number) => void
   }
+  variant?: 'full' | 'condensed'
+  paginationColor?: TColors
   limit?: number
   expandedRows?: TExpandedRows<T>
   headerColor?: TColors
@@ -52,7 +54,7 @@ const cleanString = (str: string) => {
 }
 
 const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
-  const { defaultPagination = true } = props
+  const { defaultPagination = true, headerColor = 'primary-color', paginationColor = 'primary-color', variant = 'full' } = props
   const pagination = usePdvPagination()
   const defaultFilterInputValues = props.columns.reduce((acc, item) => (item.filterable ? { ...acc, [item.dataIndex]: '' } : { ...acc }), {})
 
@@ -67,7 +69,6 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
 
   const isFilterableColumns = props.columns.some((column) => column.filterable || column.customFilter !== undefined)
 
-  const headerColor: string = props.headerColor ? `${props.headerColor}` : 'purple-250'
   const setBgColor = (index: number) => ((index + 1) % 2 === 0 ? 'bg-gray-25 border-y border-gray-100 ' : '')
 
   const onChangePage = props?.pagination?.onChange !== undefined ? props.pagination.onChange : pagination.onChange
@@ -78,7 +79,7 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
         <table className="w-full table-auto">
           <thead>
             <tr>
-              {props?.expandedRows && <th className="px-4 py-6" style={{ backgroundColor: `var(--${headerColor})` }} />}
+              {props?.expandedRows && <th style={{ backgroundColor: `var(--${headerColor})`, width: '5%' }} />}
 
               {props.columns.map((column) => (
                 <th
@@ -98,11 +99,12 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
               {isFilterableColumns &&
                 props.columns.map((column) => (
                   <th key={`filter-${column.name}`} className="bg-gray-50">
-                    <div className="py-4 px-6">
+                    <div className={`px-6 ${variant === 'full' ? 'py-4' : 'py-1'}`}>
                       {column.filterable && column.customFilter === undefined && (
                         <InputField
                           name={column.dataIndex as string}
                           form={inputControl}
+                          className="w-full"
                           inputProps={{ placeholder: 'Buscar..', className: 'text-gray-500 h-9' }}
                         />
                       )}
@@ -126,7 +128,7 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
                   <Fragment key={index}>
                     <tr className={`w-full  ${setBgColor(index)}`}>
                       {props?.expandedRows && (
-                        <td className="px-4 py-6" width={30}>
+                        <td className="px-4 py-2" width={30}>
                           {props?.expandedRows?.rowExpandable(record) && (
                             <PdvButton
                               className="cursor-pointer"
@@ -134,7 +136,7 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
                               variant="default"
                               icon={`${isRecordExpanded(record, index) ? 'KeyArrowUp' : 'KeyArrowDown'}`}
                               onClick={() => toggleExpand(record, index)}
-                            ></PdvButton>
+                            />
                           )}
                         </td>
                       )}
@@ -142,7 +144,7 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
                         <td
                           key={`${record[column.dataIndex]}-${column.name}-${index}`}
                           align={column.align || 'left'}
-                          className={`subtitle2 break-words py-4 px-6 font-normal text-gray-500`}
+                          className={`subtitle2 break-words px-6 font-normal text-gray-500 ${variant === 'full' ? 'py-4' : 'py-1'}`}
                           style={{ width: column.width ?? 'auto' }}
                         >
                           {column.render ? column.render(record[column.dataIndex], record, props.dataSource) : record[column.dataIndex]}
@@ -175,6 +177,7 @@ const PdvDatatable = <T,>(props: TPdvDatatable<T>) => {
             count={calculateTotalPages(props.pagination.count)}
             page={props.pagination.page}
             onChange={(_, page: number) => onChangePage(_, page)}
+            color={paginationColor}
           />
         </>
       )}

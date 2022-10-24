@@ -24,7 +24,7 @@ export type TSelectProps<TSelectOptions, TFormValues extends FieldValues> = {
 
 const MenuProps = {
   disablePortal: true,
-  PaperProps: { style: { maxHeight: 48 * 4.5 + 8, width: 250 } }
+  PaperProps: { style: { maxHeight: 48 * 4.5 + 8, width: 250 }, sx: { '.MuiMenu-list': { padding: 0 } } }
 }
 const multipleOptionStyle = `rounded-md px-4 py-1 font-medium shadow-16`
 const optionStyles = {
@@ -60,7 +60,9 @@ const Select = <TSelectOptions, TFormValues extends FieldValues>(props: TSelectP
   const selectedPillStyle = props.disabled ? 'bg-gray-300 text-white border-none cursor-not-allowed' : 'text-white'
   const borderColor = props.disabled ? 'gray-200' : 'gray-300'
   const variantStyle =
-    variant === 'outlined' ? { border: `1px solid var(--${borderColor})` } : { borderBottom: `1px solid var(--${borderColor})`, borderRadius: 0 }
+    variant === 'outlined'
+      ? { border: `1px solid var(--${borderColor})`, borderRadius: '0.5rem' }
+      : { borderBottom: `1px solid var(--${borderColor})`, borderRadius: 0 }
   const borderStyles = { borderColor: `var(--${props.disabled ? 'gray-200' : 'primary-color'})` }
 
   const sx = {

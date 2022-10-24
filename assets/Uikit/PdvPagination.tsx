@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 import { Pagination, PaginationItem } from '@mui/material'
 
@@ -14,6 +14,8 @@ type TPdvPagination = {
 
 const PdvPagination: React.FC<TPdvPagination> = (props) => {
   const { color = 'primary-color' } = props
+
+  if (props.count <= 1) return <Fragment />
   return (
     <div className={`${props.className}`}>
       {props.count > 1 && (

@@ -34,9 +34,9 @@ const PdvTabs: React.FC<TPdvTabs> & TPdvTab = (props) => {
 
   return (
     <div className={props.className ?? ''}>
-      <div className={`overflow-hidden rounded-xl bg-gray-25  ${tabsWidth === 'full' ? 'w-full p-1' : 'inline whitespace-nowrap'}`}>
+      <div className={`bg-gray-25 overflow-hidden rounded-xl  ${tabsWidth === 'full' ? 'w-full' : 'inline whitespace-nowrap'}`}>
         <div className={`slider items-center rounded-xl `}>
-          <div className={`flex gap-2 ${tabsWidth === 'full' ? 'w-full' : ''} items-center rounded-xl bg-gray-25 p-2`}>
+          <div className={`flex gap-2 ${tabsWidth === 'full' ? 'w-full' : ''} bg-gray-25 items-center rounded-xl p-2`}>
             {Children.map(props.children, (child: React.ReactElement<TTab>) => {
               const { children, ...restTabProps } = child.props as TTab
 
@@ -98,9 +98,7 @@ const Tab: React.FC<TTab> = (props) => {
         color={selectedTheme}
         variant={selectedVariant}
         size={props.tabsHeight ?? 'medium'}
-        className={`${props.tabsHeight?.includes('small') ? 'px-4' : 'px-10'} ${props.tabsWidth === 'full' ? 'w-full' : ''} ${
-          props.isSelected ? 'shadow-md' : ''
-        }`}
+        className={`shadow-none ${props.tabsHeight?.includes('small') ? 'px-4' : 'px-10'} ${props.tabsWidth === 'full' ? 'w-full' : ''}`}
         onClick={props.onClick}
         icon={props?.icon && <PdvIcon name={props.icon} color={props.isSelected ? 'white' : 'gray-500'} size={props?.iconSize} />}
         disabled={props.disabled}
@@ -124,8 +122,8 @@ const TooltipWrapper = (props: TooltipWrapperProps) => {
   if (!props.text) return <>{props.children}</>
 
   return (
-    <PdvTooltip title={props.text} placement={placement} bgColor="blue-100" textColor="blue-500">
-      <span>{props.children}</span>
+    <PdvTooltip title={props.text} placement={placement} color="white" textColor="gray-500">
+      <span className="subtitle2">{props.children}</span>
     </PdvTooltip>
   )
 }

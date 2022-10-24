@@ -1,18 +1,18 @@
 import { useState, createContext } from 'react'
 
 type TLoaderContextProps = {
-  isOpen: boolean
-  setIsOpen: (e: boolean) => void
+  isLoading: boolean
+  setIsLoading: (e: boolean) => void
 }
 const LoaderContext: React.Context<TLoaderContextProps> = createContext<TLoaderContextProps>({
-  isOpen: false,
-  setIsOpen: () => false
+  isLoading: false,
+  setIsLoading: () => false
 })
 
 const LoaderContextProvider: React.FC = (props) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  return <LoaderContext.Provider value={{ isOpen, setIsOpen }}>{props.children}</LoaderContext.Provider>
+  return <LoaderContext.Provider value={{ isLoading, setIsLoading }}>{props.children}</LoaderContext.Provider>
 }
 
 export { LoaderContext, LoaderContextProvider }

@@ -1,11 +1,11 @@
 import { FC } from 'react'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 
 const PdvTabsList: FC = () => {
   return (
     <div className="border border-black p-4">
-      <h1 className="text-indigo-700">Tabs width</h1>
+      <h1>Tabs width</h1>
       <h5 className="mb-2">Full width</h5>
       <PdvTabs className="mb-6" color="teal-400" tabsWidth="full">
         <PdvTabs.Tab tabText="Tab 1" tabKey="1-tab">
@@ -38,7 +38,7 @@ const PdvTabsList: FC = () => {
         </PdvTabs.Tab>
       </PdvTabs>
 
-      <h1 className="mt-4 text-indigo-700">Tabs height</h1>
+      <h1 className="mt-4">Tabs height</h1>
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-4">
           <h5 className="mb-2">large</h5>

@@ -3,18 +3,13 @@ import { useContext, useEffect } from 'react'
 import { UseMutationResult, UseQueryResult } from 'react-query'
 
 import { LoaderContext } from 'context/LoaderContext'
-import { TParams } from 'models/IRequest'
 
-const useLoader = <T, P>(request?: UseMutationResult<T, unknown, TParams<P>, unknown> | UseQueryResult<T, unknown>) => {
+const useLoader = <T, P>(request?: UseMutationResult<T, unknown, P, unknown> | UseQueryResult<T, unknown>) => {
   const loader = useContext(LoaderContext)
 
   useEffect(() => {
-    loader.isOpen !== request?.isLoading && request && loader.setIsOpen(request.isLoading)
+    loader.isLoading !== request?.isLoading && request && loader.setIsLoading(request.isLoading)
   }, [request?.isLoading])
-
-  useEffect(() => {
-    if (request?.isError) throw request.error
-  }, [request?.isError])
 
   return loader
 }

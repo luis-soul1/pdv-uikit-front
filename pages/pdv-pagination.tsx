@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 
-import PdvTabs from '@Uikit/PdvTabs/PdvTabs'
+import PdvTabs from '@Uikit/PdvTabs'
 import ComponentWrapper from 'commons/ComponentWrapper'
 import PdvPaginationApi from 'components/PdvPaginations/PdvPaginationApi'
 import PdvPaginationList from 'components/PdvPaginations/PdvPaginationList'

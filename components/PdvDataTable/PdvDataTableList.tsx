@@ -10,8 +10,6 @@ export interface ITeachingType {
   code: string
   name: string
   description: string | null
-  type_teaching_level_id?: unknown
-  TypesTeachingsCategories?: unknown
   active: boolean
 }
 
@@ -46,7 +44,7 @@ const PdvDataTableList: FC = () => {
         const icon = value ? 'TickSquare' : 'Hide'
 
         return (
-          <PdvPillBox bgColor={bgColor} titleColor={textColor} borderType="rounded-md">
+          <PdvPillBox color={bgColor} textColor={textColor} borderType="rounded-md">
             <div className="flex items-center justify-center">
               <PdvIcon name={icon} color={textColor} className="mr-2" />
               <span className="subtitle2" style={{ color: `var(--${textColor})` }}>
@@ -59,7 +57,20 @@ const PdvDataTableList: FC = () => {
     }
   ]
 
-  return <PdvDatatable className="my-4" dataSource={demoData} columns={columns} />
+  return (
+    <>
+      <h1 className="text-black">Variants</h1>
+      <div>
+        <h6 className="text-black">Full (Default)</h6>
+        <PdvDatatable className="my-4" dataSource={demoData} columns={columns} />
+      </div>
+      <div>
+        <h6 className="text-black">Condensed</h6>
+
+        <PdvDatatable className="my-4" dataSource={demoData} columns={columns} variant="condensed" />
+      </div>
+    </>
+  )
 }
 
 export default PdvDataTableList

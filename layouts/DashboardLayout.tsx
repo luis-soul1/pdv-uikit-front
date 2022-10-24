@@ -4,6 +4,8 @@ import { FC } from 'react'
 
 const InputList = [
   { title: 'PdvButtons', href: '/pdv-buttons' },
+  { title: 'PdvDropdown', href: '/pdv-dropdown' },
+  { title: 'PdvSwitch', href: '/pdv-switch' },
   { title: 'InputField', href: '/pdv-input-field' },
   { title: 'AutocompleteField', href: '/pdv-autocomplete-field' },
   { title: 'SelectField', href: '/pdv-select-field' },
@@ -30,10 +32,7 @@ const FeedbackList = [
   { title: 'PdvAlert', href: '/pdv-alert' }
 ]
 
-const SurfacesList = [
-  { title: 'PdvSimpleAccordion', href: '/pdv-simple-accordion' },
-  { title: 'PdvMultipleAccordion', href: '/pdv-multiple-alert' }
-]
+const SurfacesList = [{ title: 'PdvAccordion', href: '/pdv-accordion' }]
 
 const customList = [
   { title: 'PdvGallery', href: '/pdv-gallery' },
@@ -42,7 +41,14 @@ const customList = [
   { title: 'PdvProgressBar', href: '/pdv-progress-bar' }
 ]
 
-const typographyList = [{ title: 'PdvTypography', href: '/pdv-typography' }]
+const assetsList = [
+  { title: 'PdvTypography', href: '/pdv-typography' },
+  { title: 'PdvColors', href: '/pdv-colors' },
+  { title: 'PdvCardContainer', href: '/pdv-card-container' },
+  { title: 'PdvSkeleton', href: '/pdv-skeleton' },
+  { title: 'PdvLoader', href: '/pdv-loader' },
+  { title: 'PdvDivider', href: '/pdv-divider' }
+]
 
 const DashboardLayout: FC = (props) => {
   const { pathname } = useRouter()
@@ -53,7 +59,7 @@ const DashboardLayout: FC = (props) => {
         <h4>UIKIT</h4>
       </div>
       <hr />
-      <div className="mt-8 grid grid-cols-[170px_1fr]" style={{ height: 'calc(100vh - 100px)' }}>
+      <div className="mt-8 grid grid-cols-[200px_1fr]" style={{ height: 'calc(100vh - 100px)' }}>
         <div className="overflow-auto border-r border-gray-200" style={{ height: 'calc(100vh - 100px)' }}>
           <h5 className="my-2">Input</h5>
           {InputList.map((option) => {
@@ -141,8 +147,8 @@ const DashboardLayout: FC = (props) => {
             )
           })}
 
-          <h5 className="my-2">Typography</h5>
-          {typographyList.map((option) => {
+          <h5 className="my-2">Assets</h5>
+          {assetsList.map((option) => {
             return (
               <Link key={option.title} href={option.href} passHref>
                 <p
