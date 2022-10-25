@@ -1,10 +1,11 @@
 import { FC, FunctionComponent, ReactElement, useRef, useState } from 'react'
 
+import { IconButton } from '@mui/material'
 import Slider from 'react-slick'
 
-import useDeviceWidth from 'hooks/useDeviceWidth'
+import useDeviceWidth from '@Uikit/hooks/useDeviceWidth'
+
 import { PdvIcon } from './Icons/PdvIcon'
-import { IconButton } from '@mui/material'
 
 type TPdvGallery = {
   className?: string

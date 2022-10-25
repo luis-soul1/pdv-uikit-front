@@ -76,8 +76,8 @@ const PdvButton: FC<TPdvButton> = (props) => {
     return {
       backgroundColor: variant === 'contained' ? `var(--${color})` : 'var(--transparent)',
       color: selectedTextColor(),
-      border: variant === 'outlined' ? `1px solid var(--${color})` : 'none',
-      boxShadow: props.disabled || variant === 'default' ? 'none' : `0px 5px 5px var(--${color})`
+      border: variant === 'outlined' ? `1px solid var(--${color})` : 'none'
+      // boxShadow: props.disabled || variant === 'default' ? 'none' : `0px 5px 5px var(--${color})`
     }
   }
 

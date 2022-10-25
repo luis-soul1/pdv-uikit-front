@@ -7,7 +7,7 @@ import PdvLoaderList from 'components/PdvLoaders/PdvLoaderList'
 
 const PdvLoaders: NextPage = () => {
   return (
-    <ComponentWrapper title={'Input field'}>
+    <ComponentWrapper title={'Pdv Loader'}>
       <PdvTabs color="black" tabsHeight="large" tabsWidth="full">
         <PdvTabs.Tab tabText="Component" tabKey="component-tab">
           <PdvLoaderList />

@@ -13,8 +13,6 @@ type TPdvTabs = {
   className?: string
   color: TColors
   defaultSelectedTab?: string | number
-  tooltipColor?: TColors
-  tooltipTextColor?: TColors
 }
 
 type TPdvTab = {
@@ -36,9 +34,9 @@ const PdvTabs: React.FC<TPdvTabs> & TPdvTab = (props) => {
 
   return (
     <div className={props.className ?? ''}>
-      <div className={`bg-gray-25 overflow-hidden rounded-xl  ${tabsWidth === 'full' ? 'w-full p-1' : 'inline whitespace-nowrap'}`}>
+      <div className={`overflow-hidden rounded-xl bg-gray-25  ${tabsWidth === 'full' ? 'w-full p-1' : 'inline whitespace-nowrap'}`}>
         <div className={`slider items-center rounded-xl `}>
-          <div className={`flex gap-2 ${tabsWidth === 'full' ? 'w-full' : ''} bg-gray-25 items-center rounded-xl p-2`}>
+          <div className={`flex gap-2 ${tabsWidth === 'full' ? 'w-full' : ''} items-center rounded-xl bg-gray-25 p-2`}>
             {Children.map(props.children, (child: React.ReactElement<TTab>) => {
               const { children, ...restTabProps } = child.props as TTab
 
@@ -55,9 +53,7 @@ const PdvTabs: React.FC<TPdvTabs> & TPdvTab = (props) => {
                 onClick: onTabClick,
                 color: restTabProps.color ? restTabProps.color : props.color,
                 tabsWidth,
-                tabsHeight,
-                tooltipColor: props.tooltipColor,
-                tooltipTextColor: props.tooltipTextColor
+                tabsHeight
               }
 
               if (child && child.type === Tab)
@@ -132,7 +128,7 @@ const TooltipWrapper = (props: TooltipWrapperProps) => {
   if (!props.text) return <>{props.children}</>
 
   return (
-    <PdvTooltip title={props.text} placement={placement} color={props.color} textColor={props.textColor}>
+    <PdvTooltip title={props.text} placement={placement} color={props.color ?? 'gray-25'} textColor={props.textColor ?? 'gray-500'}>
       <span className="subtitle2">{props.children}</span>
     </PdvTooltip>
   )

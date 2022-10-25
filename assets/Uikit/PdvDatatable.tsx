@@ -3,11 +3,11 @@ import { useState, useEffect, ThHTMLAttributes, TdHTMLAttributes, Fragment } fro
 
 import { FieldValues, useForm } from 'react-hook-form'
 
-import EmptyImg from 'assets/images/backgrounds/empty-table.png'
-import { useDebouncedCallback } from 'hooks/useDebounce'
+import { useDebouncedCallback } from '@Uikit/hooks/useDebounce'
 
 import { TColors } from './Colors/TColors'
 import InputField from './Forms/Input/InputField'
+import EmptyImg from './images/empty-table.png'
 import PdvButton from './PdvButton'
 import PdvPagination, { usePdvPagination } from './PdvPagination'
 

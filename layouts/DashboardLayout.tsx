@@ -24,12 +24,15 @@ const DataDiaplayList = [
   { title: 'PdvDataTable', href: '/pdv-data-table' },
   { title: 'PdvPillBox', href: '/pdv-pillbox' },
   { title: 'PdvTooltip', href: '/pdv-tooltip' },
-  { title: 'PdvIcon', href: '/pdv-icons' }
+  { title: 'PdvIcon', href: '/pdv-icons' },
+  { title: 'PdvDivider', href: '/pdv-divider' }
 ]
 
 const FeedbackList = [
   { title: 'PdvModal', href: '/pdv-modal' },
-  { title: 'PdvAlert', href: '/pdv-alert' }
+  { title: 'PdvAlert', href: '/pdv-alert' },
+  { title: 'PdvSkeleton', href: '/pdv-skeleton' },
+  { title: 'PdvLoader', href: '/pdv-loader' }
 ]
 
 const SurfacesList = [{ title: 'PdvAccordion', href: '/pdv-accordion' }]
@@ -44,10 +47,7 @@ const customList = [
 const assetsList = [
   { title: 'PdvTypography', href: '/pdv-typography' },
   { title: 'PdvColors', href: '/pdv-colors' },
-  { title: 'PdvCardContainer', href: '/pdv-card-container' },
-  { title: 'PdvSkeleton', href: '/pdv-skeleton' },
-  { title: 'PdvLoader', href: '/pdv-loader' },
-  { title: 'PdvDivider', href: '/pdv-divider' }
+  { title: 'PdvCardContainer', href: '/pdv-card-container' }
 ]
 
 const DashboardLayout: FC = (props) => {

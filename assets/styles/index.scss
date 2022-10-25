@@ -5,9 +5,15 @@
 @import 'slick-carousel/slick/slick.css';
 @import 'slick-carousel/slick/slick-theme.css';
 
-@import './abstrac/mixin.scss';
+@import '../Uikit/styles';
 
-@import './base/colors.scss';
-@import './base/html-core.scss';
-
+@import './abstract/mixin.scss';
+@import './base/configs.scss';
 @import './utils/utils.scss';
+@import './utils/libraries.scss';
+
+
+
+
+
+
