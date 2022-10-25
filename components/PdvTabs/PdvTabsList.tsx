@@ -114,7 +114,13 @@ const PdvTabsList: FC = () => {
             minus dolor quis soluta molestias, non pariatur harum esse corrupti!
           </h4>
         </PdvTabs.Tab>
-        <PdvTabs.Tab tabText="Tab 2" tabKey="2-tab" icon="Activity" iconSize={20}>
+        <PdvTabs.Tab
+          tabText="Tab 2"
+          tabKey="2-tab"
+          icon="Activity"
+          iconSize={20}
+          tooltip="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil accusamus at quibusdam culpa quisquam maxime ad odio sequi maiores, optio minus dolor quis soluta molestias, non pariatur harum esse corrupti!"
+        >
           <h4 className="text-teal-500">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil accusamus at quibusdam culpa quisquam maxime ad odio sequi maiores, optio
             minus dolor quis soluta molestias, non pariatur harum esse corrupti!
@@ -129,6 +135,8 @@ const PdvTabsList: FC = () => {
           tabKey="1-tab"
           icon="Work"
           iconSize={20}
+          tooltipColor="blue-400"
+          tooltipTextColor="green-500"
           tooltip="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil accusamus at quibusdam culpa quisquam maxime ad odio sequi maiores, optio minus dolor quis soluta molestias, non pariatur harum esse corrupti!"
         >
           <h4 className="text-red-400">

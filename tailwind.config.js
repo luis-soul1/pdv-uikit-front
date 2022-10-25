@@ -11,7 +11,7 @@ module.exports = {
     './layouts/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extends: {
+    extend: {
       colors,
       boxShadow: {
         sm: 'var(--shadow-sm)',
