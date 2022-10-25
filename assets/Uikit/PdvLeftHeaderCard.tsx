@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 
 import { Box } from '@mui/system'
+
 import { TColors } from './Colors/TColors'
 
 type TheaderSize = 'small' | 'smallXl' | 'medium' | 'large' | 'half' | number
