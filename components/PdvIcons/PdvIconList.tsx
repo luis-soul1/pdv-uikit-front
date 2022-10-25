@@ -3,10 +3,10 @@ import { FC, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 
 import InputField from '@Uikit/Forms/Input/InputField'
+import { useCopyToClipboard } from '@Uikit/hooks/useCopyToClipboard'
 import { MuiIconsList } from '@Uikit/Icons/MuiIcons'
 import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 import { iconNames, TIconNames } from '@Uikit/Icons/TIconNames'
-import { useCopyToClipboard } from '@Uikit/hooks/useCopyToClipboard'
 
 const PdvIconList: FC = () => {
   const { clipboard } = useCopyToClipboard()

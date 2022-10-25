@@ -2,7 +2,6 @@ import { FC, useState } from 'react'
 
 import { PdvIcon } from '@Uikit/Icons/PdvIcon'
 import PdvAccordion from '@Uikit/PdvAccordion'
-import PdvSimpleAccordion from '@Uikit/PdvSimpleAccordion'
 import PdvSwitch from '@Uikit/PdvSwitch'
 import PdvTypographyList from 'components/PdvTypographies/PdvTypographyList'
 
@@ -66,9 +65,11 @@ const PdvAccordionList: FC = () => {
       </PdvAccordion>
 
       <h4 className="mt-8">Disabled</h4>
-      <PdvSimpleAccordion className="mt-2" header="Titulo" color="fuchsia-400" disabled>
-        <PdvTypographyList />
-      </PdvSimpleAccordion>
+      <PdvAccordion className="mt-2" color="fuchsia-400">
+        <PdvAccordion.Panel header="Titulo" color="red-600" disabled>
+          <PdvTypographyList />
+        </PdvAccordion.Panel>
+      </PdvAccordion>
     </div>
   )
 }
