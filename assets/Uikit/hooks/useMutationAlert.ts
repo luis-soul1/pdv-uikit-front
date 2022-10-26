@@ -4,11 +4,9 @@ import { useSnackbar } from 'notistack'
 import { UseMutationResult, UseQueryResult } from 'react-query'
 
 import useLoader from '@Uikit/hooks/useLoader'
-import { TParams } from 'models/IRequest'
-
 
 const useMutationAlert = <T, P>(
-  request: UseMutationResult<T, unknown, TParams<P>, unknown> | UseQueryResult<T, unknown>,
+  request: UseMutationResult<T, unknown, P, unknown> | UseQueryResult<T, unknown>,
   actionAfterSuccess?: () => void,
   actionAfterError?: () => void
 ) => {
@@ -20,6 +18,7 @@ const useMutationAlert = <T, P>(
       actionAfterError && actionAfterError()
       snackbar.enqueueSnackbar('Hubo un error. Intentalo nuevamente', { variant: 'error' })
     }
+
     if (request.isSuccess) {
       actionAfterSuccess && actionAfterSuccess()
       snackbar.enqueueSnackbar('Cambios realizados exitosamente!', { variant: 'success' })
