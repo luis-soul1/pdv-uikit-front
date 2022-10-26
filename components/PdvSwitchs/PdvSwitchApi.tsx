@@ -6,15 +6,17 @@ const PdvSwitchApi: FC = () => {
       {`Component props:
 
   type TPdvSwitch = {
-    children: React.ReactElement
-    title: string
-    placement: PdvTooltipPlacements
-    textColor?: TColors
+    suffixText?: {
+      checkedText?: string
+      checkedColor?: TColors
+      uncheckedText?: string
+      uncheckedColor?: TColors
+      position?: 'left' | 'right' | 'both'
+    }
+    disabled?: boolean
+    checked?: boolean
+    onChange?: (checked: boolean) => void
     color?: TColors
-    arrow?: boolean
-    onOpen?: (event: Event | React.SyntheticEvent<Element, Event>) => void
-    onClose?: (event: Event | React.SyntheticEvent<Element, Event>) => void
-    open?: boolean
   }
 `}
     </pre>

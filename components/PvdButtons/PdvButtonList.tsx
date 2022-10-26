@@ -103,6 +103,12 @@ const PdvButtonList: FC = () => {
           </PdvButton>
         </div>
         <div className="col-span-4">
+          <h6 className="my-2">Icon Color</h6>
+          <PdvButton color="black" icon="SmileFace" iconColor="sky-800">
+            Button text
+          </PdvButton>
+        </div>
+        <div className="col-span-4">
           <h6 className="my-2">Right and large icon</h6>
           <PdvButton color="sky-700" variant="outlined" icon="Document" iconPosition="right" iconSize="large">
             Button text
@@ -110,7 +116,7 @@ const PdvButtonList: FC = () => {
         </div>
         <div className="col-span-4">
           <h6 className="my-2">Loading</h6>
-          <PdvButton color="purple-800" rounded="large">
+          <PdvButton color="purple-800" rounded="large" loading>
             Button text
           </PdvButton>
         </div>

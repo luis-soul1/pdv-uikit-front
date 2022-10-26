@@ -59,6 +59,7 @@ const DateField = <TFormValues extends FieldValues>(props: TDatepicker<TFormValu
                         <div className="-ml-1.5 mr-4">{InputProps?.endAdornment}</div>
                         <Input
                           name={props.name}
+                          options={props?.options}
                           form={props.form}
                           id={props.id}
                           inputProps={{
