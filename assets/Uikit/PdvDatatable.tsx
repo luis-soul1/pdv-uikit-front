@@ -7,9 +7,10 @@ import { useDebouncedCallback } from '@Uikit/hooks/useDebounce'
 
 import { TColors } from './Colors/TColors'
 import InputField from './Forms/Input/InputField'
+import usePdvPagination from './hooks/usePdvPagination'
 import EmptyImg from './images/empty-table.png'
 import PdvButton from './PdvButton'
-import PdvPagination, { usePdvPagination } from './PdvPagination'
+import PdvPagination from './PdvPagination'
 
 type TPdvDatatable<T> = {
   columns: IColumns<T>[]
@@ -249,45 +250,6 @@ const useTableFilters = <T,>(dataSource: T[], defaultValues: FieldValues) => {
   useEffect(() => setFilteredData(dataSource), [dataSource])
 
   return { inputControl: filtersControl, filteredData }
-}
-
-export const useDynamicTableFilters = (values: FieldValues, onChangeCallback?: (inputs: Record<string, string>) => void) => {
-  const filterValues: FieldValues = Object.keys(values).reduce((acc, key) => ({ ...acc, [key]: '' }), {})
-
-  const filtersControl = useForm({ defaultValues: filterValues })
-
-  const [filters, setFilters] = useState(filterValues)
-
-  const [parsedFilters, setParsedFilters] = useState({})
-
-  useEffect(() => {
-    setParsedFilters(transformValues(values, filters))
-  }, [filters])
-
-  const handleFilters = useDebouncedCallback((inputs: Record<string, string>) => {
-    if (onChangeCallback) onChangeCallback(inputs)
-
-    setFilters({
-      ...filters,
-      ...inputs
-    })
-  }, 500)
-
-  const transformValues = (object: Record<string, unknown>, values: Record<string, unknown>) => {
-    return Object.entries(object).reduce((acc, [value, key]) => ({ ...acc, [key as string]: values[value] }), {})
-  }
-
-  useEffect(() => {
-    const subscription = filtersControl.watch((inputValues) => handleFilters(inputValues))
-
-    return () => subscription.unsubscribe()
-  }, [filtersControl.watch])
-
-  return {
-    inputFilterControl: filtersControl,
-    filters: parsedFilters,
-    handleFilters
-  }
 }
 
 const useTablePagination = <T,>(dataSource: T[], currentPage: number, limit: number | undefined) => {

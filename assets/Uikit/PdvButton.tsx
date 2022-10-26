@@ -16,6 +16,7 @@ type TPdvButton = {
   variant?: TButtonVariant
   color?: TColors
   textColor?: TColors
+  iconColor?: TColors
   size?: TButtonSize
   asLink?: boolean
   href?: string
@@ -60,6 +61,7 @@ const PdvButton: FC<TPdvButton> = (props) => {
     iconPosition = 'left',
     disabled = false,
     color = 'primary-color',
+    iconColor = 'white',
     rounded = 'medium',
     textColor,
     ...rest
@@ -84,8 +86,8 @@ const PdvButton: FC<TPdvButton> = (props) => {
   const setIcon = () => {
     if (!props.icon) return
     if (typeof props.icon === 'string') {
-      const selectedColor = variant !== 'contained' ? color : 'white'
-      return <PdvIcon name={props.icon} color={props.disabled ? 'gray-500' : selectedColor} size={props.iconSize ?? 'medium'} />
+      const selectedColor = props.disabled ? 'gray-500' : iconColor
+      return <PdvIcon name={props.icon} color={props.variant === 'outlined' ? color : selectedColor} size={props.iconSize ?? 'medium'} />
     }
     return props.icon
   }
