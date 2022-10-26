@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
-import PdvPagination, { usePdvPagination } from '@Uikit/PdvPagination'
+import usePdvPagination from '@Uikit/hooks/usePdvPagination'
+import PdvPagination from '@Uikit/PdvPagination'
 
 const PdvPaginationList: FC = () => {
   const pagination = usePdvPagination()

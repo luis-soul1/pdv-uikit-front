@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 
 import { Pagination, PaginationItem } from '@mui/material'
 
@@ -35,13 +35,3 @@ const PdvPagination: React.FC<TPdvPagination> = (props) => {
 }
 
 export default PdvPagination
-
-export const usePdvPagination = () => {
-  const [page, setPage] = useState(1)
-
-  const onChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    setPage(value)
-  }
-
-  return { page, onChange }
-}
