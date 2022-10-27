@@ -45,6 +45,37 @@ const PdvLeftHeaderCardList: FC = () => {
           </PdvLeftHeaderCard>
         </div>
       </div>
+
+      <h1 className="mt-10">SOMBRAS</h1>
+      <div className="my-20 mx-10 grid grid-cols-12 gap-8">
+        <div className="col-span-6">
+          <PdvLeftHeaderCard className="mt-2 shadow-sm" headerSize="half">
+            <div className="p-3">
+              <h6 className="text-purple-500">LEE401</h6>
+              <p className="subtitle1">LEE401</p>
+              <p className="subtitle1">12:00 - 13:00</p>
+            </div>
+          </PdvLeftHeaderCard>
+        </div>
+        <div className="col-span-6">
+          <PdvLeftHeaderCard className="mt-2 shadow-md" headerSize="half">
+            <div className="p-3">
+              <h6 className="text-purple-500">LEE401</h6>
+              <p className="subtitle1">LEE401</p>
+              <p className="subtitle1">12:00 - 13:00</p>
+            </div>
+          </PdvLeftHeaderCard>
+        </div>
+        <div className="col-span-6">
+          <PdvLeftHeaderCard className="mt-2 shadow-lg" headerSize="half">
+            <div className="p-3">
+              <h6 className="text-purple-500">LEE401</h6>
+              <p className="subtitle1">LEE401</p>
+              <p className="subtitle1">12:00 - 13:00</p>
+            </div>
+          </PdvLeftHeaderCard>
+        </div>
+      </div>
     </div>
   )
 }
