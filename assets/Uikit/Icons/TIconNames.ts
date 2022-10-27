@@ -1,4 +1,4 @@
-import { MuiIconsList } from "assets/Uikit/Icons/MuiIcons"
+import { MuiIconsList } from 'assets/Uikit/Icons/MuiIcons'
 
 export const iconNames = [
   'Work',

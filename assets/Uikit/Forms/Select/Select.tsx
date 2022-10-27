@@ -58,12 +58,12 @@ const sxSelectStyles = {
 const Select = <TSelectOptions, TFormValues extends FieldValues>(props: TSelectProps<TSelectOptions, TFormValues>) => {
   const { variant = 'outlined', iconSelectedColor = 'primary-color', selectedColor = 'primary-color' } = props
   const selectedPillStyle = props.disabled ? 'bg-gray-300 text-white border-none cursor-not-allowed' : 'text-white'
-  const borderColor = props.disabled ? 'gray-200' : 'gray-300'
+  const borderColor = props.disabled ? 'transparent' : 'gray-300'
   const variantStyle =
     variant === 'outlined'
       ? { border: `1px solid var(--${borderColor})`, borderRadius: '0.5rem' }
       : { borderBottom: `1px solid var(--${borderColor})`, borderRadius: 0 }
-  const borderStyles = { borderColor: `var(--${props.disabled ? 'gray-200' : 'primary-color'})` }
+  const borderStyles = { borderColor: `var(--${props.disabled ? 'transparent' : 'primary-color'})` }
 
   const sx = {
     ...sxSelectStyles,

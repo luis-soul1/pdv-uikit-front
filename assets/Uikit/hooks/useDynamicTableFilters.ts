@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
-import { FieldValues, useForm } from "react-hook-form"
+import { FieldValues, useForm } from 'react-hook-form'
 
-import { useDebouncedCallback } from "./useDebounce"
+import { useDebouncedCallback } from './useDebounce'
 
 const useDynamicTableFilters = (values: FieldValues, onChangeCallback?: (inputs: Record<string, string>) => void) => {
   const filterValues: FieldValues = Object.keys(values).reduce((acc, key) => ({ ...acc, [key]: '' }), {})

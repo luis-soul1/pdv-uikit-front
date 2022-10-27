@@ -103,8 +103,8 @@ const PdvButtonList: FC = () => {
           </PdvButton>
         </div>
         <div className="col-span-4">
-          <h6 className="my-2">Icon Color</h6>
-          <PdvButton color="black" icon="SmileFace" iconColor="sky-800">
+          <h6 className="my-2">Icon and text Color</h6>
+          <PdvButton color="fuchsia-400" textColor="green-500" icon="SmileFace" iconColor="sky-800">
             Button text
           </PdvButton>
         </div>
