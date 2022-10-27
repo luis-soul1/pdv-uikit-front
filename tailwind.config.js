@@ -14,9 +14,9 @@ module.exports = {
     extend: {
       colors,
       boxShadow: {
-        sm: 'var(--shadow-sm)',
-        md: 'var(--shadow-md)',
-        lg: 'var(--shadow-lg)'
+        small: 'var(--shadow-small)',
+        medium: 'var(--shadow-medium)',
+        large: 'var(--shadow-large)'
       }
     },
     container: {
