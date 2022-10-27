@@ -47,6 +47,7 @@ const customList = [
 const assetsList = [
   { title: 'PdvTypography', href: '/pdv-typography' },
   { title: 'PdvColors', href: '/pdv-colors' },
+  { title: 'PdvShadows', href: '/pdv-shadows' },
   { title: 'PdvCardContainer', href: '/pdv-card-container' }
 ]
 
