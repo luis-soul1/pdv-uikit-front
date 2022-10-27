@@ -10,17 +10,17 @@
 }
 
 @mixin no-scroll-bar {
-   &::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
   }
 }
 .no-scroll-bar {
-  @include no-scroll-bar
+  @include no-scroll-bar;
 }
 
 .no-mobile-scroll-bar {
   @include breakpoint(mobile) {
-    @include no-scroll-bar
+    @include no-scroll-bar;
   }
 }
 
